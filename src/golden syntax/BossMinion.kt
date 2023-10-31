@@ -19,6 +19,7 @@ class BossMinion(name: String, healthbar: Int, val attention: Boolean = false) :
      *  Hat nach seiner nutzung 3 Runden Cooldown.
      */
     private fun shield() {
+        println("$name errichtet ein Schild und hat jetzt deutlich mehr auf den Rippen.")
         val useShield = siphi.healthbar + siphi.maxHealth * 0.5
         healthbar = useShield.toInt()
     }
@@ -27,6 +28,7 @@ class BossMinion(name: String, healthbar: Int, val attention: Boolean = false) :
      *  Ein kraftvoller Schlag der einem Helden 5 % seiner gesamten Lebensenergie abzieht.
      */
     private fun punsh(hero: Hero) {
+        println("$name haut kräftig zu und zieht ${hero.name} 5 % seiner maximalen Lebenspunkte ab.")
         val usePunsh = hero.healthbar - hero.maxHealth * 0.05
         hero.healthbar = usePunsh.toInt()
     }
@@ -37,6 +39,10 @@ class BossMinion(name: String, healthbar: Int, val attention: Boolean = false) :
      *  Sie fügt allen Helden 10 % ihrer gesamten Lebensenergie an Schaden zu.
      */
     private fun hailBlow(list: List<Hero>) {
+        println(
+            "$name lässt es vom Himmel Hageln und fügt jedem Helden 10 % seiner\n" +
+                    "gesamten Lebenspunkte als Schaden zu. "
+        )
         for (hero in heroList) {
             val useHailBlow = hero.healthbar - hero.healthbar * 0.1
             hero.healthbar = useHailBlow.toInt()
