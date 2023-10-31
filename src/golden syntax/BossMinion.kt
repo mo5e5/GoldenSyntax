@@ -1,11 +1,11 @@
-class BossMinion(name: String, healthbar: Int,val attetion: Boolean = false) : AntiHero(name, healthbar) {
+class BossMinion(name: String, healthbar: Int, val attetion: Boolean = false) : AntiHero(name, healthbar) {
 
     /**
      *  Zieht die Aufmerksamkeit aller Helden für eine Runde auf den BossMinion.
      */
     fun drawAttention(attetion: Boolean = true) {
         println(
-            "${undertaker.name} zieht die Aufmerksamkeit aller Helden auf sich.\n" +
+            "${siphi.name} zieht die Aufmerksamkeit aller Helden auf sich.\n" +
                     "Die Helden können Ihn nicht mehr aus den Augen lassen und greifen\n" +
                     "für die nächste Runde nur Ihn an."
         )
@@ -16,16 +16,16 @@ class BossMinion(name: String, healthbar: Int,val attetion: Boolean = false) : A
      *  Hat nach seiner nutzung drei Runden Cooldown.
      */
     fun shield() {
-        val useShield = undertaker.healthbar + maxHealth * 0.5
+        val useShield = siphi.healthbar + siphi.maxHealth * 0.5
         healthbar = useShield.toInt()
     }
 
     /**
      *  Ein kraftvoller Schlag der einem Helden 5 % seiner gesamten Lebensenergie abzieht.
      */
-    fun punsh() {
-        val
-
+    fun punsh(hero: Hero) {
+        val usePunsh = hero.healthbar - hero.maxHealth * 0.05
+        hero.healthbar = usePunsh.toInt()
     }
 
     /**
@@ -33,7 +33,10 @@ class BossMinion(name: String, healthbar: Int,val attetion: Boolean = false) : A
      *  und nach benutzen neu aufgeladen werden muss.
      *  Sie fügt allen Helden 10 % ihrer gesamten Lebensenergie an Schaden zu.
      */
-    fun hailBlow() {
-
+    fun hailBlow(list: List<Hero>) {
+        for (hero in heroList) {
+            val useHailBlow = hero.healthbar - hero.healthbar * 0.1
+            hero.healthbar = useHailBlow.toInt()
+        }
     }
 }
