@@ -1,2 +1,2 @@
-open class Character(val name: String, val healthbar: Int) {
+open class Character(val name: String, var healthbar: Int) {
 }
