@@ -13,7 +13,7 @@ class BossMinion(name: String, healthbar: Int, val attention: Boolean = false) :
 
     /**
      *  Ein Schild der 50 % der gesamten Lebensenergie beträgt. Er hält bis er zerstört wird.
-     *  Hat nach seiner nutzung drei Runden Cooldown.
+     *  Hat nach seiner nutzung 3 Runden Cooldown.
      */
     fun shield() {
         val useShield = siphi.healthbar + siphi.maxHealth * 0.5
