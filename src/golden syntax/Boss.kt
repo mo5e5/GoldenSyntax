@@ -61,20 +61,13 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
     /**
      *  Verflucht alle Helden die daraufhin für 3 Runden nur 80 % ihres normalen Schadens an ihm machen.
      */
-    private fun curse(list: List<Hero>) {
-        for (hero in heroList) {
-            val useCurse =
-        }
-
+    private fun curse() {
     }
 
     /**
      *  Bespuckt alle Helden mit Magensäure. Die Helden erleiden für 2 Runden 5 % ihrer
      *  gesamten Lebensenergie an Schaden.
      */
-    private fun digest(list: List<Hero>) {
-        for (hero in heroList) {
-            val useDigest =
-        }
+    private fun digest() {
     }
 }
