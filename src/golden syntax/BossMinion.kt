@@ -1,9 +1,9 @@
-class BossMinion(name: String, healthbar: Int, val attetion: Boolean = false) : AntiHero(name, healthbar) {
+class BossMinion(name: String, healthbar: Int, val attention: Boolean = false) : AntiHero(name, healthbar) {
 
     /**
      *  Zieht die Aufmerksamkeit aller Helden für eine Runde auf den BossMinion.
      */
-    fun drawAttention(attetion: Boolean = true) {
+    fun drawAttention(attention: Boolean = true) {
         println(
             "${siphi.name} zieht die Aufmerksamkeit aller Helden auf sich.\n" +
                     "Die Helden können Ihn nicht mehr aus den Augen lassen und greifen\n" +
