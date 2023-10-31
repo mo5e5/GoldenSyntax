@@ -2,18 +2,20 @@ import Hero
 
 class MagicHero(name: String, healthbar: Int) : Hero(name, healthbar) {
 
+    val magicHeroActionList = mutableListOf(lightningStrike(), earthquake(), blockDamageBuff(), immortality())
+
     /**
      *  Es hagelt Blitze vom Himmel die alle AntiHelden treffen und jeweils 5 % der gesamten Lebensenergie
      *  an Schaden verursachen.
      */
-    fun lightningStrike() {
+    private fun lightningStrike() {
 
     }
 
     /**
      *  Die Erde erhebt sich und fügt dem AntiHeld der auf ihr steht, 10 % der gesamten Lebensenergie an schaden zu.
      */
-    fun earthquake() {
+    private fun earthquake() {
 
     }
 
@@ -21,7 +23,7 @@ class MagicHero(name: String, healthbar: Int) : Hero(name, healthbar) {
      *  Ein Schutzzauber der auf jeden Helden wirkt und 15 % des eingehen Schadens blockiert.
      *  Der Zauber hält 3 Runden.
      */
-    fun blockDamageBuff() {
+    private fun blockDamageBuff() {
 
     }
 
@@ -30,7 +32,7 @@ class MagicHero(name: String, healthbar: Int) : Hero(name, healthbar) {
      *  Lebenspunkten abgezogen wird.
      *  Hat nach Benutzung 3 Runden Cooldown.
      */
-    fun immortality() {
+    private fun immortality() {
 
     }
 }

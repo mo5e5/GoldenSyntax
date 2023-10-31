@@ -13,7 +13,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
     /**
      *  Ruft den BossMinion zur Unterstützung hinzu.
      */
-    fun bossMinion(list: MutableList<AntiHero>) {
+    private fun bossMinion(list: MutableList<AntiHero>) {
         if (!antiHeroList.contains(siphi)) {
             println(
                 "$name beschwört mit all seiner macht Siphi\n" +
