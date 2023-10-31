@@ -1,6 +1,4 @@
-package antiheros
-
-import antiheros.AntiHero
+import AntiHero
 
 class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
 }

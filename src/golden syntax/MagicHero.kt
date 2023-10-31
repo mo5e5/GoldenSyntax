@@ -1,6 +1,4 @@
-package heros
-
-import heros.Hero
+import Hero
 
 class MagicHero(name: String, healthbar: Int) : Hero(name, healthbar) {
 }
