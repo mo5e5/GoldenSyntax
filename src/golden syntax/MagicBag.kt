@@ -1,5 +1,6 @@
 class MagicBag {
     fun heallItem() {
+
     }
 
     fun buffItemTeam() {
