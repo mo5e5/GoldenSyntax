@@ -4,18 +4,22 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
 
     val bossMinionActionList: MutableList<BossMinion> = mutableListOf()
     var count = 0
+    var digestCount = 0
 
     /**
-     *  ...
+     *  Führt die Fähigkeiten vom Boss random selber aus.
+     *
+     *  @param mutableList hier wird eine Liste von Helden übergeben.
      */
     fun bossAttack(mutableList: MutableList<Hero>) {
         var attackNumber = Random.nextInt(0, 7)
-        var radomHero = mutableList.random()
+        val radomHero = mutableList.random()
         attackNumber = if (count == 0) {
             Random.nextInt(0, 7)
         } else {
             Random.nextInt(1, 7)
         }
+
         when (attackNumber) {
             0 -> {
                 bossMinion(bossMinionActionList[0])
@@ -51,6 +55,8 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
 
     /**
      *  Ruft den BossMinion zur Unterstützung hinzu.
+     *
+     *  @param bossMinion hier wird der Initialisierte Minion vom Boss übergeben.
      */
     fun bossMinion(bossMinion: BossMinion) {
         if (bossMinionActionList.contains(bossMinion)) {
@@ -67,7 +73,10 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      *  Hat nach seiner zerstörung 3 Runden Cooldown.
      */
     fun shield() {
-        println("$name errichtet ein Schild und hat jetzt deutlich mehr auf den Rippen.")
+        println(
+            "$name fängt an beulen und Pusteln auf seiner Haut zu bilden.\n" +
+                    "Seine Haut ist nun deutlich dicker und schwerer zu durchdringen."
+        )
         val useShield = healthbar + maxHealth * 0.5
         healthbar = useShield.toInt()
     }
@@ -76,7 +85,10 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      *  Regeneriert 15 % seiner gesamten Lebensenergie.
      */
     fun lifeRegenaration() {
-        println("$name frisst ein Rind und erhöht damit seine Lebenspunkte.")
+        println(
+            "$name frisst ein paar Rinder.\n" +
+                    "Danach hat $name deutlich mehr auf den Rippen."
+        )
         val useLifeRegenaration = healthbar + maxHealth * 0.15
         healthbar = useLifeRegenaration.toInt()
     }
@@ -84,9 +96,14 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
     /**
      *  Stampft auf einem Helden herum was dem Helden 10 % seiner gesamten Lebensenergie an Schaden
      *  zufügt.
+     *
+     *  @param hero erhält einen random Helden aus der Helden Liste.
      */
     fun stomp(hero: Hero) {
-        println("$name stampft auf ${hero.name} herum und zieht ihm 10 % seiner Lebensenergie ab.")
+        println(
+            "$name stampft auf ${hero.name} herum.\n" +
+                    "${hero.name} sieht danach etwas zerknittert aus."
+        )
         val useStomp = hero.healthbar - hero.maxHealth * 0.1
         hero.healthbar = useStomp.toInt()
     }
@@ -94,19 +111,31 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
     /**
      *  Zerquetscht einen Helden was diesem 15 % seiner gesamten Lebensenergie an Schaden
      *  zufügt.
+     *
+     *  @param hero erhält einen random Helden aus der Helden Liste.
      */
     fun crush(hero: Hero) {
-        println("$name greift sich ${hero.name} und zerquetscht ihn es tropfen 15 % Lebensenergie auf den kalten Boden.")
+        println(
+            "$name greift sich ${hero.name} und zerquetscht ihn.\n" +
+                    "Darauf hin tropft langsam Blut auf den kalten Boden."
+        )
         val useCrush = hero.healthbar - hero.maxHealth * 0.15
         hero.healthbar = useCrush.toInt()
     }
 
     /**
      *  Verflucht alle Helden die daraufhin für 3 Runden nur 80 % ihres normalen Schadens an ihm machen.
+     *
+     *  @param mutableList hier wird eine Liste von Helden übergeben.
      */
-    fun curse(list: List<Hero>) {
-        println("$name spricht einen Fluch aus und alle Helden machen weniger Schaden.")
-        for (hero in list) {
+    fun curse(mutableList: MutableList<Hero>) {
+        println(
+            "$name tanzt wie wild um seine Feuerstelle und murmelt dabei vor sich hin.\n" +
+                    "Nachdem er damit aufhört fühlen die Helden sich komisch.\n" +
+                    "$name hat einen Fluch über die Helden ausgesprochen.\n" +
+                    "Sie fühlen sich schwach und machen weniger Schaden."
+        )
+        for (hero in mutableList) {
             val useCurse = hero.maxHealth - 0.2
             hero.healthbar = useCurse.toInt()
         }
@@ -115,10 +144,16 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
     /**
      *  Bespuckt alle Helden mit Magensäure. Die Helden erleiden für 2 Runden 5 % ihrer
      *  gesamten Lebensenergie an Schaden.
+     *
+     *  @param mutableList hier wird eine Liste von Helden übergeben.
      */
-    fun digest(list: List<Hero>) {
-        for (hero in list) {
-            println("$name fängt an die Helden zu bespucken. Jeder Held bekommt 5 % Schaden über Zwei Runden.")
+    fun digest(mutableList: MutableList<Hero>) {
+        for (hero in mutableList) {
+            println(
+                "$name fängt an die Helden zu bespucken.\n" +
+                        "Die Helden sind danach voll mit Spucke.\n" +
+                        "Bis die Spucke getrocknet ist erhalten Sie 5 % Schaden."
+            )
             val useDigest = hero.healthbar - hero.healthbar * 0.05
             hero.healthbar = useDigest.toInt()
         }
