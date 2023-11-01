@@ -1,5 +1,5 @@
 fun main() {
-    al elegaius: Boss = Boss("Elegaius", 8750)
+    val elegaius: Boss = Boss("Elegaius", 8750)
 
     val siphi: BossMinion = BossMinion("Siphi", 5000)
 
@@ -12,6 +12,6 @@ fun main() {
 
     val vergumkaar: TankHero = TankHero("Vergumkaar", 3750)
 
-    val heroList: List<Hero> = listOf(artak, kyoku, vergumkaar)
+    val heroList: MutableList<Hero> = mutableListOf(artak, kyoku, vergumkaar)
 
 }
