@@ -1,6 +1,6 @@
 class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
 
-    val bossMinionActionList = mutableListOf()
+    val bossMinionActionList: MutableList<AntiHero> = mutableListOf()
 
     val bossActionList = mutableListOf(
         bossMinion(list = bossMinionActionList),
@@ -15,13 +15,13 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
     /**
      *  Ruft den BossMinion zur Unterstützung hinzu.
      */
-    fun bossMinion(list: MutableList<BossMinion>) {
+    fun bossMinion(list: MutableList<AntiHero>) {
         if (!list.contains(siphi)) {
             println(
                 "$name beschwört mit all seiner macht Siphi\n" +
                         "um ihm im Kampf gegen die Helden zu helfen."
             )
-            antiHeroList.add(siphi)
+            bossMinionActionList.add(siphi)
         }
     }
 
