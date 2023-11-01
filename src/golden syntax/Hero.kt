@@ -1,4 +1,8 @@
 open class Hero(name: String, healthbar: Int) : Character(name, healthbar) {
+
+    open val heroActionList =
+        mutableListOf(artak.damageHeroActionList, kyoku.magicHeroActionList, vergumkaar.tankHeroActionList)
+
     fun useMagicBag() {
 
         println(
