@@ -128,21 +128,22 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
     }
 
     /**
-     *  Verflucht alle Helden die daraufhin für 3 Runden nur 80 % ihres normalen Schadens an ihm machen.
+     *  Verflucht alle Helden daraufhin wird die gesamte Lebensenergie 20 % reduziert.
+     *  Nach dem diese Fähigkeit ausgeführt wurde, hat sie 5 Runden Cooldown.
      *
      *  @param mutableList hier wird eine Liste von Helden übergeben.
      */
     fun curse(mutableList: MutableList<Hero>) {
+        for (hero in mutableList) {
+            val useCurse = hero.maxHealth - 0.2
+            hero.healthbar = useCurse.toInt()
+        }
         println(
             "$name tanzt wie wild um seine Feuerstelle und murmelt dabei vor sich hin.\n" +
                     "Nachdem er damit aufhört fühlen die Helden sich komisch.\n" +
                     "$name hat einen Fluch über die Helden ausgesprochen.\n" +
                     "Sie fühlen sich schwach und machen weniger Schaden."
         )
-        for (hero in mutableList) {
-            val useCurse = hero.maxHealth - 0.2
-            hero.healthbar = useCurse.toInt()
-        }
     }
 
     /**

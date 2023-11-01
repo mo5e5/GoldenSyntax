@@ -17,11 +17,24 @@ fun main() {
     val heroList: MutableList<Hero> = mutableListOf(artak, kyoku, vergumkaar)
 
 
-
-
-
-    elegaius.digest(heroList)
-    elegaius.shield()
-
-
+    elegaius.bossAttack(heroList)
+    println("-------")
+    elegaius.bossAttack(heroList)
+    println("-------")
+    elegaius.bossAttack(heroList)
+    println("-------")
+    elegaius.bossAttack(heroList)
+    println("-------")
+    elegaius.bossAttack(heroList)
+    println("-------")
+    elegaius.bossAttack(heroList)
+    println("-------")
+    elegaius.bossAttack(heroList)
+    println("-------")
+    elegaius.bossAttack(heroList)
+    println("-------")
+    elegaius.bossAttack(heroList)
+    println("-------")
+    elegaius.bossAttack(heroList)
+    println("-------")
 }
