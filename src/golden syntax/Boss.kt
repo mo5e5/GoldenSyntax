@@ -1,8 +1,12 @@
+import kotlin.random.Random
+
 class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
 
     val bossMinionActionList: MutableList<BossMinion> = mutableListOf()
 
-    fun bossAttack() {
+    fun bossAttack(mutableList: MutableList<Hero>) {
+        val attackNumber = Random.nextInt(0,7)
+
 
     }
 
