@@ -13,5 +13,5 @@ fun main() {
 
     val vergumkaar: TankHero = TankHero("Vergumkaar", 3750)
 
-    val heroList: List<Hero> = listOf(artak, kyoku, vergumkaar)
+    val heroList: MutableList<Hero> = mutableListOf(artak, kyoku, vergumkaar)
 }
