@@ -7,28 +7,28 @@ class TankHero(name: String, healthbar: Int) : Hero(name, healthbar) {
     /**
      *  Heilt diesen Helden um 10 % seiner gesamten Lebensenergie.
      */
-    private fun heal() {
+    fun heal() {
 
     }
 
     /**
      *  Zieht die Aufmerksamkeit aller AntiHelden für zwei Runden auf sich.
      */
-    private fun drawAttention() {
+    fun drawAttention() {
 
     }
 
     /**
      *  Ein heftiger Schlag der den getroffenen AntiHeld 15 % seiner gesamten Lebensenergie abzieht.
      */
-    private fun punch() {
+    fun punch() {
 
     }
 
     /**
      *  Ein Roundhouse Kick aller Chuck Norris der den AntiHeld 25 % seiner gesamten Lebensenergie abzieht.
      */
-    private fun kick() {
+    fun kick() {
 
     }
 }

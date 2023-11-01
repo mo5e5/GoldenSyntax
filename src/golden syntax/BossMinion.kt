@@ -6,7 +6,7 @@ class BossMinion(name: String, healthbar: Int, val attention: Boolean = false) :
     /**
      *  Zieht die Aufmerksamkeit aller Helden für eine Runde auf den BossMinion.
      */
-    private fun drawAttention(attention: Boolean = true) {
+    fun drawAttention(attention: Boolean = true) {
         println(
             "${siphi.name} zieht die Aufmerksamkeit aller Helden auf sich.\n" +
                     "Die Helden können Ihn nicht mehr aus den Augen lassen und greifen\n" +
@@ -18,7 +18,7 @@ class BossMinion(name: String, healthbar: Int, val attention: Boolean = false) :
      *  Ein Schild der 50 % der gesamten Lebensenergie beträgt. Er hält bis er zerstört wird.
      *  Hat nach seiner nutzung 3 Runden Cooldown.
      */
-    private fun shield() {
+    fun shield() {
         println("$name errichtet ein Schild und hat jetzt deutlich mehr auf den Rippen.")
         val useShield = siphi.healthbar + siphi.maxHealth * 0.5
         healthbar = useShield.toInt()
@@ -27,7 +27,7 @@ class BossMinion(name: String, healthbar: Int, val attention: Boolean = false) :
     /**
      *  Ein kraftvoller Schlag der einem Helden 5 % seiner gesamten Lebensenergie abzieht.
      */
-    private fun punsh(hero: Hero) {
+    fun punsh(hero: Hero) {
         println("$name haut kräftig zu und zieht ${hero.name} 5 % seiner maximalen Lebenspunkte ab.")
         val usePunsh = hero.healthbar - hero.maxHealth * 0.05
         hero.healthbar = usePunsh.toInt()
@@ -38,7 +38,7 @@ class BossMinion(name: String, healthbar: Int, val attention: Boolean = false) :
      *  und nach benutzen neu aufgeladen werden muss.
      *  Sie fügt allen Helden 10 % ihrer gesamten Lebensenergie an Schaden zu.
      */
-    private fun hailBlow(list: List<Hero>) {
+    fun hailBlow(list: List<Hero>) {
         println(
             "$name lässt es vom Himmel Hageln und fügt jedem Helden 10 % seiner\n" +
                     "gesamten Lebenspunkte als Schaden zu. "

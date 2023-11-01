@@ -8,14 +8,14 @@ class MagicHero(name: String, healthbar: Int) : Hero(name, healthbar) {
      *  Es hagelt Blitze vom Himmel die alle AntiHelden treffen und jeweils 5 % der gesamten Lebensenergie
      *  an Schaden verursachen.
      */
-    private fun lightningStrike() {
+    fun lightningStrike() {
 
     }
 
     /**
      *  Die Erde erhebt sich und fügt dem AntiHeld der auf ihr steht, 10 % der gesamten Lebensenergie an schaden zu.
      */
-    private fun earthquake() {
+    fun earthquake() {
 
     }
 
@@ -23,7 +23,7 @@ class MagicHero(name: String, healthbar: Int) : Hero(name, healthbar) {
      *  Ein Schutzzauber der auf jeden Helden wirkt und 15 % des eingehen Schadens blockiert.
      *  Der Zauber hält 3 Runden.
      */
-    private fun blockDamageBuff() {
+    fun blockDamageBuff() {
 
     }
 
@@ -32,7 +32,7 @@ class MagicHero(name: String, healthbar: Int) : Hero(name, healthbar) {
      *  Lebenspunkten abgezogen wird.
      *  Hat nach Benutzung 3 Runden Cooldown.
      */
-    private fun immortality() {
+    fun immortality() {
 
     }
 }
