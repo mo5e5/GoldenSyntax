@@ -1,7 +1,5 @@
 open class MagicBag {
 
-    val magicBagItemList = mutableListOf(heallItem(), buffItemTeam(), buffItem(), debuffItem())
-
     /**
      *  Ein mächtiger Trank der seinem Benutzer 20 % seiner gesamten Lebensenergie zurückgibt.
      */

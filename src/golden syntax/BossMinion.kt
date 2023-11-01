@@ -1,14 +1,11 @@
 class BossMinion(name: String, healthbar: Int, val attention: Boolean = false) : AntiHero(name, healthbar) {
 
-    val bossMinionActionList =
-        mutableListOf(drawAttention(), shield(), punsh(hero = Hero("", 0)), hailBlow(list = heroList))
-
     /**
      *  Zieht die Aufmerksamkeit aller Helden für eine Runde auf den BossMinion.
      */
     fun drawAttention(attention: Boolean = true) {
         println(
-            "${siphi.name} zieht die Aufmerksamkeit aller Helden auf sich.\n" +
+            "$name zieht die Aufmerksamkeit aller Helden auf sich.\n" +
                     "Die Helden können Ihn nicht mehr aus den Augen lassen und greifen\n" +
                     "für die nächste Runde nur Ihn an."
         )
@@ -20,7 +17,7 @@ class BossMinion(name: String, healthbar: Int, val attention: Boolean = false) :
      */
     fun shield() {
         println("$name errichtet ein Schild und hat jetzt deutlich mehr auf den Rippen.")
-        val useShield = siphi.healthbar + siphi.maxHealth * 0.5
+        val useShield = healthbar + maxHealth * 0.5
         healthbar = useShield.toInt()
     }
 
@@ -43,7 +40,7 @@ class BossMinion(name: String, healthbar: Int, val attention: Boolean = false) :
             "$name lässt es vom Himmel Hageln und fügt jedem Helden 10 % seiner\n" +
                     "gesamten Lebenspunkte als Schaden zu. "
         )
-        for (hero in heroList) {
+        for (hero in list) {
             val useHailBlow = hero.healthbar - hero.healthbar * 0.1
             hero.healthbar = useHailBlow.toInt()
         }

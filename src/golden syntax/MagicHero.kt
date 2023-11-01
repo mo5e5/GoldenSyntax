@@ -2,7 +2,6 @@ import Hero
 
 class MagicHero(name: String, healthbar: Int) : Hero(name, healthbar) {
 
-    val magicHeroActionList = mutableListOf(lightningStrike(), earthquake(), blockDamageBuff(), immortality())
 
     /**
      *  Es hagelt Blitze vom Himmel die alle AntiHelden treffen und jeweils 5 % der gesamten Lebensenergie

@@ -1,7 +1,5 @@
 class DamageHero(name: String, healthbar: Int) : Hero(name, healthbar) {
 
-    val damageHeroActionList = mutableListOf(swordSpin(), knopStrike(), swordBlock(), thunderSword())
-
     /**
      *  Schleuder das Schwert in richtung des AntiHelden dieser wird mehrfach von der rotierenden
      *  Klinge getroffen und erleidet 15 % seiner gesamten Lebensenergie an Schaden.
