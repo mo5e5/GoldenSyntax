@@ -2,7 +2,7 @@ val elegaius: Boss = Boss("Elegaius", 8750)
 
 val siphi: BossMinion = BossMinion("Siphi", 5000)
 
-val antiHeroList: MutableList<AntiHero> = mutableListOf(elegaius)
+val antiHeroList: MutableList<AntiHero> = mutableListOf(elegaius,siphi)
 
 
 val artak: DamageHero = DamageHero("Artak", 1750)

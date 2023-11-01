@@ -1,10 +1,12 @@
 class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
 
+    val bossMinionActionList = mutableListOf()
+
     val bossActionList = mutableListOf(
-        bossMinion(list = antiHeroList),
+        bossMinion(list = bossMinionActionList),
         shield(),
         lifeRegenaration(),
-        stomp(hero = Hero("", 0)),
+        stomp(hero = Hero("",0)),
         crush(hero = Hero("", 0)),
         curse(list = heroList),
         digest(list = heroList)
@@ -13,8 +15,8 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
     /**
      *  Ruft den BossMinion zur Unterstützung hinzu.
      */
-    private fun bossMinion(list: MutableList<AntiHero>) {
-        if (!antiHeroList.contains(siphi)) {
+    fun bossMinion(list: MutableList<BossMinion>) {
+        if (!list.contains(siphi)) {
             println(
                 "$name beschwört mit all seiner macht Siphi\n" +
                         "um ihm im Kampf gegen die Helden zu helfen."
@@ -27,7 +29,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      *  Ein Schild der 50 % der gesamten Lebensenergie beträgt. Er hält bis er zerstört wird.
      *  Hat nach seiner zerstörung 3 Runden Cooldown.
      */
-    private fun shield() {
+    fun shield() {
         val useShield = elegaius.healthbar + elegaius.maxHealth * 0.5
         healthbar = useShield.toInt()
     }
@@ -35,7 +37,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
     /**
      *  Regeneriert 15 % seiner gesamten Lebensenergie.
      */
-    private fun lifeRegenaration() {
+    fun lifeRegenaration() {
         val useLifeRegenaration = elegaius.healthbar + elegaius.maxHealth * 0.15
         healthbar = useLifeRegenaration.toInt()
     }
@@ -44,7 +46,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      *  Stampft auf einem Helden herum was dem Helden 10 % seiner gesamten Lebensenergie an Schaden
      *  zufügt.
      */
-    private fun stomp(hero: Hero) {
+    fun stomp(hero: Hero) {
         val useStomp = hero.healthbar - hero.maxHealth * 0.1
         hero.healthbar = useStomp.toInt()
     }
@@ -53,7 +55,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      *  Zerquetscht einen Helden was diesem 15 % seiner gesamten Lebensenergie an Schaden
      *  zufügt.
      */
-    private fun crush(hero: Hero) {
+    fun crush(hero: Hero) {
         val useCrush = hero.healthbar - hero.maxHealth * 0.15
         hero.healthbar = useCrush.toInt()
     }
@@ -61,9 +63,10 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
     /**
      *  Verflucht alle Helden die daraufhin für 3 Runden nur 80 % ihres normalen Schadens an ihm machen.
      */
-    private fun curse(list: MutableList<Hero>) { // ?!?!?!
+    fun curse(list: List<Hero>) { // ?!?!?!
         for (hero in heroList) {
-            val useCurse = hero.heroActionList - 0.2
+            val useCurse = hero.healthbar - 0.2
+            hero.healthbar = useCurse.toInt()
         }
     }
 
@@ -71,7 +74,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      *  Bespuckt alle Helden mit Magensäure. Die Helden erleiden für 2 Runden 5 % ihrer
      *  gesamten Lebensenergie an Schaden.
      */
-    private fun digest(list: MutableList<Hero>) { // ?!?!?!
+    fun digest(list: List<Hero>) { // ?!?!?!
         for (hero in heroList) {
             val useDigest = hero.healthbar - hero.healthbar * 0.05
             hero.healthbar = useDigest.toInt()
