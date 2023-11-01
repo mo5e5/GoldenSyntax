@@ -19,7 +19,9 @@ fun main() {
 
 
 
-    elegaius.bossAttack(heroList)
+
+    elegaius.digest(heroList)
+    elegaius.shield()
 
 
 }

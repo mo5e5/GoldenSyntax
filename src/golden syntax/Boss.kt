@@ -19,7 +19,10 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
         } else {
             Random.nextInt(1, 7)
         }
-
+        if (digestCount == 1) {
+            digest(mutableList)
+            digestCount = 0
+        }
         when (attackNumber) {
             0 -> {
                 bossMinion(bossMinionActionList[0])
@@ -48,6 +51,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
 
             6 -> {
                 digest(mutableList)
+                digestCount++
             }
         }
 
@@ -149,13 +153,14 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      */
     fun digest(mutableList: MutableList<Hero>) {
         for (hero in mutableList) {
-            println(
-                "$name fängt an die Helden zu bespucken.\n" +
-                        "Die Helden sind danach voll mit Spucke.\n" +
-                        "Bis die Spucke getrocknet ist erhalten Sie 5 % Schaden."
-            )
             val useDigest = hero.healthbar - hero.healthbar * 0.05
             hero.healthbar = useDigest.toInt()
         }
+        println(
+            "$name fängt an die Helden zu bespucken.\n" +
+                    "Die Helden sind danach voll mit Spucke.\n" +
+                    "Bis die Spucke getrocknet ist erhalten die Helden Schaden."
+        )
+
     }
 }
