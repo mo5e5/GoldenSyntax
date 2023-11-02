@@ -18,14 +18,6 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
         var attackNumber = Random.nextInt(0, 7)
         val radomHero = mutableList.random()
         attackNumber = if (bossMinionCount == 0) {
-            attackNumber
-        } else if (curseCooldown == 1 || curseCooldown == 2 || curseCooldown == 3) {
-            val a = Random.nextInt(0, 5)
-            val b = Random.nextInt(6, 7)
-            attackNumber = intArrayOf(a,b).random()
-            curseCooldown = 0
-        }
-        attackNumber = if (bossMinionCount == 0) {
             Random.nextInt(0, 7)
         } else {
             Random.nextInt(1, 7)
