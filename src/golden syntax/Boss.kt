@@ -3,8 +3,16 @@ import kotlin.random.Random
 class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
 
     val bossMinionActionList: MutableList<BossMinion> = mutableListOf()
-    var count = 0
+    var bossMinionCount = 0
+    var curseCount = 0
+    var curseCooldown = 0
+    var digestCooldown = 0
     var digestCount = 0
+// map nummer der att wird auf die map geschrieben map int( att) int (cool)
+    // liste mit fähigekiet die keinen cooldown haben möglicheAtt
+    // for each att if cooldown == 0 füge key zu att hinzu
+    // möglichAtt.random
+    // nutzt when fhaikkeit coodown++
 
     /**
      *  Führt die Fähigkeiten vom Boss random selber aus.
@@ -14,10 +22,35 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
     fun bossAttack(mutableList: MutableList<Hero>) {
         var attackNumber = Random.nextInt(0, 7)
         val radomHero = mutableList.random()
-        attackNumber = if (count == 0) {
+        attackNumber = if (bossMinionCount == 0) {
+            attackNumber
+        } else if (curseCooldown == 1 || curseCooldown == 2 || curseCooldown == 3) {
+            val a = Random.nextInt(0, 5)
+            val b = Random.nextInt(6, 7)
+            attackNumber = intArrayOf(a,b).random()
+            curseCooldown = 0
+        }
+        attackNumber = if (bossMinionCount == 0) {
             Random.nextInt(0, 7)
         } else {
             Random.nextInt(1, 7)
+        }
+        if (curseCooldown == 1 || curseCooldown == 2 || curseCooldown == 3) {
+            val a = Random.nextInt(0, 5)
+            val b = Random.nextInt(6, 7)
+            attackNumber = intArrayOf(a,b).random()
+            curseCooldown = 0
+        } else if (bossMinionCount == 1) {
+            Random.nextInt(1, 5)
+            Random.nextInt(6, 7)
+            curseCooldown = 0
+        }
+        if (digestCooldown == 1 || digestCooldown == 2 || digestCooldown == 3) {
+            Random.nextInt(0, 6)
+            digestCooldown = 0
+        } else if (bossMinionCount == 1) {
+            Random.nextInt(1, 6)
+            digestCooldown = 0
         }
         if (digestCount == 1) {
             digest(mutableList)
@@ -26,7 +59,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
         when (attackNumber) {
             0 -> {
                 bossMinion(bossMinionActionList[0])
-                count++
+                bossMinionCount++
             }
 
             1 -> {
@@ -47,10 +80,13 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
 
             5 -> {
                 curse(mutableList)
+                curseCooldown++
+                curseCount++
             }
 
             6 -> {
                 digest(mutableList)
+                digestCooldown++
                 digestCount++
             }
         }
@@ -149,18 +185,18 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
     /**
      *  Bespuckt alle Helden mit Magensäure. Die Helden erleiden für 2 Runden 5 % ihrer
      *  gesamten Lebensenergie an Schaden.
+     *  Nach benutzung hat die Fähigkeit 3 Runde Cooldown.
      *
      *  @param mutableList hier wird eine Liste von Helden übergeben.
      */
     fun digest(mutableList: MutableList<Hero>) {
         for (hero in mutableList) {
-            val useDigest = hero.healthbar - hero.healthbar * 0.05
+            val useDigest = hero.healthbar - hero.maxHealth * 0.05
             hero.healthbar = useDigest.toInt()
         }
         println(
-            "$name fängt an die Helden zu bespucken.\n" +
-                    "Die Helden sind danach voll mit Spucke.\n" +
-                    "Bis die Spucke getrocknet ist erhalten die Helden Schaden."
+            "$name fängt an zu  Magensäure zu spucken.\n" +
+                    "Die Helden sind danach durchtränkt mit Magensäure."
         )
 
     }

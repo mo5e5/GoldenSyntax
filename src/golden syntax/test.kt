@@ -37,4 +37,12 @@ fun main() {
     println("-------")
     elegaius.bossAttack(heroList)
     println("-------")
+    elegaius.bossAttack(heroList)
+    println("-------")
+    elegaius.bossAttack(heroList)
+    println("-------")
+    elegaius.bossAttack(heroList)
+    println("-------")
+    elegaius.bossAttack(heroList)
+    println("-------")
 }
