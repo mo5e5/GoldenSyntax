@@ -165,7 +165,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      *  Verflucht alle Helden daraufhin wird die gesamte Lebensenergie 20 % reduziert.
      *  Nachdem diese Fähigkeit ausgeführt wurde, hat sie 5 Runden Cooldown.
      *
-     *  @param mutableList hier wird eine Liste von Helden übergeben.
+     *  @param mutableList bekommt eine Liste von Helden übergeben.
      */
     fun curse(mutableList: MutableList<Hero>) {
         for (hero in mutableList) {
@@ -185,7 +185,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      *  gesamten Lebensenergie an Schaden.
      *  Nach benutzung hat die Fähigkeit 3 Runde Cooldown.
      *
-     *  @param mutableList hier wird eine Liste von Helden übergeben.
+     *  @param mutableList bekommt eine Liste von Helden übergeben.
      */
     fun digest(mutableList: MutableList<Hero>) {
         for (hero in mutableList) {

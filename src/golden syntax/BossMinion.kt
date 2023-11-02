@@ -31,9 +31,10 @@ class BossMinion(name: String, healthbar: Int, val attention: Boolean = false) :
     }
 
     /**
-     *  Eine Special Attacke die erst nach 5 Runden zur verfügung steht
-     *  und nach benutzen neu aufgeladen werden muss.
-     *  Sie fügt allen Helden 10 % ihrer gesamten Lebensenergie an Schaden zu.
+     *  Ein Hagel Regen der allen Helden 10 % ihrer gesamten Lebensenergie an Schaden zu fügt.
+     *  Nachdem diese Fähigkeit ausgeführt wurde, hat sie 4 Runden Cooldown.
+     *
+     *  @param list bekommt eine Liste von Helden übergeben.
      */
     fun hailBlow(list: List<Hero>) {
         println(
