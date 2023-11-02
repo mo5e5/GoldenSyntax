@@ -1,7 +1,8 @@
 import kotlin.random.Random
 
-class BossMinion(name: String, healthbar: Int, val attention: Boolean = false) : AntiHero(name, healthbar) {
+class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
 
+    var drawAttentionCooldown = 0
     var shieldCooldown = 0
     var hailBlowCooldown = 0
 
@@ -19,19 +20,32 @@ class BossMinion(name: String, healthbar: Int, val attention: Boolean = false) :
         if (hailBlowCooldown >= 0) {
             hailBlowCooldown--
         }
-        if (shieldCooldown >= 0 && hailBlowCooldown >= 0) {
-            val listOfAttack = listOf(0, 3)
+        if (drawAttentionCooldown >= 0) {
+            drawAttentionCooldown --
+        }
+        if (drawAttentionCooldown >= 0 && shieldCooldown >= 0 && hailBlowCooldown >= 0) {
+            val listOfAttack = listOf(3)
+            attackNumber = listOfAttack.random()
+        } else if (drawAttentionCooldown >= 0 && shieldCooldown >= 0) {
+            val listOfAttack = listOf(2, 3)
+            attackNumber = listOfAttack.random()
+        } else if (shieldCooldown >= 0 && hailBlowCooldown >= 0) {
+            val listOfAttack = listOf(0, 2)
+            attackNumber = listOfAttack.random()
+        } else if (drawAttentionCooldown >= 0) {
+            val listOfAttack = listOf(1,2,3)
             attackNumber = listOfAttack.random()
         } else if (shieldCooldown >= 0) {
-            val listOfAttack = listOf(0, 2, 3)
+            val listOfAttack = listOf(0,2,3)
             attackNumber = listOfAttack.random()
-        } else if (hailBlowCooldown >= 0) {
-            val listOfAttack = listOf(0, 1, 2)
+        } else if (hailBlowCooldown >= 4) {
+            val listOfAttack = listOf(0,1,2)
             attackNumber = listOfAttack.random()
         }
         when (attackNumber) {
             0 -> {
                 drawAttention()
+                drawAttentionCooldown = 1
             }
 
             1 -> {
