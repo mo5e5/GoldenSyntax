@@ -18,17 +18,16 @@ class BossMinion(name: String, healthbar: Int, val attention: Boolean = false) :
         }
         if (hailBlowCooldown >= 0) {
             hailBlowCooldown--
-        } else {
-            if (shieldCooldown >= 0 && hailBlowCooldown >= 0) {
-                val listOfAttack = listOf(0,3)
-                attackNumber = listOfAttack.random()
-            } else if (shieldCooldown >= 0) {
-                val listOfAttack = listOf(0,2,3)
-                attackNumber = listOfAttack.random()
-            } else if (hailBlowCooldown >= 0) {
-                val listOfAttack = listOf(0,1,2)
-                attackNumber = listOfAttack.random()
-            }
+        }
+        if (shieldCooldown >= 0 && hailBlowCooldown >= 0) {
+            val listOfAttack = listOf(0, 3)
+            attackNumber = listOfAttack.random()
+        } else if (shieldCooldown >= 0) {
+            val listOfAttack = listOf(0, 2, 3)
+            attackNumber = listOfAttack.random()
+        } else if (hailBlowCooldown >= 0) {
+            val listOfAttack = listOf(0, 1, 2)
+            attackNumber = listOfAttack.random()
         }
         when (attackNumber) {
             0 -> {
