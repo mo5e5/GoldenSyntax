@@ -90,7 +90,6 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
                 digestCount = 1
             }
         }
-
     }
 
     /**
@@ -197,6 +196,5 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
             "$name fängt an zu  Magensäure zu spucken.\n" +
                     "Die Helden sind danach durchtränkt mit Magensäure."
         )
-
     }
 }
