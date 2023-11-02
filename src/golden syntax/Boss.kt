@@ -4,7 +4,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
 
     val bossMinionActionList: MutableList<BossMinion> = mutableListOf()
     var bossMinionCount = 0
-    var curseCount = 0
+    var shieldCooldown = 0
     var curseCooldown = 0
     var digestCooldown = 0
     var digestCount = 0
@@ -23,10 +23,14 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
             Random.nextInt(1, 7)
 
         }
-        if (curseCooldown == 1 || curseCooldown == 2 || curseCooldown == 3) {
-            val a = Random.nextInt(1, 5)
-            val b = Random.nextInt(6, 7)
-            attackNumber = intArrayOf(a, b).random()
+        if (shieldCooldown == 1 || shieldCooldown == 2 || shieldCooldown == 3) {
+            Random.nextInt(2,7)
+            shieldCooldown = 0
+        }
+        if (curseCooldown == 1 || curseCooldown == 2 || curseCooldown == 3 || curseCooldown == 4 || curseCooldown == 5) {
+            val e = Random.nextInt(1, 5)
+            val f = Random.nextInt(6, 7)
+            attackNumber = intArrayOf(e,f).random()
             curseCooldown = 0
         }
         if (digestCooldown == 1 || digestCooldown == 2 || digestCooldown == 3) {
@@ -45,6 +49,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
 
             1 -> {
                 shield()
+                shieldCooldown++
             }
 
             2 -> {
@@ -62,7 +67,6 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
             5 -> {
                 curse(mutableList)
                 curseCooldown++
-                curseCount++
             }
 
             6 -> {
@@ -85,7 +89,6 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
                 "$name beschwört mit all seiner macht ${bossMinion.name}\n" +
                         "um ihm im Kampf gegen die Helden zu helfen."
             )
-
         }
     }
 
@@ -146,7 +149,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
 
     /**
      *  Verflucht alle Helden daraufhin wird die gesamte Lebensenergie 20 % reduziert.
-     *  Nach dem diese Fähigkeit ausgeführt wurde, hat sie 5 Runden Cooldown.
+     *  Nachdem diese Fähigkeit ausgeführt wurde, hat sie 5 Runden Cooldown.
      *
      *  @param mutableList hier wird eine Liste von Helden übergeben.
      */
