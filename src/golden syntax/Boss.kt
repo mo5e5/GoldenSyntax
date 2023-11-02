@@ -17,24 +17,40 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
     fun bossAttack(mutableList: MutableList<Hero>) {
         var attackNumber = Random.nextInt(0, 7)
         val radomHero = mutableList.random()
-        attackNumber = if (bossMinionCount == 0) {
+        if (shieldCooldown >= 0) {
+            shieldCooldown--
+        }
+        if (curseCooldown >= 0) {
+            curseCooldown--
+        }
+        if (digestCooldown >= 0) {
+            digestCooldown--
+        }
+        if (bossMinionCount == 0) {
             Random.nextInt(0, 7)
-        } else  {
-            Random.nextInt(1, 7)
-        }
-        if (shieldCooldown == 1 || shieldCooldown == 2 || shieldCooldown == 3) {
-            Random.nextInt(2,7)
-            shieldCooldown = 0
-        }
-        if (curseCooldown == 1 || curseCooldown == 2 || curseCooldown == 3 || curseCooldown == 4 || curseCooldown == 5) {
-            val e = Random.nextInt(1, 5)
-            val f = Random.nextInt(6, 7)
-            attackNumber = intArrayOf(e,f).random()
-            curseCooldown = 0
-        }
-        if (digestCooldown == 1 || digestCooldown == 2 || digestCooldown == 3) {
-            Random.nextInt(0, 6)
-            digestCooldown = 0
+        } else {
+            if (shieldCooldown >= 0 && curseCooldown >= 0 && digestCooldown >= 0) {
+                val listOfAttack = listOf(2, 3, 4)
+                attackNumber = listOfAttack.random()
+            } else if (shieldCooldown >= 0 && curseCooldown >= 0) {
+                val listOfAttack = listOf(2, 3, 4, 6)
+                attackNumber = listOfAttack.random()
+            } else if (shieldCooldown >= 0 && digestCooldown >= 0) {
+                val listOfAttack = listOf(2, 3, 4, 5)
+                attackNumber = listOfAttack.random()
+            } else if (curseCooldown >= 0 && digestCooldown >= 0) {
+                val listOfAttack = listOf(1, 2, 3, 4)
+                attackNumber = listOfAttack.random()
+            } else if (shieldCooldown >= 0) {
+                val listOfAttack = listOf(2, 3, 4, 5, 6)
+                attackNumber = listOfAttack.random()
+            } else if (curseCooldown >= 0) {
+                val listOfAttack = listOf(1, 2, 3, 4, 6)
+                attackNumber = listOfAttack.random()
+            } else if (digestCooldown >= 0) {
+                val listOfAttack = listOf(1, 2, 3, 4, 5)
+                attackNumber = listOfAttack.random()
+            }
         }
         if (digestCount == 1) {
             digest(mutableList)
@@ -43,12 +59,12 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
         when (attackNumber) {
             0 -> {
                 bossMinion(bossMinionActionList[0])
-                bossMinionCount++
+                bossMinionCount = 1
             }
 
             1 -> {
                 shield()
-                shieldCooldown++
+                shieldCooldown = 3
             }
 
             2 -> {
@@ -65,13 +81,13 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
 
             5 -> {
                 curse(mutableList)
-                curseCooldown++
+                curseCooldown = 5
             }
 
             6 -> {
                 digest(mutableList)
-                digestCooldown++
-                digestCount++
+                digestCooldown = 3
+                digestCount = 1
             }
         }
 
