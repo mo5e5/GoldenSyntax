@@ -21,22 +21,16 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
             Random.nextInt(0, 7)
         } else {
             Random.nextInt(1, 7)
+
         }
         if (curseCooldown == 1 || curseCooldown == 2 || curseCooldown == 3) {
-            val a = Random.nextInt(0, 5)
+            val a = Random.nextInt(1, 5)
             val b = Random.nextInt(6, 7)
-            attackNumber = intArrayOf(a,b).random()
-            curseCooldown = 0
-        } else if (bossMinionCount == 1) {
-            Random.nextInt(1, 5)
-            Random.nextInt(6, 7)
+            attackNumber = intArrayOf(a, b).random()
             curseCooldown = 0
         }
         if (digestCooldown == 1 || digestCooldown == 2 || digestCooldown == 3) {
             Random.nextInt(0, 6)
-            digestCooldown = 0
-        } else if (bossMinionCount == 1) {
-            Random.nextInt(1, 6)
             digestCooldown = 0
         }
         if (digestCount == 1) {
