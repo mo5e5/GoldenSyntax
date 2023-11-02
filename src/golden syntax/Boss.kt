@@ -8,11 +8,6 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
     var curseCooldown = 0
     var digestCooldown = 0
     var digestCount = 0
-// map nummer der att wird auf die map geschrieben map int( att) int (cool)
-    // liste mit fähigekiet die keinen cooldown haben möglicheAtt
-    // for each att if cooldown == 0 füge key zu att hinzu
-    // möglichAtt.random
-    // nutzt when fhaikkeit coodown++
 
     /**
      *  Führt die Fähigkeiten vom Boss random selber aus.
