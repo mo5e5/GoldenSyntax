@@ -19,9 +19,8 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
         val radomHero = mutableList.random()
         attackNumber = if (bossMinionCount == 0) {
             Random.nextInt(0, 7)
-        } else {
+        } else  {
             Random.nextInt(1, 7)
-
         }
         if (shieldCooldown == 1 || shieldCooldown == 2 || shieldCooldown == 3) {
             Random.nextInt(2,7)
