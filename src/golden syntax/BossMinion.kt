@@ -1,4 +1,55 @@
+import kotlin.random.Random
+
 class BossMinion(name: String, healthbar: Int, val attention: Boolean = false) : AntiHero(name, healthbar) {
+
+    var shieldCooldown = 0
+    var hailBlowCooldown = 0
+
+    /**
+     *  Führt die Fähigkeiten vom BossMinion random selber aus.
+     *
+     *  @param mutableList hier wird eine Liste von Helden übergeben.
+     */
+    fun bossMinionAttack(mutableList: MutableList<Hero>) {
+        var attackNumber = Random.nextInt(0, 4)
+        val radomHero = mutableList.random()
+        if (shieldCooldown >= 0) {
+            shieldCooldown--
+        }
+        if (hailBlowCooldown >= 0) {
+            hailBlowCooldown--
+        } else {
+            if (shieldCooldown >= 0 && hailBlowCooldown >= 0) {
+                val listOfAttack = listOf(0,3)
+                attackNumber = listOfAttack.random()
+            } else if (shieldCooldown >= 0) {
+                val listOfAttack = listOf(0,2,3)
+                attackNumber = listOfAttack.random()
+            } else if (hailBlowCooldown >= 0) {
+                val listOfAttack = listOf(0,1,2)
+                attackNumber = listOfAttack.random()
+            }
+        }
+        when (attackNumber) {
+            0 -> {
+                drawAttention()
+            }
+
+            1 -> {
+                shield()
+                shieldCooldown = 2
+            }
+
+            2 -> {
+                punsh(radomHero)
+            }
+
+            3 -> {
+                hailBlow(mutableList)
+                hailBlowCooldown = 4
+            }
+        }
+    }
 
     /**
      *  Zieht die Aufmerksamkeit aller Helden für eine Runde auf den BossMinion.
@@ -12,8 +63,8 @@ class BossMinion(name: String, healthbar: Int, val attention: Boolean = false) :
     }
 
     /**
-     *  Ein Schild der 50 % der gesamten Lebensenergie beträgt. Er hält bis er zerstört wird.
-     *  Hat nach seiner nutzung 3 Runden Cooldown.
+     *  Ein Schild der 50 % der gesamten Lebensenergie beträgt.
+     *  Nachdem diese Fähigkeit ausgeführt wurde, hat sie 2 Runden Cooldown.
      */
     fun shield() {
         println("$name errichtet ein Schild und hat jetzt deutlich mehr auf den Rippen.")
