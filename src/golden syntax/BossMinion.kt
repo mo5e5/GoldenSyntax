@@ -23,6 +23,8 @@ class BossMinion(name: String, healthbar: Int, val attention: Boolean = false) :
 
     /**
      *  Ein kraftvoller Schlag der einem Helden 5 % seiner gesamten Lebensenergie abzieht.
+     *
+     *  @param hero erhält einen random Helden aus der Helden Liste.
      */
     fun punsh(hero: Hero) {
         println("$name haut kräftig zu und zieht ${hero.name} 5 % seiner maximalen Lebenspunkte ab.")
