@@ -21,7 +21,7 @@ class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
             hailBlowCooldown--
         }
         if (drawAttentionCooldown >= 0) {
-            drawAttentionCooldown --
+            drawAttentionCooldown--
         }
         if (drawAttentionCooldown >= 0 && shieldCooldown >= 0 && hailBlowCooldown >= 0) {
             val listOfAttack = listOf(3)
@@ -33,13 +33,13 @@ class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
             val listOfAttack = listOf(0, 2)
             attackNumber = listOfAttack.random()
         } else if (drawAttentionCooldown >= 0) {
-            val listOfAttack = listOf(1,2,3)
+            val listOfAttack = listOf(1, 2, 3)
             attackNumber = listOfAttack.random()
         } else if (shieldCooldown >= 0) {
-            val listOfAttack = listOf(0,2,3)
+            val listOfAttack = listOf(0, 2, 3)
             attackNumber = listOfAttack.random()
         } else if (hailBlowCooldown >= 4) {
-            val listOfAttack = listOf(0,1,2)
+            val listOfAttack = listOf(0, 1, 2)
             attackNumber = listOfAttack.random()
         }
         when (attackNumber) {
