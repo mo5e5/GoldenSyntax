@@ -107,7 +107,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
     }
 
     /**
-     *  Ein Schild der 50 % der gesamten Lebensenergie beträgt. Er hält bis er zerstört wird.
+     *  Ein Lebensenergie Boost der 50 % der gesamten Lebensenergie beträgt. Er hält bis er zerstört wird.
      *  Hat nach seiner zerstörung 3 Runden Cooldown.
      */
     fun shield() {

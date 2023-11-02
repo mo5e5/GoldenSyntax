@@ -67,20 +67,23 @@ class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
     /**
      *  Zieht die Aufmerksamkeit aller Helden für eine Runde auf den BossMinion.
      */
-    fun drawAttention(attention: Boolean = true) {
+    fun drawAttention() {
         println(
-            "$name zieht die Aufmerksamkeit aller Helden auf sich.\n" +
-                    "Die Helden können Ihn nicht mehr aus den Augen lassen und greifen\n" +
-                    "für die nächste Runde nur Ihn an."
+            "$name blinzelt mit den Wimpern.\n" +
+                    "Keiner der Helden kann diesem Wimpernaufschlag wiederstehen.\n" +
+                    "Alle Helden greifen für die nächste Runde nur $name an."
         )
     }
 
     /**
-     *  Ein Schild der 50 % der gesamten Lebensenergie beträgt.
+     *  Ein Lebensenergie Boost der 50 % der gesamten Lebensenergie beträgt.
      *  Nachdem diese Fähigkeit ausgeführt wurde, hat sie 2 Runden Cooldown.
      */
     fun shield() {
-        println("$name errichtet ein Schild und hat jetzt deutlich mehr auf den Rippen.")
+        println(
+            "$name hübscht sich auf.\n" +
+                    "Dank einer Tonne Schminke hat $name nun ${maxHealth * 0.5} Lebenspunkte mehr."
+        )
         val useShield = healthbar + maxHealth * 0.5
         healthbar = useShield.toInt()
     }
@@ -91,9 +94,14 @@ class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      *  @param hero erhält einen random Helden aus der Helden Liste.
      */
     fun punsh(hero: Hero) {
-        println("$name haut kräftig zu und zieht ${hero.name} 5 % seiner maximalen Lebenspunkte ab.")
+        println(
+            "$name haut kräftig zu und zieht ${hero.name} 5 % seiner maximalen Lebenspunkte ab.\n" +
+                    "${hero.name} hatte ${hero.healthbar} Lebenspunkte.\n" +
+                    "Er hat ${hero.maxHealth * 0.05} Schaden erlitten."
+        )
         val usePunsh = hero.healthbar - hero.maxHealth * 0.05
         hero.healthbar = usePunsh.toInt()
+        println("${hero.name} hat nun noch ${hero.healthbar}.")
     }
 
     /**
@@ -105,11 +113,12 @@ class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
     fun hailBlow(list: List<Hero>) {
         println(
             "$name lässt es vom Himmel Hageln und fügt jedem Helden 10 % seiner\n" +
-                    "gesamten Lebenspunkte als Schaden zu. "
+                    "gesamten Lebenspunkte als Schaden zu."
         )
         for (hero in list) {
-            val useHailBlow = hero.healthbar - hero.healthbar * 0.1
+            val useHailBlow = hero.healthbar - hero.maxHealth * 0.1
             hero.healthbar = useHailBlow.toInt()
+            println("${hero.name} hat nun noch ${hero.healthbar}.")
         }
     }
 }
