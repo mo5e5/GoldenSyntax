@@ -19,12 +19,26 @@ fun main() {
 
 
     println("-------")
-    siphi.hailBlow(heroList)
+    siphi.bossMinionAttack(heroList)
     println("-------")
-    siphi.punsh(vergumkaar)
+    siphi.bossMinionAttack(heroList)
     println("-------")
-    siphi.shield()
+    siphi.bossMinionAttack(heroList)
     println("-------")
+    siphi.bossMinionAttack(heroList)
+    println("-------")
+    siphi.bossMinionAttack(heroList)
+    println("-------")
+    siphi.bossMinionAttack(heroList)
+    println("-------")
+    siphi.bossMinionAttack(heroList)
+    println("-------")
+    siphi.bossMinionAttack(heroList)
+    println("-------")
+    siphi.bossMinionAttack(heroList)
+    println("-------")
+    siphi.bossMinionAttack(heroList)
+
 
 
 

@@ -86,6 +86,7 @@ class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
         )
         val useShield = healthbar + maxHealth * 0.5
         healthbar = useShield.toInt()
+        println("$name hat nun $healthbar")
     }
 
     /**
