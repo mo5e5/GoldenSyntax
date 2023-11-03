@@ -66,6 +66,7 @@ class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
 
     /**
      *  Zieht die Aufmerksamkeit aller Helden auf sich und fügt allen Helden Schaden zu.
+     *  Jeder Held erleidet 2,5 % Schaden seiner gesamten Lebensenergie.
      *  Nachdem diese Fähigkeit ausgeführt wurde, hat sie 1 Runden Cooldown.
      *
      *  @param list bekommt eine Liste von Helden übergeben.

@@ -16,7 +16,8 @@ class TankHero(name: String, healthbar: Int) : Hero(name, healthbar) {
     }
 
     /**
-     *  Zieht die Aufmerksamkeit aller Anti Helden auf sich und schlägt dan zu.
+     *  Zieht die Aufmerksamkeit aller Anti Helden auf sich und schlägt dan Raptusartig zu.
+     *  Zieht jedem Anti Held 5 % seiner gesamten Lebensenergie ab.
      *
      *  @param mutableList bekommt eine Liste von AntiHelden übergeben.
      */
@@ -41,17 +42,27 @@ class TankHero(name: String, healthbar: Int) : Hero(name, healthbar) {
         println(
             "$name schleudert seine Faust und zieht ${antiHero.name} 5 % seiner maximalen Lebenspunkte ab.\n" +
                     "${antiHero.name} hatte ${antiHero.healthbar} Lebenspunkte.\n" +
-                    "Er hat ${antiHero.maxHealth * 0.05} Schaden erlitten."
+                    "Er hat ${antiHero.maxHealth * 0.15} Schaden erlitten."
         )
-        val usePunsh = antiHero.healthbar - antiHero.maxHealth * 0.05
+        val usePunsh = antiHero.healthbar - antiHero.maxHealth * 0.15
         antiHero.healthbar = usePunsh.toInt()
         println("${antiHero.name} hat nun noch ${antiHero.healthbar}.")
     }
 
     /**
      *  Ein Roundhouse Kick aller Chuck Norris der den AntiHeld 25 % seiner gesamten Lebensenergie abzieht.
+     *  Nachdem diese Fähigkeit ausgeführt wurde, hat sie 3 Runden Cooldown.
+     *
+     *  @param antiHero erhält einen random Anti Helden aus der Helden Liste.
      */
-    fun kick() {
-
+    fun kick(antiHero: AntiHero) {
+        println(
+            "$name macht einen Roundhouse Kick. ${antiHero.name} erleidet 25 % Schaden.\n" +
+                    "${antiHero.name} hatte ${antiHero.healthbar} Lebenspunkte.\n" +
+                    "Er hat ${antiHero.maxHealth * 0.25} Schaden erlitten."
+        )
+        val useKick = antiHero.healthbar - antiHero.maxHealth * 0.25
+        antiHero.healthbar = useKick.toInt()
+        println("${antiHero.name} hat nun noch ${antiHero.healthbar}.")
     }
 }

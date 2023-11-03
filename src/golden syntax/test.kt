@@ -24,6 +24,8 @@ fun main() {
     vergumkaar.drawAttentionHit(antiHeroList)
     println("-------")
     vergumkaar.punch(elegaius)
+    println("-------")
+    vergumkaar.kick(elegaius)
 
 
 
