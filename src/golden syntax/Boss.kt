@@ -8,6 +8,8 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
     var digestCooldown = 0
     var digestCount = 0
 
+    val bossMinion1 = BossMinion("", 0)
+
     /**
      *  Führt die Fähigkeiten vom Boss random selber aus.
      *
@@ -88,6 +90,9 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
                 digestCooldown = 3
                 digestCount = 1
             }
+        }
+        if (antiHeroList.contains(bossMinion1)) {
+            bossMinion1.bossMinionAttack(mutableList)
         }
     }
 
