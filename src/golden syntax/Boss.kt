@@ -98,7 +98,8 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      *  @param bossMinion hier wird der Initialisierte Minion vom Boss übergeben.
      */
     fun bossMinion(bossMinion: BossMinion) {
-        if (bossMinionActionList.contains(bossMinion)) {
+        if (!bossMinionActionList.contains(bossMinion)) {
+            this.bossMinionActionList.add(bossMinion)
             println(
                 "$name beschwört mit all seiner macht ${bossMinion.name}\n" +
                         "um ihm im Kampf gegen die Helden zu helfen."

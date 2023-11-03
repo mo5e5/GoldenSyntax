@@ -1,6 +1,70 @@
-import Hero
+import kotlin.random.Random
 
 class TankHero(name: String, healthbar: Int) : Hero(name, healthbar) {
+
+    var healCooldown = 0
+    var kickCooldown = 0
+
+    /**
+     *  Führt die Fähigkeiten vom BossMinion random selber aus.
+     *
+     *  @param mutableList hier wird eine Liste von Helden übergeben.
+     */
+    fun tankHeroAttack(mutableList: MutableList<AntiHero>) {
+        val listOfAttack = listOf("heal", "drawAttentionHit", "punsh", "kick")
+        val antiHero = mutableList.random()
+
+        println(
+            "$name ist an der reihe.\n" +
+                    "Du kannst in dieser Runde $listOfAttack nutzen.\n" +
+                    "Wähle eine Fähigkeit von 1 - 4."
+        )
+
+        val attackNumber = readln().toInt()
+
+        if (attackNumber !in 1..4) {
+            println(
+                "Hey diese Fähigkeit übersteigt dein Level.\n" +
+                        "Bitte wähle eine andere."
+            )
+            return
+        }
+
+        val usedAttack = listOfAttack[attackNumber - 1]
+
+        if ((usedAttack == "heal" && healCooldown > 0) || (usedAttack == "kick" && kickCooldown > 0)) {
+            println("$usedAttack hat noch Cooldown such dir schnell eine andere Fähigkeit aus.")
+            return
+        }
+        if (healCooldown >= 0) {
+            healCooldown--
+        }
+        if (kickCooldown >= 0) {
+            kickCooldown--
+        }
+
+        when (usedAttack) {
+            "heal" -> {
+                heal()
+                healCooldown = 1
+
+            }
+
+            "drawAttentionHit" -> {
+                drawAttentionHit(mutableList)
+
+            }
+
+            "punsh" -> {
+                punsh(antiHero)
+            }
+
+            "kick" -> {
+                kick(antiHero)
+                kickCooldown = 3
+            }
+        }
+    }
 
     /**
      *  Heilt diesen Helden um 10 % seiner gesamten Lebensenergie.
@@ -38,7 +102,7 @@ class TankHero(name: String, healthbar: Int) : Hero(name, healthbar) {
      *
      *  @param antiHero erhält einen random Anti Helden aus der Helden Liste.
      */
-    fun punch(antiHero: AntiHero) {
+    fun punsh(antiHero: AntiHero) {
         println(
             "$name schleudert seine Faust und zieht ${antiHero.name} 5 % seiner maximalen Lebenspunkte ab.\n" +
                     "${antiHero.name} hatte ${antiHero.healthbar} Lebenspunkte.\n" +

@@ -3,7 +3,7 @@ fun main() {
 
     val siphi = BossMinion("Siphi", 5000)
 
-    elegaius.bossMinionActionList.add(siphi)
+    //elegaius.bossMinionActionList.add(siphi)
 
     val antiHeroList: MutableList<AntiHero> = mutableListOf(elegaius, siphi)
 
@@ -19,14 +19,33 @@ fun main() {
 
 
     println("-------")
-    vergumkaar.heal()
+    vergumkaar.tankHeroAttack(antiHeroList)
+    println("---------------")
+    vergumkaar.tankHeroAttack(antiHeroList)
+    println("---------------")
+    vergumkaar.tankHeroAttack(antiHeroList)
+    println("---------------")
     println("-------")
-    vergumkaar.drawAttentionHit(antiHeroList)
+    vergumkaar.tankHeroAttack(antiHeroList)
+    println("---------------")
+    vergumkaar.tankHeroAttack(antiHeroList)
+    println("---------------")
+    vergumkaar.tankHeroAttack(antiHeroList)
+    println("---------------")
     println("-------")
-    vergumkaar.punch(elegaius)
+    vergumkaar.tankHeroAttack(antiHeroList)
+    println("---------------")
+    vergumkaar.tankHeroAttack(antiHeroList)
+    println("---------------")
+    vergumkaar.tankHeroAttack(antiHeroList)
+    println("---------------")
     println("-------")
-    vergumkaar.kick(elegaius)
-
+    vergumkaar.tankHeroAttack(antiHeroList)
+    println("---------------")
+    vergumkaar.tankHeroAttack(antiHeroList)
+    println("---------------")
+    vergumkaar.tankHeroAttack(antiHeroList)
+    println("---------------")
 
 
 
