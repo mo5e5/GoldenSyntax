@@ -53,9 +53,6 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
                 attackNumber = listOfAttack.random()
             }
         }
-        if (antiHeroList.contains(bossMinion1)) {
-            bossMinion1.bossMinionAttack(mutableList)
-        }
         if (digestCount == 1) {
             digest(mutableList)
             digestCount = 0
@@ -93,6 +90,9 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
                 digestCooldown = 3
                 digestCount = 1
             }
+        }
+        if (bossMinionCount == 1) {
+            bossMinion1.bossMinionAttack(mutableList)
         }
     }
 
