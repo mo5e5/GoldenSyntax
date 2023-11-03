@@ -2,8 +2,6 @@ import Hero
 
 class TankHero(name: String, healthbar: Int) : Hero(name, healthbar) {
 
-    val tankHeroActionList = mutableListOf(heal(), drawAttention(), punch(), kick())
-
     /**
      *  Heilt diesen Helden um 10 % seiner gesamten Lebensenergie.
      */
