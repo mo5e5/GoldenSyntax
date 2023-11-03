@@ -73,9 +73,9 @@ class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      */
     fun drawAttentionHit(list: List<Hero>) {
         println(
-            "$name blinzelt mit den Wimpern.\n" +
+            "${antiHeroList[1].name} blinzelt mit den Wimpern.\n" +
                     "Keiner der Helden kann diesem Wimpernaufschlag wiederstehen.\n" +
-                    "Jeder Held erleidet 0.025 % Schaden."
+                    "Jeder Held erleidet 2,5 % Schaden."
         )
         for (hero in list) {
             val useDrawAttentionHit = hero.healthbar - hero.maxHealth * 0.025
@@ -91,12 +91,12 @@ class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      */
     fun shield() {
         println(
-            "$name hübscht sich auf.\n" +
-                    "Dank einer Tonne Schminke hat $name nun ${maxHealth * 0.5} Lebenspunkte mehr."
+            "${antiHeroList[1].name} hübscht sich auf.\n" +
+                    "Dank einer Tonne Schminke hat ${antiHeroList[1].name} nun ${antiHeroList[1].maxHealth * 0.5} Lebenspunkte mehr."
         )
         val useShield = healthbar + maxHealth * 0.5
         healthbar = useShield.toInt()
-        println("$name hat nun $healthbar Lebenspunkte.")
+        println("${antiHeroList[1].name} hat nun ${antiHeroList[1].healthbar} Lebenspunkte.")
     }
 
     /**
@@ -106,7 +106,7 @@ class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      */
     fun punsh(hero: Hero) {
         println(
-            "$name haut kräftig zu und zieht ${hero.name} 5 % seiner maximalen Lebenspunkte ab.\n" +
+            "${antiHeroList[1].name} haut kräftig zu und zieht ${hero.name} 5 % seiner maximalen Lebenspunkte ab.\n" +
                     "${hero.name} hatte ${hero.healthbar} Lebenspunkte.\n" +
                     "Er hat ${hero.maxHealth * 0.05} Schaden erlitten."
         )
@@ -123,7 +123,7 @@ class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      */
     fun hailBlow(list: List<Hero>) {
         println(
-            "$name lässt es vom Himmel Hageln und fügt jedem Helden 10 % seiner\n" +
+            "${antiHeroList[1].name} lässt es vom Himmel Hageln und fügt jedem Helden 10 % seiner\n" +
                     "gesamten Lebenspunkte als Schaden zu."
         )
         for (hero in list) {

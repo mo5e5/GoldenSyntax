@@ -92,14 +92,14 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
             }
         }
         if (bossMinionCount == 1) {
+            println()
+            print(bossMinion1.name)
             bossMinion1.bossMinionAttack(mutableList)
         }
     }
 
     /**
      *  Ruft den BossMinion zur Unterstützung hinzu.
-     *
-     *  @param bossMinion hier wird der Initialisierte Minion vom Boss übergeben.
      */
     fun bossMinion(): BossMinion {
         val bossMinion1 = BossMinion("Siphi", 5000)
