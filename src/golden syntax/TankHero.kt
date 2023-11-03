@@ -18,11 +18,19 @@ class TankHero(name: String, healthbar: Int) : Hero(name, healthbar) {
             antiHero = mutableList[0]
             println("Der Boss steht alleine da, schnell greif ihn an.")
             println()
-        } else if (mutableList.size > 1) {
-            println(
-                "Der Boss ist nicht alleine. Wähle weise wen du angreifen möchtest.\n" +
-                        "1 = ${mutableList[0].name} 2 =${mutableList[1].name}"
-            )
+        }
+        try {
+            if(mutableList.size > 1) {
+                println(
+                    "Der Boss ist nicht alleine. Wähle weise wen du angreifen möchtest.\n" +
+                            "1 = ${mutableList[0].name} 2 =${mutableList[1].name}"
+                )
+                antiHero = mutableList[readln().toInt() - 1]
+            }
+        }
+        catch (e : Exception) {
+            println("Der eingegebene Gegner ist nicht auf dem Feld.\n" +
+                    "Wähle noch einmal.")
             antiHero = mutableList[readln().toInt() - 1]
         }
 
