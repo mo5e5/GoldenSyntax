@@ -110,7 +110,7 @@ class TankHero(name: String, healthbar: Int) : Hero(name, healthbar) {
     fun drawAttentionHit(list: List<AntiHero>) {
         println(
             "$name macht verrückte bewegungen und zieht damit die Aufmerksamkeit der Anti Helden auf sich.\n" +
-                    "Dann schlägt er Raptusartig zu und jeder Anti Held erleidet 0.05 % Schaden."
+                    "Dann schlägt er Raptusartig zu und jeder Anti Held erleidet 5 % Schaden."
         )
         for (antiHero in list) {
             val useDrawAttentionHit = antiHero.healthbar - antiHero.maxHealth * 0.05
@@ -126,7 +126,7 @@ class TankHero(name: String, healthbar: Int) : Hero(name, healthbar) {
      */
     fun punsh(antiHero: AntiHero) {
         println(
-            "$name schleudert seine Faust und zieht ${antiHero.name} 5 % seiner maximalen Lebenspunkte ab.\n" +
+            "$name schleudert seine Faust und zieht ${antiHero.name} 15 % seiner maximalen Lebenspunkte ab.\n" +
                     "${antiHero.name} hatte ${antiHero.healthbar} Lebenspunkte.\n" +
                     "Er hat ${antiHero.maxHealth * 0.15} Schaden erlitten."
         )
