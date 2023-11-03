@@ -12,15 +12,7 @@ class TankHero(name: String, healthbar: Int) : Hero(name, healthbar) {
      */
     fun tankHeroAttack(mutableList: MutableList<AntiHero>) {
         val listOfAttack = listOf("heal", "drawAttentionHit", "punsh", "kick")
-        var antiHero = AntiHero("",0)
-
-        println(
-            "$name ist an der reihe.\n" +
-                    "Du kannst in dieser Runde $listOfAttack nutzen.\n" +
-                    "Wähle eine Fähigkeit von 1 - 4."
-        )
-
-        val attackNumber = readln().toInt()
+        var antiHero = AntiHero("", 0)
 
         if (mutableList.size == 1) {
             antiHero = mutableList[0]
@@ -29,34 +21,34 @@ class TankHero(name: String, healthbar: Int) : Hero(name, healthbar) {
         } else if (mutableList.size > 1) {
             println("Der Boss ist nicht alleine. Wähle weise wen du angreifen möchtest.")
             antiHero = mutableList[readln().toInt()]
+        }
 
-            val enemyChoice = readln().toInt()
+        println(
+            "$name ist an der reihe.\n" +
+                    "Du kannst in dieser Runde $listOfAttack nutzen.\n" +
+                    "Wähle eine Fähigkeit von 1 - 4."
+        )
 
-            when (enemyChoice) {
-                in  0 until mutableList.size -> {
-                    antiHero = mutableList[enemyChoice]
-                    println("$name nimmt ${antiHero.name} ins Visier und greift ihn an.")
-                }
-                else -> {
-                    println("Du schaust wohl in den Himmel! Augen auf das Schlachtfeld.")
-                }
+        var attackNumber: Int
+        var usedAttack: String
+
+        while (true) {
+            attackNumber = readln().toInt()
+            if (attackNumber !in 1..4) {
+                println(
+                    "Hey diese Fähigkeit übersteigt dein Level.\n" +
+                            "Bitte wähle eine andere."
+                )
+                continue
             }
+            usedAttack = listOfAttack[attackNumber - 1]
+            if ((usedAttack == "heal" && healCooldown > 0) || (usedAttack == "kick" && kickCooldown > 0)) {
+                println("$usedAttack hat noch Cooldown such dir schnell eine andere Fähigkeit aus.")
+                continue
+            }
+            break
         }
 
-        if (attackNumber !in 1..4) {
-            println(
-                "Hey diese Fähigkeit übersteigt dein Level.\n" +
-                        "Bitte wähle eine andere."
-            )
-            return
-        }
-
-        val usedAttack = listOfAttack[attackNumber - 1]
-
-        if ((usedAttack == "heal" && healCooldown > 0) || (usedAttack == "kick" && kickCooldown > 0)) {
-            println("$usedAttack hat noch Cooldown such dir schnell eine andere Fähigkeit aus.")
-            return
-        }
         if (healCooldown >= 0) {
             healCooldown--
         }

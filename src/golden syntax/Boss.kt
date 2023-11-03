@@ -183,7 +183,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
             "$name tanzt wie wild um seine Feuerstelle und murmelt dabei vor sich hin.\n" +
                     "Nachdem er damit aufhört fühlen die Helden sich komisch.\n" +
                     "$name hat einen Fluch über die Helden ausgesprochen.\n" +
-                    "Sie fühlen sich schwach und machen weniger Schaden."
+                    "Sie fühlen sich schwach und haben etwas von ihrem maximalen Lebenspunkten verloren."
         )
         for (hero in mutableList) {
             val useCurse = hero.maxHealth - 0.2
