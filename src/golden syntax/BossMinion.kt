@@ -2,7 +2,7 @@ import kotlin.random.Random
 
 class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
 
-    var drawAttentionCooldown = 0
+    var drawAttentionHitCooldown = 0
     var shieldCooldown = 0
     var hailBlowCooldown = 0
 
@@ -20,19 +20,19 @@ class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
         if (hailBlowCooldown >= 0) {
             hailBlowCooldown--
         }
-        if (drawAttentionCooldown >= 0) {
-            drawAttentionCooldown--
+        if (drawAttentionHitCooldown >= 0) {
+            drawAttentionHitCooldown--
         }
-        if (drawAttentionCooldown >= 0 && shieldCooldown >= 0 && hailBlowCooldown >= 0) {
+        if (drawAttentionHitCooldown >= 0 && shieldCooldown >= 0 && hailBlowCooldown >= 0) {
             val listOfAttack = listOf(3)
             attackNumber = listOfAttack.random()
-        } else if (drawAttentionCooldown >= 0 && shieldCooldown >= 0) {
+        } else if (drawAttentionHitCooldown >= 0 && shieldCooldown >= 0) {
             val listOfAttack = listOf(2, 3)
             attackNumber = listOfAttack.random()
         } else if (shieldCooldown >= 0 && hailBlowCooldown >= 0) {
             val listOfAttack = listOf(0, 2)
             attackNumber = listOfAttack.random()
-        } else if (drawAttentionCooldown >= 0) {
+        } else if (drawAttentionHitCooldown >= 0) {
             val listOfAttack = listOf(1, 2, 3)
             attackNumber = listOfAttack.random()
         } else if (shieldCooldown >= 0) {
@@ -44,8 +44,8 @@ class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
         }
         when (attackNumber) {
             0 -> {
-                drawAttention()
-                drawAttentionCooldown = 1
+                drawAttentionHit(mutableList)
+                drawAttentionHitCooldown = 1
             }
 
             1 -> {
@@ -66,13 +66,22 @@ class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
 
     /**
      *  Zieht die Aufmerksamkeit aller Helden für eine Runde auf den BossMinion.
+     *  Nachdem diese Fähigkeit ausgeführt wurde, hat sie 2 Runden Cooldown.
+     *
+     *  @param list bekommt eine Liste von Helden übergeben.
      */
-    fun drawAttention() {
+    fun drawAttentionHit(list: List<Hero>) {
         println(
             "$name blinzelt mit den Wimpern.\n" +
                     "Keiner der Helden kann diesem Wimpernaufschlag wiederstehen.\n" +
-                    "Alle Helden greifen für die nächste Runde nur $name an."
+                    "Jeder Held erleidet 0.025 % Schaden."
         )
+        for (hero in list) {
+            val useDrawAttentionHit = hero.healthbar - hero.maxHealth * 0.025
+            hero.healthbar = useDrawAttentionHit.toInt()
+            println("${hero.name} hat nun noch ${hero.healthbar}.")
+        }
+
     }
 
     /**
@@ -86,7 +95,7 @@ class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
         )
         val useShield = healthbar + maxHealth * 0.5
         healthbar = useShield.toInt()
-        println("$name hat nun $healthbar")
+        println("$name hat nun $healthbar Lebenspunkte.")
     }
 
     /**

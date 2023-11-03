@@ -113,10 +113,11 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
     fun shield() {
         println(
             "$name fängt an beulen und Pusteln auf seiner Haut zu bilden.\n" +
-                    "Seine Haut ist nun deutlich dicker und schwerer zu durchdringen."
+                    "Seine Haut ist nun deutlich dicker er hat ${maxHealth * 0.5} Lebenspunkte mehr."
         )
         val useShield = healthbar + maxHealth * 0.5
         healthbar = useShield.toInt()
+        println("$name hat nun $healthbar Lebenspunkte.")
     }
 
     /**
@@ -125,7 +126,8 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
     fun lifeRegenaration() {
         println(
             "$name frisst ein paar Rinder.\n" +
-                    "Danach hat $name deutlich mehr auf den Rippen."
+                    "Danach hat $name deutlich mehr auf den Rippen.\n" +
+                    "Er regeneriert ${maxHealth * 0.15} Lebenspunkte."
         )
         val useLifeRegenaration = healthbar + maxHealth * 0.15
         healthbar = useLifeRegenaration.toInt()
@@ -140,10 +142,13 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
     fun stomp(hero: Hero) {
         println(
             "$name stampft auf ${hero.name} herum.\n" +
-                    "${hero.name} sieht danach etwas zerknittert aus."
+                    "${hero.name} sieht danach etwas zerknittert aus.\n" +
+                    "${hero.name} hatte ${hero.healthbar} Lebenspunkte.\n" +
+                    "Er hat ${hero.maxHealth * 0.1} Schaden erlitten."
         )
         val useStomp = hero.healthbar - hero.maxHealth * 0.1
         hero.healthbar = useStomp.toInt()
+        println("${hero.name} hat nun noch ${hero.healthbar}.")
     }
 
     /**
@@ -155,7 +160,9 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
     fun crush(hero: Hero) {
         println(
             "$name greift sich ${hero.name} und zerquetscht ihn.\n" +
-                    "Darauf hin tropft langsam Blut auf den kalten Boden."
+                    "Darauf hin tropft langsam Blut auf den kalten Boden.\n" +
+                    "${hero.name} hatte ${hero.healthbar} Lebenspunkte.\n" +
+                    "Er hat ${hero.maxHealth * 0.1} Schaden erlitten."
         )
         val useCrush = hero.healthbar - hero.maxHealth * 0.15
         hero.healthbar = useCrush.toInt()
@@ -168,16 +175,17 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      *  @param mutableList bekommt eine Liste von Helden übergeben.
      */
     fun curse(mutableList: MutableList<Hero>) {
-        for (hero in mutableList) {
-            val useCurse = hero.maxHealth - 0.2
-            hero.healthbar = useCurse.toInt()
-        }
         println(
             "$name tanzt wie wild um seine Feuerstelle und murmelt dabei vor sich hin.\n" +
                     "Nachdem er damit aufhört fühlen die Helden sich komisch.\n" +
                     "$name hat einen Fluch über die Helden ausgesprochen.\n" +
                     "Sie fühlen sich schwach und machen weniger Schaden."
         )
+        for (hero in mutableList) {
+            val useCurse = hero.maxHealth - 0.2
+            hero.healthbar = useCurse.toInt()
+            println("${hero.name} hat nun noch ${hero.healthbar}.")
+        }
     }
 
     /**
@@ -188,13 +196,14 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      *  @param mutableList bekommt eine Liste von Helden übergeben.
      */
     fun digest(mutableList: MutableList<Hero>) {
-        for (hero in mutableList) {
-            val useDigest = hero.healthbar - hero.maxHealth * 0.05
-            hero.healthbar = useDigest.toInt()
-        }
         println(
             "$name fängt an zu  Magensäure zu spucken.\n" +
                     "Die Helden sind danach durchtränkt mit Magensäure."
         )
+        for (hero in mutableList) {
+            val useDigest = hero.healthbar - hero.maxHealth * 0.05
+            hero.healthbar = useDigest.toInt()
+            println("${hero.name} hat nun noch ${hero.healthbar}.")
+        }
     }
 }
