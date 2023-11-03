@@ -12,7 +12,29 @@ class TankHero(name: String, healthbar: Int) : Hero(name, healthbar) {
      */
     fun tankHeroAttack(mutableList: MutableList<AntiHero>) {
         val listOfAttack = listOf("heal", "drawAttentionHit", "punsh", "kick")
-        val antiHero = mutableList.random()
+        var antiHero: AntiHero
+        if (mutableList.size == 1) {
+            antiHero = mutableList[0]
+            println("Der Boss steht alleine da, schnell greif ihn an.")
+        } else if (mutableList.size > 1) {
+            antiHero = mutableList[readln().toInt()]
+            println("Der Boss ist nicht alleine. Wähle weise wen du angreifen möchtest.")
+            for ((index, enemy) in mutableList.withIndex()) {
+                println("$index ${enemy.name}")
+            }
+            when (val enemyChoice = readln().toInt()) {
+                in 0 until mutableList.size -> {
+                    antiHero = mutableList[enemyChoice]
+                    println("$name nimmt ${antiHero.name} ins Visier und greift ihn an.")
+                }
+
+                else -> {
+                    println("Du schaust wohl in den Himmel! Augen auf das Schlachtfeld.")
+                }
+            }
+        }
+
+
 
         println(
             "$name ist an der reihe.\n" +

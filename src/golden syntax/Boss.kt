@@ -2,7 +2,6 @@ import kotlin.random.Random
 
 class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
 
-    val bossMinionActionList: MutableList<BossMinion> = mutableListOf()
     var bossMinionCount = 0
     var shieldCooldown = 0
     var curseCooldown = 0
@@ -58,7 +57,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
         }
         when (attackNumber) {
             0 -> {
-                bossMinion(bossMinionActionList[0])
+                antiHeroList.add(bossMinion())
                 bossMinionCount = 1
             }
 
@@ -97,14 +96,13 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      *
      *  @param bossMinion hier wird der Initialisierte Minion vom Boss übergeben.
      */
-    fun bossMinion(bossMinion: BossMinion) {
-        if (!bossMinionActionList.contains(bossMinion)) {
-            this.bossMinionActionList.add(bossMinion)
-            println(
-                "$name beschwört mit all seiner macht ${bossMinion.name}\n" +
-                        "um ihm im Kampf gegen die Helden zu helfen."
-            )
-        }
+    fun bossMinion(): BossMinion {
+        val bossMinion1 = BossMinion("Siphi", 5000)
+        println(
+            "$name beschwört mit all seiner macht ${bossMinion1.name}\n" +
+                    "um ihm im Kampf gegen die Helden zu helfen."
+        )
+        return bossMinion1
     }
 
     /**

@@ -1,12 +1,7 @@
+val antiHeroList: MutableList<AntiHero> = mutableListOf()
 fun main() {
     val elegaius = Boss("Elegaius", 8750)
-
-    val siphi = BossMinion("Siphi", 5000)
-
-    //elegaius.bossMinionActionList.add(siphi)
-
-    val antiHeroList: MutableList<AntiHero> = mutableListOf(elegaius, siphi)
-
+    antiHeroList.add(elegaius)
 
     val artak = DamageHero("Artak", 1750)
 
@@ -20,33 +15,9 @@ fun main() {
 
     println("-------")
     vergumkaar.tankHeroAttack(antiHeroList)
-    println("---------------")
-    vergumkaar.tankHeroAttack(antiHeroList)
-    println("---------------")
-    vergumkaar.tankHeroAttack(antiHeroList)
-    println("---------------")
-    println("-------")
-    vergumkaar.tankHeroAttack(antiHeroList)
-    println("---------------")
-    vergumkaar.tankHeroAttack(antiHeroList)
-    println("---------------")
-    vergumkaar.tankHeroAttack(antiHeroList)
-    println("---------------")
-    println("-------")
-    vergumkaar.tankHeroAttack(antiHeroList)
-    println("---------------")
-    vergumkaar.tankHeroAttack(antiHeroList)
-    println("---------------")
-    vergumkaar.tankHeroAttack(antiHeroList)
-    println("---------------")
-    println("-------")
-    vergumkaar.tankHeroAttack(antiHeroList)
-    println("---------------")
-    vergumkaar.tankHeroAttack(antiHeroList)
-    println("---------------")
-    vergumkaar.tankHeroAttack(antiHeroList)
-    println("---------------")
 
 
 
+
+    antiHeroList.clear()
 }
