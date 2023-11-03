@@ -1,5 +1,3 @@
-import kotlin.random.Random
-
 class TankHero(name: String, healthbar: Int) : Hero(name, healthbar) {
 
     var healCooldown = 0
