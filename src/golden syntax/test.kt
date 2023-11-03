@@ -19,27 +19,11 @@ fun main() {
 
 
     println("-------")
-    elegaius.bossMinion(siphi)
+    vergumkaar.heal()
     println("-------")
-    siphi.drawAttentionHit(heroList)
+    vergumkaar.drawAttentionHit(antiHeroList)
     println("-------")
-    elegaius.shield()
-    println("-------")
-    siphi.shield()
-    println("-------")
-    elegaius.lifeRegenaration()
-    println("-------")
-    siphi.punsh(vergumkaar)
-    println("-------")
-    elegaius.stomp(vergumkaar)
-    println("-------")
-    siphi.hailBlow(heroList)
-    println("-------")
-    elegaius.crush(vergumkaar)
-    println("-------")
-    elegaius.curse(heroList)
-    println("-------")
-    elegaius.digest(heroList)
+    vergumkaar.punch(elegaius)
 
 
 
