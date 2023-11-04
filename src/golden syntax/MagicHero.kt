@@ -4,13 +4,25 @@ class MagicHero(name: String, healthbar: Int) : Hero(name, healthbar) {
     /**
      *  Es hagelt Blitze vom Himmel die alle AntiHelden treffen und jeweils 5 % der gesamten Lebensenergie
      *  an Schaden verursachen.
+     *
+     *  @param list bekommt eine Liste von Anti Helden übergeben.
      */
-    fun lightningStrike() {
-
+    fun lightningStrike(list: List<AntiHero>) {
+        println(
+            "Der Himmel wird dunkel und $name lässt es Blitze hageln.\n" +
+                    "Alle Anti Helden werden 5 % Lebenspunkte abgezogen.")
+        )
+        for (antiHero in list) {
+            val useLightningStrike = antiHero.healthbar - antiHero.maxHealth * 0.05
+            antiHero.healthbar = useLightningStrike.toInt()
+            println("${antiHero.name} hat nun noch ${antiHero.healthbar}.")
+        }
     }
 
     /**
      *  Die Erde erhebt sich und fügt dem AntiHeld der auf ihr steht, 10 % der gesamten Lebensenergie an schaden zu.
+     *
+     *  @param antiHero erhält einen Anti Helden aus der antiHeroList.
      */
     fun earthquake(antiHero: AntiHero) {
         println(
@@ -18,8 +30,8 @@ class MagicHero(name: String, healthbar: Int) : Hero(name, healthbar) {
                     "${antiHero.name} hatte ${antiHero.healthbar}.\n" +
                     "Er hat ${antiHero.maxHealth * 0.15} Schaden erlitten."
         )
-        val useerthquake = antiHero.healthbar - antiHero.maxHealth * 0.1
-        antiHero.healthbar = useerthquake.toInt()
+        val useEarthquake = antiHero.healthbar - antiHero.maxHealth * 0.1
+        antiHero.healthbar = useEarthquake.toInt()
         println("${antiHero.name} hat nun noch ${antiHero.healthbar}.")
     }
 
