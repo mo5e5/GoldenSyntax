@@ -14,29 +14,10 @@ fun main() {
 
 
     println("-------")
-    vergumkaar.tankHeroAttack(antiHeroList)
+    artak.damageHeroAttack(antiHeroList)
     println("-------")
     elegaius.bossAttack(heroList)
     println("-------")
-    vergumkaar.tankHeroAttack(antiHeroList)
-    println("-------")
-    elegaius.bossAttack(heroList)
-    println("-------")
-    vergumkaar.tankHeroAttack(antiHeroList)
-    println("-------")
-    elegaius.bossAttack(heroList)
-    println("-------")
-    vergumkaar.tankHeroAttack(antiHeroList)
-    println("-------")
-    elegaius.bossAttack(heroList)
-    println("-------")
-    vergumkaar.tankHeroAttack(antiHeroList)
-    println("-------")
-    elegaius.bossAttack(heroList)
-    println("-------")
-    vergumkaar.tankHeroAttack(antiHeroList)
-    println("-------")
-    elegaius.bossAttack(heroList)
 
 
 

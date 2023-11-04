@@ -1,7 +1,7 @@
 class DamageHero(name: String, healthbar: Int) : Hero(name, healthbar) {
 
-    val swordMultiSpinCooldown = 0
-    val thunderSwordCooldown = 0
+    var swordMultiSpinCooldown = 0
+    var thunderSwordCooldown = 0
 
     /**
      *  Führt die Fähigkeiten vom BossMinion random selber aus.
@@ -52,7 +52,9 @@ class DamageHero(name: String, healthbar: Int) : Hero(name, healthbar) {
                 continue
             }
             usedAttack = listOfAttack[attackNumber - 1]
-            if ((usedAttack == "heal" && swordMultiSpinCooldown > 0) || (usedAttack == "kick" && thunderSwordCooldown > 0)) {
+            if ((usedAttack == "swordMultiSpin" && swordMultiSpinCooldown > 0) ||
+                (usedAttack == "thunderSword" && thunderSwordCooldown > 0)
+            ) {
                 println("$usedAttack hat noch Cooldown such dir schnell eine andere Fähigkeit aus.")
                 continue
             }
