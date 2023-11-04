@@ -12,15 +12,15 @@ fun main() {
     val heroList: MutableList<Hero> = mutableListOf(artak, kyoku, vergumkaar)
 
 
-
     println("-------")
     vergumkaar.tankHeroAttack(antiHeroList)
     println()
     artak.damageHeroAttack(antiHeroList)
     println("-------")
+    kyoku.magicHeroAttack(antiHeroList,heroList)
+    println("-------")
     elegaius.bossAttack(heroList)
     println("-------")
-
 
 
 
