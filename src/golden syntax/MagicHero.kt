@@ -1,5 +1,3 @@
-import Hero
-
 class MagicHero(name: String, healthbar: Int) : Hero(name, healthbar) {
 
 
@@ -14,18 +12,30 @@ class MagicHero(name: String, healthbar: Int) : Hero(name, healthbar) {
     /**
      *  Die Erde erhebt sich und fügt dem AntiHeld der auf ihr steht, 10 % der gesamten Lebensenergie an schaden zu.
      */
-    fun earthquake() {
-
+    fun earthquake(antiHero: AntiHero) {
+        println(
+            "$name lässt die Erde erbeben und ${antiHero.name} erleidet 10 % Schaden.\n" +
+                    "${antiHero.name} hatte ${antiHero.healthbar}.\n" +
+                    "Er hat ${antiHero.maxHealth * 0.15} Schaden erlitten."
+        )
+        val useerthquake = antiHero.healthbar - antiHero.maxHealth * 0.1
+        antiHero.healthbar = useerthquake.toInt()
+        println("${antiHero.name} hat nun noch ${antiHero.healthbar}.")
     }
 
     /**
-     *  Ein Schutzzauber der auf jeden Helden wirkt und 15 % des eingehen Schadens blockiert.
-     *  Der Zauber hält 3 Runden.
+     *  Ein Schutzzauber der auf jeden Helden wirkt und um 15 % der maximalen Lebenspunkte heilt.
+     *  Nachdem diese Fähigkeit ausgeführt wurde, hat sie 3 Runden Cooldown.
      *
      *  @param list bekommt eine Liste von Helden übergeben.
      */
-    fun blockDamageBuff(list: List<Hero>) {
-
+    fun regenerationBuff(list: List<Hero>) {
+        println("$name spricht einen Zauber und alle Helden erhalten ${maxHealth * 0.15}")
+        for (hero in list) {
+            val useRegenerationBuff = hero.healthbar + hero.maxHealth * 0.15
+            hero.healthbar = useRegenerationBuff.toInt()
+            println("${hero.name} hat nun ${hero.healthbar} Lebenspunkte.")
+        }
     }
 
     /**
@@ -44,5 +54,4 @@ class MagicHero(name: String, healthbar: Int) : Hero(name, healthbar) {
         antiHero.healthbar = useMortality.toInt()
         println("${antiHero.name} hat nun noch ${antiHero.healthbar}.")
     }
-
 }
