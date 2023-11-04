@@ -1,5 +1,95 @@
 class DamageHero(name: String, healthbar: Int) : Hero(name, healthbar) {
 
+    val swordMultiSpinCooldown = 0
+    val thunderSwordCooldown = 0
+
+    /**
+     *  Führt die Fähigkeiten vom BossMinion random selber aus.
+     *
+     *  @param mutableList hier wird eine Liste von Helden übergeben.
+     */
+    fun damageHeroAttack(mutableList: MutableList<AntiHero>) {
+        val listOfAttack = listOf("swordSpin", "knopStrike", "swordMultiSpin", "thunderSword")
+        var antiHero = AntiHero("", 0)
+
+        if (mutableList.size == 1) {
+            antiHero = mutableList[0]
+            println("Der Boss steht alleine da, schnell greif ihn an.")
+            println()
+        }
+        try {
+            if (mutableList.size > 1) {
+                println(
+                    "Der Boss ist nicht alleine. Wähle weise wen du angreifen möchtest.\n" +
+                            "1 = ${mutableList[0].name} 2 =${mutableList[1].name}"
+                )
+                antiHero = mutableList[readln().toInt() - 1]
+            }
+        } catch (e: Exception) {
+            println(
+                "Der eingegebene Gegner ist nicht auf dem Feld.\n" +
+                        "Wähle noch einmal."
+            )
+            antiHero = mutableList[readln().toInt() - 1]
+        }
+
+        println(
+            "$name ist an der reihe.\n" +
+                    "Du kannst in dieser Runde $listOfAttack nutzen.\n" +
+                    "Wähle eine Fähigkeit von 1 - 4."
+        )
+
+        var attackNumber: Int
+        var usedAttack: String
+
+        while (true) {
+            attackNumber = readln().toInt()
+            if (attackNumber !in 1..4) {
+                println(
+                    "Hey diese Fähigkeit übersteigt dein Level.\n" +
+                            "Bitte wähle eine andere."
+                )
+                continue
+            }
+            usedAttack = listOfAttack[attackNumber - 1]
+            if ((usedAttack == "heal" && swordMultiSpinCooldown > 0) || (usedAttack == "kick" && thunderSwordCooldown > 0)) {
+                println("$usedAttack hat noch Cooldown such dir schnell eine andere Fähigkeit aus.")
+                continue
+            }
+            break
+        }
+
+        if (swordMultiSpinCooldown >= 0) {
+            swordMultiSpinCooldown--
+        }
+        if (thunderSwordCooldown >= 0) {
+            thunderSwordCooldown--
+        }
+
+        when (usedAttack) {
+            "swordSpin" -> {
+                swordSpin(antiHero)
+
+
+            }
+
+            "knopStrike" -> {
+                knopStrike(antiHero)
+
+            }
+
+            "swordMultiSpin" -> {
+                swordMultiSpin(mutableList)
+                swordMultiSpinCooldown = 3
+            }
+
+            "thunderSword" -> {
+                thunderSword(antiHero)
+                thunderSwordCooldown = 5
+            }
+        }
+    }
+
     /**
      *  Schleuder das Schwert in richtung des Anti Helden dieser wird mehrfach von der rotierenden
      *  Klinge getroffen und erleidet 15 % seiner gesamten Lebensenergie an Schaden.
