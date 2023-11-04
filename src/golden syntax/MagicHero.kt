@@ -9,7 +9,7 @@ class MagicHero(name: String, healthbar: Int) : Hero(name, healthbar) {
      *  @param mutableListBad hier wird eine Liste von Anti Helden übergeben.
      *  @param mutableListGood hier wird eine Liste von Helden übergeben.
      */
-    fun damageHeroAttack(mutableListBad: MutableList<AntiHero>,mutableListGood: MutableList<Hero>) {
+    fun damageHeroAttack(mutableListBad: MutableList<AntiHero>, mutableListGood: MutableList<Hero>) {
         val listOfAttack = listOf("lightningStrike", "earthquake", "regenerationBuff", "thunderSword")
         var antiHero = AntiHero("", 0)
 
@@ -102,7 +102,7 @@ class MagicHero(name: String, healthbar: Int) : Hero(name, healthbar) {
     private fun lightningStrike(list: List<AntiHero>) {
         println(
             "Der Himmel wird dunkel und $name lässt es Blitze hageln.\n" +
-                    "Alle Anti Helden werden 5 % Lebenspunkte abgezogen.")
+                    "Alle Anti Helden werden 5 % Lebenspunkte abgezogen."
         )
         for (antiHero in list) {
             val useLightningStrike = antiHero.healthbar - antiHero.maxHealth * 0.05
