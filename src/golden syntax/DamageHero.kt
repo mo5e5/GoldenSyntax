@@ -142,7 +142,7 @@ class DamageHero(name: String, healthbar: Int) : Hero(name, healthbar) {
     /**
      *  Blitze kommen aus dem Himmel geflogen. Diese treffen einen Anti Held mit einem Schaden von 30 %
      *  der gesamten Lebensenergie des AntiHelden.
-     *  Diese Fähigkeit geht nach benutzen für 5 Runden in den Cooldown.
+     *  Nachdem diese Fähigkeit ausgeführt wurde, hat sie 5 Runden Cooldown.
      */
     private fun thunderSword(antiHero: AntiHero) {
         println(

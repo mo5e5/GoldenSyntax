@@ -27,9 +27,8 @@ class MagicHero(name: String, healthbar: Int) : Hero(name, healthbar) {
     }
 
     /**
-     *  Macht den Helden für 2 Runden unsterblich wobei der eingehende Schaden trotzdem von seinen
-     *  Lebenspunkten abgezogen wird.
-     *  Hat nach Benutzung 3 Runden Cooldown.
+     *  Spricht einen mächtigen zauber der 25 % seiner maximalen Lebensenergie an Schaden verursacht.
+     *  Nachdem diese Fähigkeit ausgeführt wurde, hat sie 5 Runden Cooldown..
      */
     fun immortality() {
 
