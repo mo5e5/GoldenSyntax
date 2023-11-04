@@ -136,7 +136,7 @@ class TankHero(name: String, healthbar: Int) : Hero(name, healthbar) {
     }
 
     /**
-     *  Ein Roundhouse Kick aller Chuck Norris der den AntiHeld 25 % seiner gesamten Lebensenergie abzieht.
+     *  Ein Roundhouse Kick aller Chuck Norris der den Anti Held 25 % seiner gesamten Lebensenergie abzieht.
      *  Nachdem diese Fähigkeit ausgeführt wurde, hat sie 3 Runden Cooldown.
      *
      *  @param antiHero erhält einen random Anti Helden aus der Helden Liste.
