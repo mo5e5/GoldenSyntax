@@ -113,7 +113,7 @@ class DamageHero(name: String, healthbar: Int) : Hero(name, healthbar) {
      */
     private fun knopStrike(antiHero: AntiHero) {
         println(
-            "$name wirft sein Schwert in die luft und fängt es an der klinge und haut mit dem Griff\n" +
+            "$name wirft sein Schwert in die luft und fängt es an der Klinge und haut mit dem Griff\n" +
                     "fest zu und trifft ${antiHero.name}.\n" +
                     "${antiHero.name} hatte ${antiHero.healthbar} Lebenspunkte.\n" +
                     "Er hat ${antiHero.maxHealth * 0.1} Schaden erlitten."
@@ -147,7 +147,9 @@ class DamageHero(name: String, healthbar: Int) : Hero(name, healthbar) {
     private fun thunderSword(antiHero: AntiHero) {
         println(
             "$name hält sein Schwert in die Luft und murmelt etwas.\n" +
-                    "Plötzlich fängt es an zu Donnern und Blitze schlagen auf ${antiHero.name} ein."
+                    "Plötzlich fängt es an zu Donnern und Blitze schlagen auf ${antiHero.name} ein.\n" +
+                    "${antiHero.name} hatte ${antiHero.healthbar} Lebenspunkte.\n" +
+                    "Er hat ${antiHero.maxHealth * 0.25} Schaden erlitten."
         )
         val useThunderSword = antiHero.healthbar - antiHero.maxHealth * 0.3
         antiHero.healthbar = useThunderSword.toInt()

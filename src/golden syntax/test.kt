@@ -14,10 +14,15 @@ fun main() {
 
 
     println("-------")
+    vergumkaar.tankHeroAttack(antiHeroList)
+    println()
     artak.damageHeroAttack(antiHeroList)
     println("-------")
     elegaius.bossAttack(heroList)
     println("-------")
+
+
+
 
 
 
