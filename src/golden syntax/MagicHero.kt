@@ -9,7 +9,7 @@ class MagicHero(name: String, healthbar: Int) : Hero(name, healthbar) {
      *  @param mutableListBad hier wird eine Liste von Anti Helden übergeben.
      *  @param mutableListGood hier wird eine Liste von Helden übergeben.
      */
-    fun damageHeroAttack(mutableListBad: MutableList<AntiHero>, mutableListGood: MutableList<Hero>) {
+    fun magicHeroAttack(mutableListBad: MutableList<AntiHero>, mutableListGood: MutableList<Hero>) {
         val listOfAttack = listOf("lightningStrike", "earthquake", "regenerationBuff", "thunderSword")
         var antiHero = AntiHero("", 0)
 
