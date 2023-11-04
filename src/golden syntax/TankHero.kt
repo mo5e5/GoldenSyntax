@@ -6,7 +6,7 @@ class TankHero(name: String, healthbar: Int) : Hero(name, healthbar) {
     /**
      *  Führt die Fähigkeiten vom BossMinion random selber aus.
      *
-     *  @param mutableList hier wird eine Liste von Helden übergeben.
+     *  @param mutableList hier wird eine Liste von Anti Helden übergeben.
      */
     fun tankHeroAttack(mutableList: MutableList<AntiHero>) {
         val listOfAttack = listOf("heal", "drawAttentionHit", "punsh", "kick")

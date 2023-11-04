@@ -6,7 +6,7 @@ class DamageHero(name: String, healthbar: Int) : Hero(name, healthbar) {
     /**
      *  Führt die Fähigkeiten vom BossMinion random selber aus.
      *
-     *  @param mutableList hier wird eine Liste von Helden übergeben.
+     *  @param mutableList hier wird eine Liste von Anti Helden übergeben.
      */
     fun damageHeroAttack(mutableList: MutableList<AntiHero>) {
         val listOfAttack = listOf("swordSpin", "knopStrike", "swordMultiSpin", "thunderSword")
