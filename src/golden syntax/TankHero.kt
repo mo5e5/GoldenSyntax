@@ -105,7 +105,7 @@ class TankHero(name: String, healthbar: Int) : Hero(name, healthbar) {
      *  Zieht die Aufmerksamkeit aller Anti Helden auf sich und schlägt dan Raptusartig zu.
      *  Zieht jedem Anti Held 5 % seiner gesamten Lebensenergie ab.
      *
-     *  @param mutableList bekommt eine Liste von AntiHelden übergeben.
+     *  @param list bekommt eine Liste von Anti Helden übergeben.
      */
     fun drawAttentionHit(list: List<AntiHero>) {
         println(
@@ -122,7 +122,7 @@ class TankHero(name: String, healthbar: Int) : Hero(name, healthbar) {
     /**
      *  Ein heftiger Schlag der den getroffenen Anti Held 15 % seiner gesamten Lebensenergie abzieht.
      *
-     *  @param antiHero erhält einen random Anti Helden aus der Helden Liste.
+     *  @param antiHero erhält einen Anti Helden aus der antiHeroList.
      */
     fun punsh(antiHero: AntiHero) {
         println(
@@ -139,7 +139,7 @@ class TankHero(name: String, healthbar: Int) : Hero(name, healthbar) {
      *  Ein Roundhouse Kick aller Chuck Norris der den Anti Held 25 % seiner gesamten Lebensenergie abzieht.
      *  Nachdem diese Fähigkeit ausgeführt wurde, hat sie 3 Runden Cooldown.
      *
-     *  @param antiHero erhält einen random Anti Helden aus der Helden Liste.
+     *  @param antiHero erhält einen Anti Helden aus der antiHeroList.
      */
     fun kick(antiHero: AntiHero) {
         println(

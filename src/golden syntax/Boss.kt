@@ -141,7 +141,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      *  Stampft auf einem Helden herum was dem Helden 10 % seiner gesamten Lebensenergie an Schaden
      *  zufügt.
      *
-     *  @param hero erhält einen random Helden aus der Helden Liste.
+     *  @param hero erhält einen random Helden aus der heroList.
      */
     fun stomp(hero: Hero) {
         println(
@@ -159,7 +159,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      *  Zerquetscht einen Helden was diesem 15 % seiner gesamten Lebensenergie an Schaden
      *  zufügt.
      *
-     *  @param hero erhält einen random Helden aus der Helden Liste.
+     *  @param hero erhält einen random Helden aus der heroList.
      */
     fun crush(hero: Hero) {
         println(

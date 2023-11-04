@@ -102,7 +102,7 @@ class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
     /**
      *  Ein kraftvoller Schlag der einem Helden 5 % seiner gesamten Lebensenergie abzieht.
      *
-     *  @param hero erhält einen random Helden aus der Helden Liste.
+     *  @param hero erhält einen random Helden aus der heroList.
      */
     fun punsh(hero: Hero) {
         println(

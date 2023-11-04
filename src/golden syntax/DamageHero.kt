@@ -1,7 +1,7 @@
 class DamageHero(name: String, healthbar: Int) : Hero(name, healthbar) {
 
-    var swordMultiSpinCooldown = 0
-    var thunderSwordCooldown = 0
+    private var swordMultiSpinCooldown = 0
+    private var thunderSwordCooldown = 0
 
     /**
      *  Führt die Fähigkeiten vom BossMinion random selber aus.
@@ -126,6 +126,8 @@ class DamageHero(name: String, healthbar: Int) : Hero(name, healthbar) {
     /**
      *  Wirft ein kreisendes Schwert auf alle Anti Helden und fügt 15 % der gesamten Lebensenergie an Schaden zu.
      *  Nachdem diese Fähigkeit ausgeführt wurde, hat sie 3 Runden Cooldown.
+     *
+     *  @param list bekommt eine Liste von Anti Helden übergeben.
      */
     private fun swordMultiSpin(list: List<AntiHero>) {
         println(
@@ -143,6 +145,8 @@ class DamageHero(name: String, healthbar: Int) : Hero(name, healthbar) {
      *  Blitze kommen aus dem Himmel geflogen. Diese treffen einen Anti Held mit einem Schaden von 30 %
      *  der gesamten Lebensenergie des AntiHelden.
      *  Nachdem diese Fähigkeit ausgeführt wurde, hat sie 5 Runden Cooldown.
+     *
+     *  @param antiHero erhält einen Anti Helden aus der antiHeroList.
      */
     private fun thunderSword(antiHero: AntiHero) {
         println(
