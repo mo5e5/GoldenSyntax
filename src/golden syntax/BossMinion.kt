@@ -2,9 +2,9 @@ import kotlin.random.Random
 
 class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
 
-    var drawAttentionHitCooldown = 0
-    var shieldCooldown = 0
-    var hailBlowCooldown = 0
+    private var drawAttentionHitCooldown = 0
+    private var shieldCooldown = 0
+    private var hailBlowCooldown = 0
 
     /**
      *  Führt die Fähigkeiten vom BossMinion random selber aus.
@@ -71,7 +71,7 @@ class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      *
      *  @param list bekommt eine Liste von Helden übergeben.
      */
-    fun drawAttentionHit(list: List<Hero>) {
+    private fun drawAttentionHit(list: List<Hero>) {
         println(
             "${antiHeroList[1].name} blinzelt mit den Wimpern.\n" +
                     "Keiner der Helden kann diesem Wimpernaufschlag wiederstehen.\n" +
@@ -89,7 +89,7 @@ class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      *  Ein Lebensenergie Boost der 50 % der gesamten Lebensenergie beträgt.
      *  Nachdem diese Fähigkeit ausgeführt wurde, hat sie 2 Runden Cooldown.
      */
-    fun shield() {
+    private fun shield() {
         println(
             "${antiHeroList[1].name} hübscht sich auf.\n" +
                     "Dank einer Tonne Schminke hat ${antiHeroList[1].name} nun ${antiHeroList[1].maxHealth * 0.5} Lebenspunkte mehr."
@@ -104,7 +104,7 @@ class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      *
      *  @param hero erhält einen random Helden aus der heroList.
      */
-    fun punsh(hero: Hero) {
+    private fun punsh(hero: Hero) {
         println(
             "${antiHeroList[1].name} haut kräftig zu und zieht ${hero.name} 5 % seiner maximalen Lebenspunkte ab.\n" +
                     "${hero.name} hatte ${hero.healthbar} Lebenspunkte.\n" +
@@ -121,7 +121,7 @@ class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      *
      *  @param list bekommt eine Liste von Helden übergeben.
      */
-    fun hailBlow(list: List<Hero>) {
+    private fun hailBlow(list: List<Hero>) {
         println(
             "${antiHeroList[1].name} lässt es vom Himmel Hageln und fügt jedem Helden 10 % seiner\n" +
                     "gesamten Lebenspunkte als Schaden zu."

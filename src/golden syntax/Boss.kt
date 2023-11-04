@@ -2,13 +2,13 @@ import kotlin.random.Random
 
 class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
 
-    var bossMinionCount = 0
-    var shieldCooldown = 0
-    var curseCooldown = 0
-    var digestCooldown = 0
-    var digestCount = 0
+    private var bossMinionCount = 0
+    private var shieldCooldown = 0
+    private var curseCooldown = 0
+    private var digestCooldown = 0
+    private var digestCount = 0
 
-    val bossMinion1 = BossMinion("", 0)
+    private val bossMinion1 = BossMinion("", 0)
 
     /**
      *  Führt die Fähigkeiten vom Boss random selber aus.
@@ -101,7 +101,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
     /**
      *  Ruft den BossMinion zur Unterstützung hinzu.
      */
-    fun bossMinion(): BossMinion {
+    private fun bossMinion(): BossMinion {
         val bossMinion1 = BossMinion("Siphi", 5000)
         println(
             "$name beschwört mit all seiner macht ${bossMinion1.name}\n" +
@@ -114,7 +114,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      *  Ein Lebensenergie Boost der 50 % der gesamten Lebensenergie beträgt. Er hält bis er zerstört wird.
      *  Hat nach seiner zerstörung 3 Runden Cooldown.
      */
-    fun shield() {
+    private fun shield() {
         println(
             "$name fängt an beulen und Pusteln auf seiner Haut zu bilden.\n" +
                     "Seine Haut ist nun deutlich dicker er hat ${maxHealth * 0.5} Lebenspunkte mehr."
@@ -127,7 +127,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
     /**
      *  Regeneriert 15 % seiner gesamten Lebensenergie.
      */
-    fun lifeRegenaration() {
+    private fun lifeRegenaration() {
         println(
             "$name frisst ein paar Rinder.\n" +
                     "Danach hat $name deutlich mehr auf den Rippen.\n" +
@@ -143,7 +143,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      *
      *  @param hero erhält einen random Helden aus der heroList.
      */
-    fun stomp(hero: Hero) {
+    private fun stomp(hero: Hero) {
         println(
             "$name stampft auf ${hero.name} herum.\n" +
                     "${hero.name} sieht danach etwas zerknittert aus.\n" +
@@ -161,7 +161,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      *
      *  @param hero erhält einen random Helden aus der heroList.
      */
-    fun crush(hero: Hero) {
+    private fun crush(hero: Hero) {
         println(
             "$name greift sich ${hero.name} und zerquetscht ihn.\n" +
                     "Darauf hin tropft langsam Blut auf den kalten Boden.\n" +
@@ -178,7 +178,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      *
      *  @param mutableList bekommt eine Liste von Helden übergeben.
      */
-    fun curse(mutableList: MutableList<Hero>) {
+    private fun curse(mutableList: MutableList<Hero>) {
         println(
             "$name tanzt wie wild um seine Feuerstelle und murmelt dabei vor sich hin.\n" +
                     "Nachdem er damit aufhört fühlen die Helden sich komisch.\n" +
@@ -199,7 +199,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      *
      *  @param mutableList bekommt eine Liste von Helden übergeben.
      */
-    fun digest(mutableList: MutableList<Hero>) {
+    private fun digest(mutableList: MutableList<Hero>) {
         println(
             "$name fängt an zu  Magensäure zu spucken.\n" +
                     "Die Helden sind danach durchtränkt mit Magensäure."

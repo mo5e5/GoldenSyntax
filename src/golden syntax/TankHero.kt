@@ -1,7 +1,7 @@
 class TankHero(name: String, healthbar: Int) : Hero(name, healthbar) {
 
-    var healCooldown = 0
-    var kickCooldown = 0
+    private var healCooldown = 0
+    private var kickCooldown = 0
 
     /**
      *  Führt die Fähigkeiten vom BossMinion random selber aus.
@@ -92,7 +92,7 @@ class TankHero(name: String, healthbar: Int) : Hero(name, healthbar) {
      *  Heilt diesen Helden um 10 % seiner gesamten Lebensenergie.
      *  Nachdem diese Fähigkeit ausgeführt wurde, hat sie 1 Runden Cooldown.
      */
-    fun heal() {
+    private fun heal() {
         println(
             "$name versteckt sich hinter einer Mauer um seine Wunden zu heilen.\n" +
                     "$name regeneriert ${maxHealth * 0.1} Lebenspunkte."
@@ -107,7 +107,7 @@ class TankHero(name: String, healthbar: Int) : Hero(name, healthbar) {
      *
      *  @param list bekommt eine Liste von Anti Helden übergeben.
      */
-    fun drawAttentionHit(list: List<AntiHero>) {
+    private fun drawAttentionHit(list: List<AntiHero>) {
         println(
             "$name macht verrückte bewegungen und zieht damit die Aufmerksamkeit der Anti Helden auf sich.\n" +
                     "Dann schlägt er Raptusartig zu und jeder Anti Held erleidet 5 % Schaden."
@@ -124,7 +124,7 @@ class TankHero(name: String, healthbar: Int) : Hero(name, healthbar) {
      *
      *  @param antiHero erhält einen Anti Helden aus der antiHeroList.
      */
-    fun punsh(antiHero: AntiHero) {
+    private fun punsh(antiHero: AntiHero) {
         println(
             "$name schleudert seine Faust und zieht ${antiHero.name} 15 % seiner maximalen Lebenspunkte ab.\n" +
                     "${antiHero.name} hatte ${antiHero.healthbar} Lebenspunkte.\n" +
@@ -141,7 +141,7 @@ class TankHero(name: String, healthbar: Int) : Hero(name, healthbar) {
      *
      *  @param antiHero erhält einen Anti Helden aus der antiHeroList.
      */
-    fun kick(antiHero: AntiHero) {
+    private fun kick(antiHero: AntiHero) {
         println(
             "$name macht einen Roundhouse Kick. ${antiHero.name} erleidet 25 % Schaden.\n" +
                     "${antiHero.name} hatte ${antiHero.healthbar} Lebenspunkte.\n" +
