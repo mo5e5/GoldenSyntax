@@ -20,14 +20,20 @@ fun main() {
 
     val heroList: MutableList<Hero> = mutableListOf(artak, kyoku, vergumkaar)
 
+    var usedMagicBag = false
 
 
     do {
         println("Runde $roundCount")
 
-
         hero.useMagicBag(heroList, magicBag)
         println("-------")
+
+        if ()
+
+
+
+
         vergumkaar.tankHeroAttack(antiHeroList)
         println()
         artak.damageHeroAttack(antiHeroList)
@@ -36,6 +42,7 @@ fun main() {
         println("-------")
         elegaius.bossAttack(heroList)
         println("-------")
+
 
         if (hero in heroList) {
             hero.healthbar = 0
