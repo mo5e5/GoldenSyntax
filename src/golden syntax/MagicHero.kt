@@ -105,7 +105,8 @@ class MagicHero(name: String, healthbar: Int) : Hero(name, healthbar) {
                     "Alle Anti Helden werden 5 % Lebenspunkte abgezogen."
         )
         for (antiHero in list) {
-            val useLightningStrike = antiHero.healthbar - antiHero.maxHealth * 0.05
+            val damage = antiHero.maxHealth * damageMultiplier * 0.05
+            val useLightningStrike = antiHero.healthbar - damage
             antiHero.healthbar = useLightningStrike.toInt()
             println("${antiHero.name} hat nun noch ${antiHero.healthbar}.")
         }
@@ -117,10 +118,11 @@ class MagicHero(name: String, healthbar: Int) : Hero(name, healthbar) {
      *  @param antiHero erhält einen Anti Helden aus der antiHeroList.
      */
     private fun earthquake(antiHero: AntiHero) {
+        val damage = antiHero.maxHealth * damageMultiplier * 0.1
         println(
             "$name lässt die Erde erbeben und ${antiHero.name} erleidet 10 % Schaden.\n" +
                     "${antiHero.name} hatte ${antiHero.healthbar}.\n" +
-                    "Er hat ${antiHero.maxHealth * 0.15} Schaden erlitten."
+                    "Er hat $damage Schaden erlitten."
         )
         val useEarthquake = antiHero.healthbar - antiHero.maxHealth * 0.1
         antiHero.healthbar = useEarthquake.toInt()
@@ -149,12 +151,13 @@ class MagicHero(name: String, healthbar: Int) : Hero(name, healthbar) {
      *  @param antiHero erhält einen Anti Helden aus der antiHeroList.
      */
     private fun mortality(antiHero: AntiHero) {
+        val damage = antiHero.maxHealth * damageMultiplier * 0.25
         println(
             "$name spricht einen mächtigen Zauber über ${antiHero.name} aus.\n" +
                     "${antiHero.name} hatte ${antiHero.healthbar} Lebenspunkte.\n" +
-                    "Er hat ${maxHealth * 0.25} Schaden erlitten."
+                    "Er hat $damage Schaden erlitten."
         )
-        val useMortality = antiHero.healthbar - maxHealth * 0.25
+        val useMortality = antiHero.healthbar - damage
         antiHero.healthbar = useMortality.toInt()
         println("${antiHero.name} hat nun noch ${antiHero.healthbar}.")
     }
