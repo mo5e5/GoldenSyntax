@@ -23,7 +23,7 @@ fun main() {
     var usedMagicBag = false
 
 
-    do {
+
         println("Runde $roundCount")
 
         hero.useMagicBag(heroList, magicBag)
@@ -55,7 +55,7 @@ fun main() {
 
         roundCount++
 
-    } while (heroList.isNotEmpty() || antiHeroList.isNotEmpty())
+
 
 
     antiHeroList.clear()
