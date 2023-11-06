@@ -17,7 +17,7 @@ fun main() {
     val vergumkaar = TankHero("Vergumkaar", 3750)
 
     val heroList: MutableList<Hero> = mutableListOf(artak, kyoku, vergumkaar)
-
+/*
     do {
         if (hero in heroList){
             hero.healthbar = 0
@@ -40,6 +40,9 @@ fun main() {
         println("-------")
 
     } while (heroList.isNotEmpty() || antiHeroList.isNotEmpty() )
+*/
+    hero.useMagicBag(heroList,magicBag)
+    artak.damageHeroAttack(antiHeroList)
 
     antiHeroList.clear()
 }

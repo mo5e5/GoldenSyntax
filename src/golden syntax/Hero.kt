@@ -16,7 +16,6 @@ open class Hero(name: String, healthbar: Int) : Character(name, healthbar) {
 
         println("Möchtest du deinen Magic Bag nutzen? (y = yes, n = no)")
         val userInput = readln()
-        test
         if (userInput == "y") {
             try {
                 if (list.isNotEmpty()) {
@@ -93,3 +92,4 @@ open class Hero(name: String, healthbar: Int) : Character(name, healthbar) {
         }
     }
 }
+
