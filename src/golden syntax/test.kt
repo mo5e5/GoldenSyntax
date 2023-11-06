@@ -1,7 +1,9 @@
 val antiHeroList: MutableList<AntiHero> = mutableListOf()
 fun main() {
-    val antiHero = AntiHero("",0)
-    val hero = Hero("",0)
+    var roundCount = 1
+
+    val antiHero = AntiHero("", 0)
+    val hero = Hero("", 0)
 
     val elegaius = Boss("Elegaius", 8750)
 
@@ -17,9 +19,12 @@ fun main() {
     val vergumkaar = TankHero("Vergumkaar", 3750)
 
     val heroList: MutableList<Hero> = mutableListOf(artak, kyoku, vergumkaar)
-/*
+
+
     do {
-        if (hero in heroList){
+        println("Runde $roundCount")
+
+        if (hero in heroList) {
             hero.healthbar = 0
             heroList.remove(hero)
         }
@@ -28,21 +33,20 @@ fun main() {
             antiHeroList.remove(antiHero)
         }
 
-        hero.useMagicBag(heroList,magicBag)
+        hero.useMagicBag(heroList, magicBag)
         println("-------")
         vergumkaar.tankHeroAttack(antiHeroList)
         println()
         artak.damageHeroAttack(antiHeroList)
         println("-------")
-        kyoku.magicHeroAttack(antiHeroList,heroList)
+        kyoku.magicHeroAttack(antiHeroList, heroList)
         println("-------")
         elegaius.bossAttack(heroList)
         println("-------")
+        roundCount++
 
-    } while (heroList.isNotEmpty() || antiHeroList.isNotEmpty() )
-*/
-    hero.useMagicBag(heroList,magicBag)
-    artak.damageHeroAttack(antiHeroList)
+    } while (heroList.isNotEmpty() || antiHeroList.isNotEmpty())
+
 
     antiHeroList.clear()
 }
