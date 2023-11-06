@@ -27,10 +27,16 @@ fun main() {
         if (hero in heroList) {
             hero.healthbar = 0
             heroList.remove(hero)
+            if (heroList.isEmpty()) {
+                println("Das Böse hat gesiegt.")
+            }
         }
         if (antiHero in antiHeroList) {
             antiHero.healthbar = 0
             antiHeroList.remove(antiHero)
+            if (antiHeroList.isEmpty()) {
+                println("Die Helden wahren Siegreich.")
+            }
         }
 
         hero.useMagicBag(heroList, magicBag)
@@ -43,6 +49,7 @@ fun main() {
         println("-------")
         elegaius.bossAttack(heroList)
         println("-------")
+
         roundCount++
 
     } while (heroList.isNotEmpty() || antiHeroList.isNotEmpty())
