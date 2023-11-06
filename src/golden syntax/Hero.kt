@@ -8,12 +8,14 @@ open class Hero(name: String, healthbar: Int) : Character(name, healthbar) {
      *
      *
      */
-    open fun useMagicBag(list: MutableList<Hero>,magicBag: MagicBag) {
+    open fun useMagicBag(list: MutableList<Hero>, magicBag: MagicBag) {
 
         val listOfItems = listOf("heallItem", "healItemTeam", "buffItem")
         var hero = Hero("", 0)
+
         println("Möchtest du deinen Magic Bag nutzen? (y = yes, n = no)")
         val userInput = readln()
+
         if (userInput == "y") {
             try {
                 if (list.isNotEmpty()) {

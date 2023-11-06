@@ -78,10 +78,11 @@ fun main() {
     hero.useMagicBag(heroList,magicBag)
 */
 
-    artak.damageHeroAttack(antiHeroList)
     hero.useMagicBag(heroList,magicBag)
     artak.damageHeroAttack(antiHeroList)
-    hero.useMagicBag(heroList,magicBag)
+    artak.healthbar
+    artak.damageHeroAttack(antiHeroList)
+    artak.maxHealth
 
 
 
