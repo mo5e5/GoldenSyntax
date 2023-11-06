@@ -29,9 +29,9 @@ open class MagicBag {
      *
      *  @param hero erhält einen random Helden aus der heroList.
      */
-    fun buffItem(hero: Hero) {
-        val useBuffItem = hero.maxHealth * 0.2
-        hero.maxHealth = useBuffItem.toInt()
+    fun buffItem(hero: Hero,antiHero: AntiHero) {
+        val useBuffItem = antiHero.maxHealth * 0.2
+        antiHero.maxHealth = useBuffItem.toInt()
         println("${hero.name} macht nun 20 % mehr Schaden.")
     }
 

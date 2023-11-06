@@ -8,29 +8,30 @@ open class Hero(name: String, healthbar: Int) : Character(name, healthbar) {
      *
      *
      */
-    open fun useMagicBag(list: MutableList<Hero>, magicBag: MagicBag) {
+    open fun useMagicBag(listGood: MutableList<Hero>, listBad: MutableList<AntiHero>, magicBag: MagicBag) {
 
         val listOfItems = listOf("heallItem", "healItemTeam", "buffItem")
         var hero = Hero("", 0)
+        val antiHero = AntiHero("", 0)
 
         println("Möchtest du deinen Magic Bag nutzen? (y = yes, n = no)")
         val userInput = readln()
 
         if (userInput == "y") {
             try {
-                if (list.isNotEmpty()) {
+                if (listGood.isNotEmpty()) {
                     println(
                         "Wer soll in den Magic Bag greifen und diese runde keine Fähigkeit nutzen?\n" +
-                                "1 = ${list[0].name} 2 =${list[1].name} 3 = ${list[2].name}"
+                                "1 = ${listGood[0].name} 2 =${listGood[1].name} 3 = ${listGood[2].name}"
                     )
-                    hero = list[readln().toInt() - 1]
+                    hero = listGood[readln().toInt() - 1]
                 }
             } catch (e: Exception) {
                 println(
                     "Dieser Held ist kein Held er ist geflohen und hat die anderen im Stich gelassen.\n" +
                             "Wähle noch einmal."
                 )
-                hero = list[readln().toInt() - 1]
+                hero = listGood[readln().toInt() - 1]
             }
 
             println(
@@ -79,13 +80,13 @@ open class Hero(name: String, healthbar: Int) : Character(name, healthbar) {
                 }
 
                 "healItemTeam" -> {
-                    magicBag.healItemTeam(list)
+                    magicBag.healItemTeam(listGood)
                     healTeamItemUses--
 
                 }
 
                 "buffItem" -> {
-                    magicBag.buffItem(hero)
+                    magicBag.buffItem(hero, antiHero)
                     buffItemUses--
                 }
             }

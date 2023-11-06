@@ -76,13 +76,20 @@ fun main() {
     elegaius.bossAttack(heroList)
     println("-------")
     hero.useMagicBag(heroList,magicBag)
+
+    private  var hasUseMagicBag = false
+    if (hasUseMagicBag) {
+            println("$name hat den Magic Bag benutzt und kann deswegen keinen Zug in dieser Runde mehr machen.")
+            return
+        }
+    hasUseMagicBag = true
 */
 
-    hero.useMagicBag(heroList,magicBag)
+    hero.useMagicBag(heroList,antiHeroList,magicBag)
     artak.damageHeroAttack(antiHeroList)
-    artak.healthbar
+    hero.useMagicBag(heroList,antiHeroList,magicBag)
     artak.damageHeroAttack(antiHeroList)
-    artak.maxHealth
+
 
 
 
