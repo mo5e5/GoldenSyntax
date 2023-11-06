@@ -20,24 +20,24 @@ fun main() {
 
     val heroList: MutableList<Hero> = mutableListOf(artak, kyoku, vergumkaar)
 
+    if (hero in heroList) {
+        hero.healthbar = 0
+        heroList.remove(hero)
+        if (heroList.isEmpty()) {
+            println("Das Böse hat gesiegt.")
+        }
+    }
+    if (antiHero in antiHeroList) {
+        antiHero.healthbar = 0
+        antiHeroList.remove(antiHero)
+        if (antiHeroList.isEmpty()) {
+            println("Die Helden wahren Siegreich.")
+        }
+    }
 
     do {
         println("Runde $roundCount")
 
-        if (hero in heroList) {
-            hero.healthbar = 0
-            heroList.remove(hero)
-            if (heroList.isEmpty()) {
-                println("Das Böse hat gesiegt.")
-            }
-        }
-        if (antiHero in antiHeroList) {
-            antiHero.healthbar = 0
-            antiHeroList.remove(antiHero)
-            if (antiHeroList.isEmpty()) {
-                println("Die Helden wahren Siegreich.")
-            }
-        }
 
         hero.useMagicBag(heroList, magicBag)
         println("-------")
