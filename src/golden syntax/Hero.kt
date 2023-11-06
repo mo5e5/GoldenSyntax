@@ -8,80 +8,84 @@ open class Hero(name: String, healthbar: Int) : Character(name, healthbar) {
      *
      *
      */
-    fun useMagicBag(list: List<Hero>, magicBag: MagicBag) {
+    open fun useMagicBag(list: MutableList<Hero>,magicBag: MagicBag) {
 
         val listOfItems = listOf("heallItem", "healItemTeam", "buffItem")
         var hero = Hero("", 0)
-
-        println(
-            "Du kannst in dieser Runde $listOfItems nutzen.\n" +
-                    "Wähle eine Item von 1 - 3."
-        )
-
-        try {
-            if (list.isNotEmpty()) {
+        println("Möchtest du deinen Magic Bag nutzen? (y = yes, n = no)")
+        val userInput = readln()
+        if (userInput == "y") {
+            try {
+                if (list.isNotEmpty()) {
+                    println(
+                        "Wer soll in den Magic Bag greifen und diese runde keine Fähigkeit nutzen?\n" +
+                                "1 = ${list[0].name} 2 =${list[1].name} 3 = ${list[2].name}"
+                    )
+                    hero = list[readln().toInt() - 1]
+                }
+            } catch (e: Exception) {
                 println(
-                    "Wer soll in den Magic Bag greifen und diese runde keine Fähigkeit nutzen?\n" +
-                            "1 = ${list[0].name} 2 =${list[1].name} 3 = ${list[2].name}"
+                    "Dieser Held ist kein Held er ist geflohen und hat die anderen im Stich gelassen.\n" +
+                            "Wähle noch einmal."
                 )
                 hero = list[readln().toInt() - 1]
             }
-        } catch (e: Exception) {
+
             println(
-                "Dieser Held ist kein Held er ist geflohen und hat die anderen im Stich gelassen.\n" +
-                        "Wähle noch einmal."
+                "${hero.name} greift in den Magischen Beutel.\n" +
+                        "Nach kurzer Zeit des wühlens findet er ..."
             )
-            hero = list[readln().toInt() - 1]
-        }
+            println()
 
-        println(
-            "$name greift in den Magischen Beutel.\n" +
-                    "Nach kurzer Zeit des wühlens findet er ..."
-        )
+            println(
+                "Du kannst in dieser Runde $listOfItems nutzen.\n" +
+                        "Wähle eine Item von 1 - 3."
+            )
 
-        var tryUseBag: Int
-        var useBag: String
+            var tryUseBag: Int
+            var useBag: String
 
-        while (true) {
-            tryUseBag = readln().toInt()
-            if (tryUseBag !in 1..3) {
-                println(
-                    "Das Item ist nicht im Beutel.\n" +
-                            "Greif nochmal rein."
-                )
-                continue
-            }
-            useBag = listOfItems[tryUseBag - 1]
-            if ((useBag == "heallItem" && healItemUses == 0) ||
-                (useBag == "healItemTeam" && healTeamItemUses == 0) ||
-                (useBag == "buffItem" && buffItemUses == 0)
-            ) {
-                println(
-                    "$useBag ist schon aufgebraucht.\n" +
-                            "Versuche ein anderes."
-                )
-                continue
-            }
-            break
-        }
-
-        when (useBag) {
-            "heallItem" -> {
-                magicBag.heallItem(hero)
-                healItemUses--
-
-
+            while (true) {
+                tryUseBag = readln().toInt()
+                if (tryUseBag !in 1..3) {
+                    println(
+                        "Das Item ist nicht im Beutel.\n" +
+                                "Greif nochmal rein."
+                    )
+                    continue
+                }
+                useBag = listOfItems[tryUseBag - 1]
+                if ((useBag == "heallItem" && healItemUses == 0) ||
+                    (useBag == "healItemTeam" && healTeamItemUses == 0) ||
+                    (useBag == "buffItem" && buffItemUses == 0)
+                ) {
+                    println(
+                        "$useBag ist schon aufgebraucht.\n" +
+                                "Versuche ein anderes."
+                    )
+                    continue
+                }
+                break
             }
 
-            "healItemTeam" -> {
-                magicBag.healItemTeam(list)
-                healTeamItemUses--
+            when (useBag) {
+                "heallItem" -> {
+                    magicBag.heallItem(hero)
+                    healItemUses--
 
-            }
 
-            "buffItem" -> {
-                magicBag.buffItem(hero)
-                buffItemUses--
+                }
+
+                "healItemTeam" -> {
+                    magicBag.healItemTeam(list)
+                    healTeamItemUses--
+
+                }
+
+                "buffItem" -> {
+                    magicBag.buffItem(hero)
+                    buffItemUses--
+                }
             }
         }
     }
