@@ -4,18 +4,12 @@ open class Hero(name: String, healthbar: Int) : Character(name, healthbar) {
     private var healItemUses = 3
     private var healTeamItemUses = 2
     private var buffItemUses = 1
-    private  var hasUseMagicBag = false
 
     /**
      *
      *
      */
     open fun useMagicBag(list: MutableList<Hero>, magicBag: MagicBag) {
-
-        if (hasUseMagicBag) {
-            println("$name hat den Magic Bag benutzt und kann deswegen keinen Zug in dieser Runde mehr machen.")
-            return
-        }
 
         val listOfItems = listOf("heallItem", "healItemTeam", "buffItem")
         var hero: Hero = list[0]
@@ -97,6 +91,5 @@ open class Hero(name: String, healthbar: Int) : Character(name, healthbar) {
                 }
             }
         }
-        hasUseMagicBag = true
     }
 }
