@@ -14,6 +14,10 @@ fun main() {
 
     val heroList: MutableList<Hero> = mutableListOf(artak, kyoku, vergumkaar)
 
+    hero.useMagicBag(heroList,antiHeroList,magicBag)
+    artak.damageHeroAttack(antiHeroList)
+    hero.useMagicBag(heroList,antiHeroList,magicBag)
+    artak.damageHeroAttack(antiHeroList)
 /*
     hero.useMagicBag(heroList,magicBag)
     println("-------")
@@ -85,10 +89,7 @@ fun main() {
     hasUseMagicBag = true
 */
 
-    hero.useMagicBag(heroList,antiHeroList,magicBag)
-    artak.damageHeroAttack(antiHeroList)
-    hero.useMagicBag(heroList,antiHeroList,magicBag)
-    artak.damageHeroAttack(antiHeroList)
+
 
 
 

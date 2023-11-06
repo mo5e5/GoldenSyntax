@@ -98,12 +98,13 @@ class DamageHero(name: String, healthbar: Int) : Hero(name, healthbar) {
      *  Klinge getroffen und erleidet 15 % seiner gesamten Lebensenergie an Schaden.
      */
     private fun swordSpin(antiHero: AntiHero) {
+        val damage = antiHero.maxHealth * damageMultiplier * 0.15
         println(
             "$name schleudert sein schwert auf ${antiHero.name} und zieht ihm 15 % seiner Lebenspunkte ab.\n" +
                     "${antiHero.name} hatte ${antiHero.healthbar} Lebenspunkte.\n" +
-                    "Er hat ${antiHero.maxHealth * 0.15} Schaden erlitten."
+                    "Er hat $damage Schaden erlitten."
         )
-        val useSwordSpin = antiHero.healthbar - antiHero.maxHealth * 0.15
+        val useSwordSpin = antiHero.healthbar - damage
         antiHero.healthbar = useSwordSpin.toInt()
         println("${antiHero.name} hat nun noch ${antiHero.healthbar}.")
     }
@@ -113,13 +114,14 @@ class DamageHero(name: String, healthbar: Int) : Hero(name, healthbar) {
      *  an Schaden zu.
      */
     private fun knopStrike(antiHero: AntiHero) {
+        val damage = antiHero.maxHealth * damageMultiplier * 0.1
         println(
             "$name wirft sein Schwert in die luft und fängt es an der Klinge und haut mit dem Griff\n" +
                     "fest zu und trifft ${antiHero.name}.\n" +
                     "${antiHero.name} hatte ${antiHero.healthbar} Lebenspunkte.\n" +
-                    "Er hat ${antiHero.maxHealth * 0.1} Schaden erlitten."
+                    "Er hat $damage Schaden erlitten."
         )
-        val useKnopStrike = antiHero.healthbar - antiHero.maxHealth * 0.1
+        val useKnopStrike = antiHero.healthbar - damage
         antiHero.healthbar = useKnopStrike.toInt()
         println("${antiHero.name} hat nun noch ${antiHero.healthbar}.")
     }
@@ -136,7 +138,8 @@ class DamageHero(name: String, healthbar: Int) : Hero(name, healthbar) {
                     "Jeder Anti Held erleidet 15 % Schaden."
         )
         for (antiHero in list) {
-            val useSwordMultiSpin = antiHero.healthbar - antiHero.maxHealth * 0.15
+            val damage = antiHero.maxHealth * damageMultiplier * 0.15
+            val useSwordMultiSpin = antiHero.healthbar - damage
             antiHero.healthbar = useSwordMultiSpin.toInt()
             println("${antiHero.name} hat nun noch ${antiHero.healthbar}.")
         }
@@ -150,13 +153,14 @@ class DamageHero(name: String, healthbar: Int) : Hero(name, healthbar) {
      *  @param antiHero erhält einen Anti Helden aus der antiHeroList.
      */
     private fun thunderSword(antiHero: AntiHero) {
+        val damage = antiHero.maxHealth * damageMultiplier * 0.30
         println(
             "$name hält sein Schwert in die Luft und murmelt etwas.\n" +
                     "Plötzlich fängt es an zu Donnern und Blitze schlagen auf ${antiHero.name} ein.\n" +
                     "${antiHero.name} hatte ${antiHero.healthbar} Lebenspunkte.\n" +
-                    "Er hat ${antiHero.maxHealth * 0.25} Schaden erlitten."
+                    "Er hat $damage Schaden erlitten."
         )
-        val useThunderSword = antiHero.healthbar - antiHero.maxHealth * 0.3
+        val useThunderSword = antiHero.healthbar - damage
         antiHero.healthbar = useThunderSword.toInt()
         println("${antiHero.name} hat nun noch ${antiHero.healthbar}.")
     }

@@ -1,5 +1,6 @@
 open class Hero(name: String, healthbar: Int) : Character(name, healthbar) {
 
+    var damageMultiplier = 1.0
     private var healItemUses = 3
     private var healTeamItemUses = 2
     private var buffItemUses = 1
@@ -11,8 +12,8 @@ open class Hero(name: String, healthbar: Int) : Character(name, healthbar) {
     open fun useMagicBag(listGood: MutableList<Hero>, listBad: MutableList<AntiHero>, magicBag: MagicBag) {
 
         val listOfItems = listOf("heallItem", "healItemTeam", "buffItem")
-        var hero = Hero("", 0)
-        val antiHero = AntiHero("", 0)
+        var hero: Hero = listGood[0]
+        val antiHero: AntiHero = listBad[0]
 
         println("Möchtest du deinen Magic Bag nutzen? (y = yes, n = no)")
         val userInput = readln()
@@ -86,7 +87,7 @@ open class Hero(name: String, healthbar: Int) : Character(name, healthbar) {
                 }
 
                 "buffItem" -> {
-                    magicBag.buffItem(hero, antiHero)
+                    magicBag.buffItem(hero)
                     buffItemUses--
                 }
             }
