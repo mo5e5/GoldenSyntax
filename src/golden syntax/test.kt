@@ -28,12 +28,6 @@ fun main() {
 
         hero.useMagicBag(heroList, magicBag)
         println("-------")
-
-        if ()
-
-
-
-
         vergumkaar.tankHeroAttack(antiHeroList)
         println()
         artak.damageHeroAttack(antiHeroList)
