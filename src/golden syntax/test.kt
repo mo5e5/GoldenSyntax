@@ -1,9 +1,13 @@
 val antiHeroList: MutableList<AntiHero> = mutableListOf()
 fun main() {
+    val antiHero = AntiHero("",0)
+    val hero = Hero("",0)
+
     val elegaius = Boss("Elegaius", 8750)
+
     antiHeroList.add(elegaius)
 
-    val hero = Hero("",0)
+
     val magicBag = MagicBag()
 
     val artak = DamageHero("Artak", 1750)
@@ -14,84 +18,38 @@ fun main() {
 
     val heroList: MutableList<Hero> = mutableListOf(artak, kyoku, vergumkaar)
 
-    hero.useMagicBag(heroList,antiHeroList,magicBag)
-    artak.damageHeroAttack(antiHeroList)
-    hero.useMagicBag(heroList,antiHeroList,magicBag)
-    artak.damageHeroAttack(antiHeroList)
-/*
-    hero.useMagicBag(heroList,magicBag)
-    println("-------")
-    vergumkaar.tankHeroAttack(antiHeroList)
-    println()
-    artak.damageHeroAttack(antiHeroList)
-    println("-------")
-    kyoku.magicHeroAttack(antiHeroList,heroList)
-    println("-------")
-    elegaius.bossAttack(heroList)
-    println("-------")
-    hero.useMagicBag(heroList,magicBag)
-    println("-------")
-    vergumkaar.tankHeroAttack(antiHeroList)
-    println()
-    artak.damageHeroAttack(antiHeroList)
-    println("-------")
-    kyoku.magicHeroAttack(antiHeroList,heroList)
-    println("-------")
-    elegaius.bossAttack(heroList)
-    println("-------")
-    hero.useMagicBag(heroList,magicBag)
-    println("-------")
-    vergumkaar.tankHeroAttack(antiHeroList)
-    println()
-    artak.damageHeroAttack(antiHeroList)
-    println("-------")
-    kyoku.magicHeroAttack(antiHeroList,heroList)
-    println("-------")
-    elegaius.bossAttack(heroList)
-    println("-------")
-    hero.useMagicBag(heroList,magicBag)
-    println("-------")
-    vergumkaar.tankHeroAttack(antiHeroList)
-    println()
-    artak.damageHeroAttack(antiHeroList)
-    println("-------")
-    kyoku.magicHeroAttack(antiHeroList,heroList)
-    println("-------")
-    elegaius.bossAttack(heroList)
-    println("-------")
-    hero.useMagicBag(heroList,magicBag)
-    println("-------")
-    vergumkaar.tankHeroAttack(antiHeroList)
-    println()
-    artak.damageHeroAttack(antiHeroList)
-    println("-------")
-    kyoku.magicHeroAttack(antiHeroList,heroList)
-    println("-------")
-    elegaius.bossAttack(heroList)
-    println("-------")
-    hero.useMagicBag(heroList,magicBag)
-    println("-------")
-    vergumkaar.tankHeroAttack(antiHeroList)
-    println()
-    artak.damageHeroAttack(antiHeroList)
-    println("-------")
-    kyoku.magicHeroAttack(antiHeroList,heroList)
-    println("-------")
-    elegaius.bossAttack(heroList)
-    println("-------")
-    hero.useMagicBag(heroList,magicBag)
+    do {
+        if (hero in heroList){
+            hero.healthbar = 0
+            heroList.remove(hero)
+        }
+        if (antiHero in antiHeroList) {
+            antiHero.healthbar = 0
+            antiHeroList.remove(antiHero)
+        }
 
-    private  var hasUseMagicBag = false
+        hero.useMagicBag(heroList,magicBag)
+        println("-------")
+        vergumkaar.tankHeroAttack(antiHeroList)
+        println()
+        artak.damageHeroAttack(antiHeroList)
+        println("-------")
+        kyoku.magicHeroAttack(antiHeroList,heroList)
+        println("-------")
+        elegaius.bossAttack(heroList)
+        println("-------")
+
+    } while (heroList.isNotEmpty() || antiHeroList.isNotEmpty() )
+
+
+/*
+    private var hasUseMagicBag = false
     if (hasUseMagicBag) {
             println("$name hat den Magic Bag benutzt und kann deswegen keinen Zug in dieser Runde mehr machen.")
             return
         }
     hasUseMagicBag = true
 */
-
-
-
-
 
 
 

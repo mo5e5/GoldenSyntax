@@ -13,11 +13,11 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
     /**
      *  Führt die Fähigkeiten vom Boss random selber aus.
      *
-     *  @param mutableList hier wird eine Liste von Helden übergeben.
+     *  @param list hier wird eine Liste von Helden übergeben.
      */
-    fun bossAttack(mutableList: MutableList<Hero>) {
+    fun bossAttack(list: MutableList<Hero>) {
         var attackNumber = Random.nextInt(0, 7)
-        val radomHero = mutableList.random()
+        val radomHero = list.random()
         if (shieldCooldown >= 0) {
             shieldCooldown--
         }
@@ -54,7 +54,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
             }
         }
         if (digestCount == 1) {
-            digest(mutableList)
+            digest(list)
             digestCount = 0
         }
         when (attackNumber) {
@@ -81,12 +81,12 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
             }
 
             5 -> {
-                curse(mutableList)
+                curse(list)
                 curseCooldown = 5
             }
 
             6 -> {
-                digest(mutableList)
+                digest(list)
                 digestCooldown = 3
                 digestCount = 1
             }
@@ -94,7 +94,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
         if (bossMinionCount == 1) {
             println()
             print(bossMinion1.name)
-            bossMinion1.bossMinionAttack(mutableList)
+            bossMinion1.bossMinionAttack(list)
         }
     }
 

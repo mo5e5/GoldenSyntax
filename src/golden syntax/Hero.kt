@@ -4,35 +4,40 @@ open class Hero(name: String, healthbar: Int) : Character(name, healthbar) {
     private var healItemUses = 3
     private var healTeamItemUses = 2
     private var buffItemUses = 1
+    private  var hasUseMagicBag = false
 
     /**
      *
      *
      */
-    open fun useMagicBag(listGood: MutableList<Hero>, listBad: MutableList<AntiHero>, magicBag: MagicBag) {
+    open fun useMagicBag(list: MutableList<Hero>, magicBag: MagicBag) {
+
+        if (hasUseMagicBag) {
+            println("$name hat den Magic Bag benutzt und kann deswegen keinen Zug in dieser Runde mehr machen.")
+            return
+        }
 
         val listOfItems = listOf("heallItem", "healItemTeam", "buffItem")
-        var hero: Hero = listGood[0]
-        val antiHero: AntiHero = listBad[0]
+        var hero: Hero = list[0]
 
         println("Möchtest du deinen Magic Bag nutzen? (y = yes, n = no)")
         val userInput = readln()
 
         if (userInput == "y") {
             try {
-                if (listGood.isNotEmpty()) {
+                if (list.isNotEmpty()) {
                     println(
                         "Wer soll in den Magic Bag greifen und diese runde keine Fähigkeit nutzen?\n" +
-                                "1 = ${listGood[0].name} 2 =${listGood[1].name} 3 = ${listGood[2].name}"
+                                "1 = ${list[0].name} 2 =${list[1].name} 3 = ${list[2].name}"
                     )
-                    hero = listGood[readln().toInt() - 1]
+                    hero = list[readln().toInt() - 1]
                 }
             } catch (e: Exception) {
                 println(
                     "Dieser Held ist kein Held er ist geflohen und hat die anderen im Stich gelassen.\n" +
                             "Wähle noch einmal."
                 )
-                hero = listGood[readln().toInt() - 1]
+                hero = list[readln().toInt() - 1]
             }
 
             println(
@@ -81,7 +86,7 @@ open class Hero(name: String, healthbar: Int) : Character(name, healthbar) {
                 }
 
                 "healItemTeam" -> {
-                    magicBag.healItemTeam(listGood)
+                    magicBag.healItemTeam(list)
                     healTeamItemUses--
 
                 }
@@ -92,5 +97,6 @@ open class Hero(name: String, healthbar: Int) : Character(name, healthbar) {
                 }
             }
         }
+        hasUseMagicBag = true
     }
 }
