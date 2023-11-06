@@ -41,17 +41,5 @@ fun main() {
 
     } while (heroList.isNotEmpty() || antiHeroList.isNotEmpty() )
 
-
-/*
-    private var hasUseMagicBag = false
-    if (hasUseMagicBag) {
-            println("$name hat den Magic Bag benutzt und kann deswegen keinen Zug in dieser Runde mehr machen.")
-            return
-        }
-    hasUseMagicBag = true
-*/
-
-
-
     antiHeroList.clear()
 }
