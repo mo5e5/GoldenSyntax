@@ -82,7 +82,6 @@ class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
             hero.healthbar = useDrawAttentionHit.toInt()
             println("${hero.name} erleidet ${hero.maxHealth * 0.025} Schaden.")
         }
-
     }
 
     /**
