@@ -110,18 +110,6 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
     }
 
     /**
-     *  Ruft den BossMinion zur Unterstützung hinzu.
-     */
-    private fun bossMinion(): BossMinion {
-        val bossMinion1 = BossMinion("Siphi", 5000)
-        println(
-            "$name beschwört mit all seiner macht ${bossMinion1.name}\n" +
-                    "um ihm im Kampf gegen die Helden zu helfen."
-        )
-        return bossMinion1
-    }
-
-    /**
      *  Ein Lebensenergie Boost der 50 % der gesamten Lebensenergie beträgt. Er hält bis er zerstört wird.
      *  Hat nach seiner zerstörung 3 Runden Cooldown.
      */

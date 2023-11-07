@@ -51,6 +51,7 @@ fun main() {
                     break
                 }
             }
+            if (antiHeroList.any { it.healthbar == 0 })
             if (elegaius.healthbar > 0) {
                 println("-------")
                 val result = elegaius.bossAttack(heroList)
