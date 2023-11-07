@@ -18,6 +18,7 @@ open class Hero(name: String, healthbar: Int) : Character(name, healthbar) {
 
         println("Möchtest du deinen Magic Bag nutzen? (y = yes)")
         val userInput = readln()
+
         if (userInput == "y") {
             while (hero == null) {
                 try {
