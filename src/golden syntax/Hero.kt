@@ -9,7 +9,7 @@ open class Hero(name: String, healthbar: Int) : Character(name, healthbar) {
      *
      *
      */
-    open fun useMagicBag(list: MutableList<Hero>, magicBag: MagicBag) {
+    open fun useMagicBag(list: MutableList<Hero>, magicBag: MagicBag): String {
 
         val listOfItems = listOf("heallItem", "healItemTeam", "buffItem")
         var hero: Hero = list[0]
@@ -89,7 +89,9 @@ open class Hero(name: String, healthbar: Int) : Character(name, healthbar) {
                     buffItemUses--
                 }
             }
+            return hero.name
         }
+        return ""
     }
 }
 

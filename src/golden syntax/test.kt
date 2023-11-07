@@ -2,8 +2,8 @@ val antiHeroList: MutableList<AntiHero> = mutableListOf()
 fun main() {
     var roundCount = 1
 
-    val antiHero = AntiHero("", 0)
-    val hero = Hero("", 0)
+    //val antiHero = AntiHero("", 0)
+    //val hero = Hero("", 0)
 
     val elegaius = Boss("Elegaius", 8750)
 
@@ -20,43 +20,53 @@ fun main() {
 
     val heroList: MutableList<Hero> = mutableListOf(artak, kyoku, vergumkaar)
 
-    var usedMagicBag = false
 
 
 
-        println("Runde $roundCount")
-
-        hero.useMagicBag(heroList, magicBag)
-        println("-------")
-        vergumkaar.tankHeroAttack(antiHeroList)
-        println()
-        artak.damageHeroAttack(antiHeroList)
-        println("-------")
-        kyoku.magicHeroAttack(antiHeroList, heroList)
-        println("-------")
-        elegaius.bossAttack(heroList)
-        println("-------")
 
 
-        if (hero in heroList) {
-            hero.healthbar = 0
-            heroList.remove(hero)
-            if (heroList.isEmpty()) {
-                println("Das Böse hat gesiegt.")
+    while (true) {
+        for (hero in heroList) {
+            println("-------")
+            println("Runde $roundCount")
+            println("-------")
+            if (hero.healthbar <= 0) {
+                println("${hero.name} hat keine Lebenspunkte mehr. Er ist aus dem Spiel.")
+                continue
             }
-        }
-        if (antiHero in antiHeroList) {
-            antiHero.healthbar = 0
-            antiHeroList.remove(antiHero)
-            if (antiHeroList.isEmpty()) {
-                println("Die Helden wahren Siegreich.")
+            val heroWhoUsedMagicBag = hero.useMagicBag(heroList, magicBag)
+            println("-------")
+            if (heroWhoUsedMagicBag != vergumkaar.name) {
+                vergumkaar.tankHeroAttack(antiHeroList)
+                println("-------")
             }
+            if (heroWhoUsedMagicBag != artak.name) {
+                artak.damageHeroAttack(antiHeroList)
+                println("-------")
+            }
+            if (heroWhoUsedMagicBag != kyoku.name) {
+                kyoku.magicHeroAttack(antiHeroList, heroList)
+                println("-------")
+            }
+            for (antiHero in antiHeroList) {
+                if (antiHero.healthbar <= 0) {
+                    println("${antiHero.name} hat keine Lebenspunkte mehr. Er ist aus dem Spiel.")
+                    continue
+                }
+                println("-------")
+                elegaius.bossAttack(heroList)
+                println("-------")
+            }
+            if (heroList.all { it.healthbar <= 0 }) {
+                println("Das Böse war Siegreich.")
+                break
+            } else if (antiHeroList.all { it.healthbar <= 0 }) {
+                println("Das Gute hat gesiegt.")
+                break
+            }
+            roundCount++
         }
 
-        roundCount++
-
-
-
-
-    antiHeroList.clear()
+        antiHeroList.clear()
+    }
 }
