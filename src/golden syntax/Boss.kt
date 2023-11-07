@@ -17,7 +17,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      */
     fun bossAttack(list: MutableList<Hero>): Int {
         var attackNumber = Random.nextInt(0, 7)
-       // var attackNumber = 0
+        // var attackNumber = 0
         val radomHero = list.random()
         if (shieldCooldown >= 0) {
             shieldCooldown--
@@ -98,14 +98,6 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
                 return 0
             }
         }
-        /*
-        if (bossMinionCount == 1) {
-            println()
-            print(bossMinion1.name)
-            bossMinion1.bossMinionAttack(list)
-        }
-
-         */
         return 0
     }
 
