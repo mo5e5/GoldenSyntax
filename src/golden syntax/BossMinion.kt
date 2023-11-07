@@ -80,7 +80,7 @@ class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
         for (hero in list) {
             val useDrawAttentionHit = hero.healthbar - hero.maxHealth * 0.025
             hero.healthbar = useDrawAttentionHit.toInt()
-            println("${hero.name} hat nun noch ${hero.healthbar}.")
+            println("${hero.name} hat nun noch ${hero.healthbar} Lebenspunkte.")
         }
 
     }
@@ -112,7 +112,7 @@ class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
         )
         val usePunsh = hero.healthbar - hero.maxHealth * 0.05
         hero.healthbar = usePunsh.toInt()
-        println("${hero.name} hat nun noch ${hero.healthbar}.")
+        println("${hero.name} hat nun noch ${hero.healthbar} Lebenspunkte.")
     }
 
     /**
@@ -129,7 +129,7 @@ class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
         for (hero in list) {
             val useHailBlow = hero.healthbar - hero.maxHealth * 0.1
             hero.healthbar = useHailBlow.toInt()
-            println("${hero.name} hat nun noch ${hero.healthbar}.")
+            println("${hero.name} hat nun noch ${hero.healthbar} Lebenspunkte.")
         }
     }
 }

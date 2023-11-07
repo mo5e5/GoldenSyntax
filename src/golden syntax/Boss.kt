@@ -152,7 +152,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
         )
         val useStomp = hero.healthbar - hero.maxHealth * 0.1
         hero.healthbar = useStomp.toInt()
-        println("${hero.name} hat nun noch ${hero.healthbar}.")
+        println("${hero.name} hat nun noch ${hero.healthbar} Lebenspunkte.")
     }
 
     /**
@@ -188,7 +188,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
         for (hero in mutableList) {
             val useCurse = hero.maxHealth - 0.2
             hero.healthbar = useCurse.toInt()
-            println("${hero.name} hat nun noch ${hero.healthbar}.")
+            println("${hero.name} hat nun noch ${hero.healthbar} Lebenspunkte.")
         }
     }
 
@@ -207,7 +207,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
         for (hero in mutableList) {
             val useDigest = hero.healthbar - hero.maxHealth * 0.05
             hero.healthbar = useDigest.toInt()
-            println("${hero.name} hat nun noch ${hero.healthbar}.")
+            println("${hero.name} hat nun noch ${hero.healthbar} Lebenspunkte.")
         }
     }
 }

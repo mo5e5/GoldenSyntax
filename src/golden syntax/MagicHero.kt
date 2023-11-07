@@ -108,7 +108,7 @@ class MagicHero(name: String, healthbar: Int) : Hero(name, healthbar) {
             val damage = antiHero.maxHealth * damageMultiplier * 0.05
             val useLightningStrike = antiHero.healthbar - damage
             antiHero.healthbar = useLightningStrike.toInt()
-            println("${antiHero.name} hat nun noch ${antiHero.healthbar}.")
+            println("${antiHero.name} hat nun noch ${antiHero.healthbar} Lebenspunkte.")
         }
     }
 
@@ -126,7 +126,7 @@ class MagicHero(name: String, healthbar: Int) : Hero(name, healthbar) {
         )
         val useEarthquake = antiHero.healthbar - antiHero.maxHealth * 0.1
         antiHero.healthbar = useEarthquake.toInt()
-        println("${antiHero.name} hat nun noch ${antiHero.healthbar}.")
+        println("${antiHero.name} hat nun noch ${antiHero.healthbar} Lebenspunkte.")
     }
 
     /**
@@ -140,7 +140,7 @@ class MagicHero(name: String, healthbar: Int) : Hero(name, healthbar) {
         for (hero in list) {
             val useRegenerationBuff = hero.healthbar + hero.maxHealth * 0.15
             hero.healthbar = useRegenerationBuff.toInt()
-            println("${hero.name} hat nun ${hero.healthbar} Lebenspunkte.")
+            println("${hero.name} hat nun wieder ${hero.healthbar} Lebenspunkte.")
         }
     }
 
@@ -159,6 +159,6 @@ class MagicHero(name: String, healthbar: Int) : Hero(name, healthbar) {
         )
         val useMortality = antiHero.healthbar - damage
         antiHero.healthbar = useMortality.toInt()
-        println("${antiHero.name} hat nun noch ${antiHero.healthbar}.")
+        println("${antiHero.name} hat nun noch ${antiHero.healthbar} Lebenspunkte.")
     }
 }

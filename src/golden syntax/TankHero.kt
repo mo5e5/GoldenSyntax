@@ -117,7 +117,7 @@ class TankHero(name: String, healthbar: Int) : Hero(name, healthbar) {
             val damage = antiHero.maxHealth * damageMultiplier * 0.15
             val useDrawAttentionHit = antiHero.healthbar - damage
             antiHero.healthbar = useDrawAttentionHit.toInt()
-            println("${antiHero.name} hat nun noch ${antiHero.healthbar}.")
+            println("${antiHero.name} hat nun noch ${antiHero.healthbar} Lebenspunkte.")
         }
     }
 
@@ -135,7 +135,7 @@ class TankHero(name: String, healthbar: Int) : Hero(name, healthbar) {
         )
         val usePunsh = antiHero.healthbar - damage
         antiHero.healthbar = usePunsh.toInt()
-        println("${antiHero.name} hat nun noch ${antiHero.healthbar}.")
+        println("${antiHero.name} hat nun noch ${antiHero.healthbar} Lebenspunkte.")
     }
 
     /**
@@ -153,6 +153,6 @@ class TankHero(name: String, healthbar: Int) : Hero(name, healthbar) {
         )
         val useKick = antiHero.healthbar - damage
         antiHero.healthbar = useKick.toInt()
-        println("${antiHero.name} hat nun noch ${antiHero.healthbar}.")
+        println("${antiHero.name} hat nun noch ${antiHero.healthbar} Lebenspunkte.")
     }
 }
