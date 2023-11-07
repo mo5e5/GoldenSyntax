@@ -80,7 +80,7 @@ class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
         for (hero in list) {
             val useDrawAttentionHit = hero.healthbar - hero.maxHealth * 0.025
             hero.healthbar = useDrawAttentionHit.toInt()
-            println("${hero.name} hat nun noch ${hero.healthbar} Lebenspunkte.")
+            println("${hero.name} erleidet ${hero.maxHealth * 0.025} Schaden.")
         }
 
     }
@@ -92,11 +92,11 @@ class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
     private fun shield() {
         println(
             "${antiHeroList[1].name} hübscht sich auf.\n" +
-                    "Dank einer Tonne Schminke hat ${antiHeroList[1].name} nun ${antiHeroList[1].maxHealth * 0.5} Lebenspunkte mehr."
+                    "Dank einer Tonne Schminke hat ${antiHeroList[1].name}" +
+                    "nun ${antiHeroList[1].maxHealth * 0.5} Lebensenergie mehr."
         )
         val useShield = healthbar + maxHealth * 0.5
         healthbar = useShield.toInt()
-        println("${antiHeroList[1].name} hat nun ${antiHeroList[1].healthbar} Lebenspunkte.")
     }
 
     /**
@@ -106,13 +106,11 @@ class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      */
     private fun punsh(hero: Hero) {
         println(
-            "${antiHeroList[1].name} haut kräftig zu und zieht ${hero.name} 5 % seiner maximalen Lebenspunkte ab.\n" +
-                    "${hero.name} hatte ${hero.healthbar} Lebenspunkte.\n" +
+            "${antiHeroList[1].name} haut kräftig zu und zieht ${hero.name} 5 % seiner maximalen Lebensenergie ab.\n" +
                     "Er hat ${hero.maxHealth * 0.05} Schaden erlitten."
         )
         val usePunsh = hero.healthbar - hero.maxHealth * 0.05
         hero.healthbar = usePunsh.toInt()
-        println("${hero.name} hat nun noch ${hero.healthbar} Lebenspunkte.")
     }
 
     /**
@@ -124,12 +122,12 @@ class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
     private fun hailBlow(list: List<Hero>) {
         println(
             "${antiHeroList[1].name} lässt es vom Himmel Hageln und fügt jedem Helden 10 % seiner\n" +
-                    "gesamten Lebenspunkte als Schaden zu."
+                    "gesamten Lebensenergie als Schaden zu."
         )
         for (hero in list) {
             val useHailBlow = hero.healthbar - hero.maxHealth * 0.1
             hero.healthbar = useHailBlow.toInt()
-            println("${hero.name} hat nun noch ${hero.healthbar} Lebenspunkte.")
+            println("${hero.name} erleidet ${hero.maxHealth * 0.1} Schaden.")
         }
     }
 }
