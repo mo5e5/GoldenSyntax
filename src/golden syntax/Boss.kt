@@ -15,8 +15,9 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      *
      *  @param list hier wird eine Liste von Helden übergeben.
      */
-    fun bossAttack(list: MutableList<Hero>) {
+    fun bossAttack(list: MutableList<Hero>): Int {
         var attackNumber = Random.nextInt(0, 7)
+       // var attackNumber = 0
         val radomHero = list.random()
         if (shieldCooldown >= 0) {
             shieldCooldown--
@@ -59,43 +60,53 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
         }
         when (attackNumber) {
             0 -> {
-                antiHeroList.add(bossMinion())
                 bossMinionCount = 1
+                return 1
             }
 
             1 -> {
                 shield()
                 shieldCooldown = 3
+                return 0
             }
 
             2 -> {
                 lifeRegenaration()
+                return 0
             }
 
             3 -> {
                 stomp(radomHero)
+                return 0
             }
 
             4 -> {
                 crush(radomHero)
+                return 0
             }
 
             5 -> {
                 curse(list)
                 curseCooldown = 5
+                return 0
             }
 
             6 -> {
                 digest(list)
                 digestCooldown = 3
                 digestCount = 1
+                return 0
             }
         }
+        /*
         if (bossMinionCount == 1) {
             println()
             print(bossMinion1.name)
             bossMinion1.bossMinionAttack(list)
         }
+
+         */
+        return 0
     }
 
     /**

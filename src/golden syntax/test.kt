@@ -1,22 +1,20 @@
 val antiHeroList: MutableList<AntiHero> = mutableListOf()
 fun main() {
+
     var roundCount = 1
 
     val elegaius = Boss("Elegaius", 8750)
+    val siphi = BossMinion("Siphi", 5000)
 
     antiHeroList.add(elegaius)
-
 
     val magicBag = MagicBag()
 
     val artak = DamageHero("Artak", 1750)
-
     val kyoku = MagicHero("Kyoku", 1500)
-
     val vergumkaar = TankHero("Vergumkaar", 3750)
 
     val heroList: MutableList<Hero> = mutableListOf(artak, kyoku, vergumkaar)
-
 
     while (heroList.any { it.healthbar > 0 } && antiHeroList.any { it.healthbar > 0 }) {
         for (hero in heroList) {
@@ -53,13 +51,25 @@ fun main() {
                     break
                 }
             }
-            for (antiHero in antiHeroList) {
-                if (antiHero.healthbar <= 0) {
-                    println("${antiHero.name} hat keine Lebenspunkte mehr. Er ist aus dem Spiel.")
-                    continue
+            if (elegaius.healthbar > 0) {
+                println("-------")
+                val result = elegaius.bossAttack(heroList)
+                if (result == 1) {
+                    antiHeroList.add(siphi)
+                    println(
+                        "${elegaius.name} beschwört mit all seiner macht ${siphi.name}\n" +
+                                "um ihm im Kampf gegen die Helden zu helfen."
+                    )
                 }
                 println("-------")
-                elegaius.bossAttack(heroList)
+                if (heroList.all { it.healthbar <= 0 }) {
+                    println("Das Böse war Siegreich.")
+                    break
+                }
+            }
+            if (antiHeroList.size > 1 && siphi.healthbar > 0) {
+                println("-------")
+                siphi.bossMinionAttack(heroList)
                 println("-------")
                 if (heroList.all { it.healthbar <= 0 }) {
                     println("Das Böse war Siegreich.")
