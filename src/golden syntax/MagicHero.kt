@@ -18,6 +18,7 @@ class MagicHero(name: String, healthbar: Int) : Hero(name, healthbar) {
             println("Der Boss steht alleine da, schnell greif ihn an.")
             println()
         }
+
         while (antiHero == null) {
             try {
                 if (mutableListBad.size > 1) {
@@ -115,13 +116,13 @@ class MagicHero(name: String, healthbar: Int) : Hero(name, healthbar) {
     private fun lightningStrike(list: List<AntiHero>) {
         println(
             "Der Himmel wird dunkel und $name lässt es Blitze hageln.\n" +
-                    "Alle Anti Helden werden 5 % Lebenspunkte abgezogen."
+                    "Alle Anti Helden werden 5 % Lebensenergie abgezogen."
         )
         for (antiHero in list) {
             val damage = antiHero.maxHealth * damageMultiplier * 0.05
             val useLightningStrike = antiHero.healthbar - damage
             antiHero.healthbar = useLightningStrike.toInt()
-            println("${antiHero.name} hat nun noch ${antiHero.healthbar} Lebenspunkte.")
+            println("${antiHero.name} erleidet $damage Schaden.")
         }
     }
 
@@ -134,16 +135,14 @@ class MagicHero(name: String, healthbar: Int) : Hero(name, healthbar) {
         val damage = antiHero.maxHealth * damageMultiplier * 0.1
         println(
             "$name lässt die Erde erbeben und ${antiHero.name} erleidet 10 % Schaden.\n" +
-                    "${antiHero.name} hatte ${antiHero.healthbar}.\n" +
-                    "Er hat $damage Schaden erlitten."
+                    "${antiHero.name} hat $damage Schaden erlitten."
         )
         val useEarthquake = antiHero.healthbar - antiHero.maxHealth * 0.1
         antiHero.healthbar = useEarthquake.toInt()
-        println("${antiHero.name} hat nun noch ${antiHero.healthbar} Lebenspunkte.")
     }
 
     /**
-     *  Ein Schutzzauber der auf jeden Helden wirkt und um 15 % der maximalen Lebenspunkte heilt.
+     *  Ein Schutzzauber der auf jeden Helden wirkt und um 15 % der maximalen Lebensenergie heilt.
      *  Nachdem diese Fähigkeit ausgeführt wurde, hat sie 3 Runden Cooldown.
      *
      *  @param list bekommt eine Liste von Helden übergeben.
@@ -153,7 +152,7 @@ class MagicHero(name: String, healthbar: Int) : Hero(name, healthbar) {
         for (hero in list) {
             val useRegenerationBuff = hero.healthbar + hero.maxHealth * 0.15
             hero.healthbar = useRegenerationBuff.toInt()
-            println("${hero.name} hat nun wieder ${hero.healthbar} Lebenspunkte.")
+            println("${hero.name} regeneriert ${maxHealth * 0.15} Lebensenergie.")
         }
     }
 
@@ -167,11 +166,9 @@ class MagicHero(name: String, healthbar: Int) : Hero(name, healthbar) {
         val damage = antiHero.maxHealth * damageMultiplier * 0.25
         println(
             "$name spricht einen mächtigen Zauber über ${antiHero.name} aus.\n" +
-                    "${antiHero.name} hatte ${antiHero.healthbar} Lebenspunkte.\n" +
-                    "Er hat $damage Schaden erlitten."
+                    "${antiHero.name} hat $damage Schaden erlitten."
         )
         val useMortality = antiHero.healthbar - damage
         antiHero.healthbar = useMortality.toInt()
-        println("${antiHero.name} hat nun noch ${antiHero.healthbar} Lebenspunkte.")
     }
 }
