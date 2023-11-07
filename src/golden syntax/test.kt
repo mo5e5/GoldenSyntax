@@ -53,14 +53,6 @@ fun main() {
                 break
             }
         }
-        if (elegaius.healthbar < 0) {
-            println("${elegaius.name} hat keine Lebenspunkte mehr. Er ist aus dem Spiel.")
-            continue
-        }
-        if (siphi.healthbar < 0) {
-            println("${siphi.name} hat keine Lebenspunkte mehr. Er ist aus dem Spiel.")
-            continue
-        }
         if (elegaius.healthbar > 0) {
             println("-------")
             val result = elegaius.bossAttack(heroList)
