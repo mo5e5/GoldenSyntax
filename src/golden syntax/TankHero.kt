@@ -109,7 +109,7 @@ class TankHero(name: String, healthbar: Int) : Hero(name, healthbar) {
     private fun heal() {
         println(
             "$name versteckt sich hinter einer Mauer um seine Wunden zu heilen.\n" +
-                    "$name regeneriert ${maxHealth * 0.1} Lebenspunkte."
+                    "$name regeneriert ${maxHealth * 0.1} Lebensenergie."
         )
         val useHeal = healthbar + maxHealth * 0.1
         healthbar = useHeal.toInt()
@@ -130,7 +130,7 @@ class TankHero(name: String, healthbar: Int) : Hero(name, healthbar) {
             val damage = antiHero.maxHealth * damageMultiplier * 0.15
             val useDrawAttentionHit = antiHero.healthbar - damage
             antiHero.healthbar = useDrawAttentionHit.toInt()
-            println("${antiHero.name} hat nun noch ${antiHero.healthbar} Lebenspunkte.")
+            println("${antiHero.name} erleidet $damage Schaden.")
         }
     }
 
@@ -143,12 +143,10 @@ class TankHero(name: String, healthbar: Int) : Hero(name, healthbar) {
         val damage = antiHero.maxHealth * damageMultiplier * 0.15
         println(
             "$name schleudert seine Faust und zieht ${antiHero.name} 15 % seiner maximalen Lebenspunkte ab.\n" +
-                    "${antiHero.name} hatte ${antiHero.healthbar} Lebenspunkte.\n" +
-                    "Er hat $damage Schaden erlitten."
+                    "${antiHero.name} hat $damage Schaden erlitten."
         )
         val usePunsh = antiHero.healthbar - damage
         antiHero.healthbar = usePunsh.toInt()
-        println("${antiHero.name} hat nun noch ${antiHero.healthbar} Lebenspunkte.")
     }
 
     /**
@@ -161,11 +159,9 @@ class TankHero(name: String, healthbar: Int) : Hero(name, healthbar) {
         val damage = antiHero.maxHealth * damageMultiplier * 0.25
         println(
             "$name macht einen Roundhouse Kick. ${antiHero.name} erleidet 25 % Schaden.\n" +
-                    "${antiHero.name} hatte ${antiHero.healthbar} Lebenspunkte.\n" +
-                    "Er hat $damage Schaden erlitten."
+                    "${antiHero.name} hat $damage Schaden erlitten."
         )
         val useKick = antiHero.healthbar - damage
         antiHero.healthbar = useKick.toInt()
-        println("${antiHero.name} hat nun noch ${antiHero.healthbar} Lebenspunkte.")
     }
 }
