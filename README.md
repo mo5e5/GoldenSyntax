@@ -14,13 +14,13 @@ Das Ziel des Spiels ist es, die gegnerische Seite zu besiegen. Die Helden gewinn
 **Spielablauf:**
 1. Jeder Held und jeder Antiheld hat eine Angriffs- und Verteidigungswertung sowie eine Lebenspunktezahl.
 
-2. In jeder Runde führt jeder Held und jeder Antiheld eine Aktion aus, entweder einen Angriff oder eine Verteidigung.
+2. In jeder Runde führt jeder Held und jeder Antiheld eine Aktion aus.
 
 3. Wenn ein Held den Magic Bag benutzt, kann er in dieser Runde keine weiteren Aktionen ausführen.
 
-4. Wenn ein Held 0 Lebenspunkte erreicht, kann er in dieser Runde nicht mehr angreifen oder angegriffen werden.
+4. Wenn ein Held 0 Lebenspunkte erreicht, kann er nicht mehr angreifen oder angegriffen werden.
 
-5. Das gleiche gilt für die Antihelden. Wenn ein Antiheld 0 Lebenspunkte erreicht, kann er in dieser Runde nicht mehr angreifen oder angegriffen werden.
+5. Das gleiche gilt für die Antihelden. Wenn ein Antiheld 0 Lebenspunkte erreicht, kann er nicht mehr angreifen oder angegriffen werden.
 
 6. Das Spiel endet, wenn entweder alle Helden oder alle Antihelden 0 Lebenspunkte haben.
 
