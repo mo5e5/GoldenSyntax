@@ -21,6 +21,15 @@ fun main() {
         println("Runde $roundCount")
         println("-------")
 
+        for (hero in heroList) {
+            println("${hero.name} hat ${hero.healthbar} Lebensenergie.")
+        }
+        println("-------")
+        for (antiHero in antiHeroList) {
+            println("${antiHero.name} ${antiHero.healthbar} Lebensenergie.")
+        }
+        println("-------")
+
         val heroWhoUsedMagicBag = vergumkaar.useMagicBag(heroList, magicBag)
         println("-------")
 
@@ -85,6 +94,9 @@ fun main() {
                 break
             }
         }
+        println("-------")
+        println("Diese Runde ist vorbei.")
+        println("-------")
         roundCount++
     }
 }
