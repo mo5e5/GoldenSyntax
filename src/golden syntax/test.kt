@@ -25,6 +25,8 @@ fun main() {
 
         if (heroWhoUsedMagicBag != vergumkaar.name && vergumkaar.healthbar > 0) {
             vergumkaar.tankHeroAttack(antiHeroList)
+            charakterStatusCheck(elegaius)
+            charakterStatusCheck(siphi)
             println("-------")
             if (antiHeroList.all { it.healthbar <= 0 }) {
                 println("Das Gute hat gesiegt.")
@@ -33,7 +35,8 @@ fun main() {
         }
         if (heroWhoUsedMagicBag != artak.name && artak.healthbar > 0) {
             artak.damageHeroAttack(antiHeroList)
-
+            charakterStatusCheck(elegaius)
+            charakterStatusCheck(siphi)
             println("-------")
             if (antiHeroList.all { it.healthbar <= 0 }) {
                 println("Das Gute hat gesiegt.")
@@ -42,6 +45,8 @@ fun main() {
         }
         if (heroWhoUsedMagicBag != kyoku.name && kyoku.healthbar > 0) {
             kyoku.magicHeroAttack(antiHeroList, heroList)
+            charakterStatusCheck(elegaius)
+            charakterStatusCheck(siphi)
             println("-------")
             if (antiHeroList.all { it.healthbar <= 0 }) {
                 println("Das Gute hat gesiegt.")
@@ -59,7 +64,9 @@ fun main() {
         if (elegaius.healthbar > 0) {
             println("-------")
             val result = elegaius.bossAttack(heroList)
-
+            charakterStatusCheck(vergumkaar)
+            charakterStatusCheck(artak)
+            charakterStatusCheck(kyoku)
             if (result == 1) {
                 antiHeroList.add(siphi)
                 println(
@@ -76,7 +83,9 @@ fun main() {
         if (antiHeroList.size > 1 && siphi.healthbar > 0) {
             println("-------")
             siphi.bossMinionAttack(heroList)
-
+            charakterStatusCheck(vergumkaar)
+            charakterStatusCheck(artak)
+            charakterStatusCheck(kyoku)
             println("-------")
             if (heroList.all { it.healthbar <= 0 }) {
                 println("Das Böse war Siegreich.")
