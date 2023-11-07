@@ -11,27 +11,32 @@ class DamageHero(name: String, healthbar: Int) : Hero(name, healthbar) {
     fun damageHeroAttack(mutableList: MutableList<AntiHero>) {
 
         val listOfAttack = listOf("swordSpin", "knopStrike", "swordMultiSpin", "thunderSword")
-        var antiHero = AntiHero("", 0)
+        var antiHero: AntiHero? = null
 
         if (mutableList.size == 1) {
             antiHero = mutableList[0]
             println("Der Boss steht alleine da, schnell greif ihn an.")
             println()
         }
-        try {
-            if (mutableList.size > 1) {
-                println(
-                    "Der Boss ist nicht alleine. Wähle weise wen du angreifen möchtest.\n" +
-                            "1 = ${mutableList[0].name} 2 =${mutableList[1].name}"
-                )
-                antiHero = mutableList[readln().toInt() - 1]
+        while (antiHero == null) {
+            try {
+                if (mutableList.size > 1) {
+                    println(
+                        "Der Boss ist nicht alleine. Wähle weise wen du angreifen möchtest.\n" +
+                                "1 = ${mutableList[0].name} 2 = ${mutableList[1].name}"
+                    )
+                    val choice = readln().toInt()
+                    if (choice in 1..mutableList.size) {
+                        antiHero = mutableList[choice - 1]
+                    } else {
+                        println("Ungültige Auswahl. Bitte gib 1 oder 2 ein.")
+                    }
+                }
+            } catch (e: NumberFormatException) {
+                println("Ungültige Eingabe. Bitte gib eine Zahl ein.")
+            } catch (e: IndexOutOfBoundsException) {
+                println("Der eingegebene Gegner ist nicht auf dem Feld. Bitte wähle erneut.")
             }
-        } catch (e: Exception) {
-            println(
-                "Der eingegebene Gegner ist nicht auf dem Feld.\n" +
-                        "Wähle noch einmal."
-            )
-            antiHero = mutableList[readln().toInt() - 1]
         }
 
         println(
@@ -44,22 +49,26 @@ class DamageHero(name: String, healthbar: Int) : Hero(name, healthbar) {
         var usedAttack: String
 
         while (true) {
-            attackNumber = readln().toInt()
-            if (attackNumber !in 1..4) {
-                println(
-                    "Hey diese Fähigkeit übersteigt dein Level.\n" +
-                            "Bitte wähle eine andere."
-                )
-                continue
+            try {
+                attackNumber = readln().toInt()
+                if (attackNumber !in 1..4) {
+                    println(
+                        "Hey diese Fähigkeit übersteigt dein Level.\n" +
+                                "Bitte wähle eine andere."
+                    )
+                    continue
+                }
+                usedAttack = listOfAttack[attackNumber - 1]
+                if ((usedAttack == "swordMultiSpin" && swordMultiSpinCooldown > 0) ||
+                    (usedAttack == "thunderSword" && thunderSwordCooldown > 0)
+                ) {
+                    println("$usedAttack hat noch Cooldown such dir schnell eine andere Fähigkeit aus.")
+                    continue
+                }
+                break
+            } catch (e: NumberFormatException) {
+                println("Ungültige Eingabe. Bitte gib eine Zahl ein.")
             }
-            usedAttack = listOfAttack[attackNumber - 1]
-            if ((usedAttack == "swordMultiSpin" && swordMultiSpinCooldown > 0) ||
-                (usedAttack == "thunderSword" && thunderSwordCooldown > 0)
-            ) {
-                println("$usedAttack hat noch Cooldown such dir schnell eine andere Fähigkeit aus.")
-                continue
-            }
-            break
         }
 
         if (swordMultiSpinCooldown >= 0) {
