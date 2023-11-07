@@ -29,11 +29,11 @@ class TankHero(name: String, healthbar: Int) : Hero(name, healthbar) {
                     if (choice in 1..mutableList.size) {
                         antiHero = mutableList[choice - 1]
                     } else {
-                        println("Ungültige Auswahl. Bitte gib 1 oder 2 ein.")
+                        println("Wenn möchtest du da bitte angreifen? Bitte gib 1 oder 2 ein.")
                     }
                 }
             } catch (e: NumberFormatException) {
-                println("Ungültige Eingabe. Bitte gib eine Zahl ein.")
+                println("Der eingegebene Gegner ist nicht auf dem Feld. Bitte wähle erneut.")
             } catch (e: IndexOutOfBoundsException) {
                 println("Der eingegebene Gegner ist nicht auf dem Feld. Bitte wähle erneut.")
             }
@@ -65,7 +65,10 @@ class TankHero(name: String, healthbar: Int) : Hero(name, healthbar) {
                 }
                 break
             } catch (e: NumberFormatException) {
-                println("Ungültige Eingabe. Bitte gib eine Zahl ein.")
+                println(
+                    "Hey diese Fähigkeit übersteigt dein Level.\n" +
+                            "Bitte wähle eine andere."
+                )
             }
         }
 

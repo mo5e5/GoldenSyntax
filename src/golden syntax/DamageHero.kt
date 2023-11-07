@@ -30,11 +30,11 @@ class DamageHero(name: String, healthbar: Int) : Hero(name, healthbar) {
                     if (choice in 1..mutableList.size) {
                         antiHero = mutableList[choice - 1]
                     } else {
-                        println("Ungültige Auswahl. Bitte gib 1 oder 2 ein.")
+                        println("Wenn möchtest du da bitte angreifen? Bitte gib 1 oder 2 ein.")
                     }
                 }
             } catch (e: NumberFormatException) {
-                println("Ungültige Eingabe. Bitte gib eine Zahl ein.")
+                println("Der eingegebene Gegner ist nicht auf dem Feld. Bitte wähle erneut.")
             } catch (e: IndexOutOfBoundsException) {
                 println("Der eingegebene Gegner ist nicht auf dem Feld. Bitte wähle erneut.")
             }
@@ -68,7 +68,10 @@ class DamageHero(name: String, healthbar: Int) : Hero(name, healthbar) {
                 }
                 break
             } catch (e: NumberFormatException) {
-                println("Ungültige Eingabe. Bitte gib eine Zahl ein.")
+                println(
+                    "Hey diese Fähigkeit übersteigt dein Level.\n" +
+                            "Bitte wähle eine andere."
+                )
             }
         }
 
@@ -110,13 +113,11 @@ class DamageHero(name: String, healthbar: Int) : Hero(name, healthbar) {
     private fun swordSpin(antiHero: AntiHero) {
         val damage = antiHero.maxHealth * damageMultiplier * 0.15
         println(
-            "$name schleudert sein schwert auf ${antiHero.name} und zieht ihm 15 % seiner Lebenspunkte ab.\n" +
-                    "${antiHero.name} hatte ${antiHero.healthbar} Lebenspunkte.\n" +
-                    "Er hat $damage Schaden erlitten."
+            "$name schleudert sein schwert auf ${antiHero.name} und zieht ihm 15 % seiner Lebensenergie ab.\n" +
+                    "${antiHero.name} hat $damage Schaden erlitten."
         )
         val useSwordSpin = antiHero.healthbar - damage
         antiHero.healthbar = useSwordSpin.toInt()
-        println("${antiHero.name} hat nun noch ${antiHero.healthbar} Lebenspunkte.")
     }
 
     /**
@@ -127,13 +128,11 @@ class DamageHero(name: String, healthbar: Int) : Hero(name, healthbar) {
         val damage = antiHero.maxHealth * damageMultiplier * 0.1
         println(
             "$name wirft sein Schwert in die luft und fängt es an der Klinge und haut mit dem Griff\n" +
-                    "fest zu und trifft ${antiHero.name}.\n" +
-                    "${antiHero.name} hatte ${antiHero.healthbar} Lebenspunkte.\n" +
-                    "Er hat $damage Schaden erlitten."
+                    "fest auf den Kopf von ${antiHero.name}.\n" +
+                    "${antiHero.name} hat $damage Schaden erlitten."
         )
         val useKnopStrike = antiHero.healthbar - damage
         antiHero.healthbar = useKnopStrike.toInt()
-        println("${antiHero.name} hat nun noch ${antiHero.healthbar} Lebenspunkte.")
     }
 
     /**
@@ -151,7 +150,7 @@ class DamageHero(name: String, healthbar: Int) : Hero(name, healthbar) {
             val damage = antiHero.maxHealth * damageMultiplier * 0.15
             val useSwordMultiSpin = antiHero.healthbar - damage
             antiHero.healthbar = useSwordMultiSpin.toInt()
-            println("${antiHero.name} hat nun noch ${antiHero.healthbar} Lebenspunkte.")
+            println("${antiHero.name} erleidet $damage Schaden.")
         }
     }
 
@@ -167,11 +166,9 @@ class DamageHero(name: String, healthbar: Int) : Hero(name, healthbar) {
         println(
             "$name hält sein Schwert in die Luft und murmelt etwas.\n" +
                     "Plötzlich fängt es an zu Donnern und Blitze schlagen auf ${antiHero.name} ein.\n" +
-                    "${antiHero.name} hatte ${antiHero.healthbar} Lebenspunkte.\n" +
                     "Er hat $damage Schaden erlitten."
         )
         val useThunderSword = antiHero.healthbar - damage
         antiHero.healthbar = useThunderSword.toInt()
-        println("${antiHero.name} hat nun noch ${antiHero.healthbar} Lebenspunkte.")
     }
 }
