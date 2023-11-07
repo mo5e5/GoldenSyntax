@@ -2,9 +2,6 @@ val antiHeroList: MutableList<AntiHero> = mutableListOf()
 fun main() {
     var roundCount = 1
 
-    //val antiHero = AntiHero("", 0)
-    //val hero = Hero("", 0)
-
     val elegaius = Boss("Elegaius", 8750)
 
     antiHeroList.add(elegaius)
@@ -21,11 +18,7 @@ fun main() {
     val heroList: MutableList<Hero> = mutableListOf(artak, kyoku, vergumkaar)
 
 
-
-
-
-
-    while (true) {
+    while (heroList.any { it.healthbar > 0 } && antiHeroList.any { it.healthbar > 0 }) {
         for (hero in heroList) {
             println("-------")
             println("Runde $roundCount")
@@ -39,14 +32,26 @@ fun main() {
             if (heroWhoUsedMagicBag != vergumkaar.name) {
                 vergumkaar.tankHeroAttack(antiHeroList)
                 println("-------")
+                if (antiHeroList.all { it.healthbar <= 0 }) {
+                    println("Das Gute hat gesiegt.")
+                    break
+                }
             }
             if (heroWhoUsedMagicBag != artak.name) {
                 artak.damageHeroAttack(antiHeroList)
                 println("-------")
+                if (antiHeroList.all { it.healthbar <= 0 }) {
+                    println("Das Gute hat gesiegt.")
+                    break
+                }
             }
             if (heroWhoUsedMagicBag != kyoku.name) {
                 kyoku.magicHeroAttack(antiHeroList, heroList)
                 println("-------")
+                if (antiHeroList.all { it.healthbar <= 0 }) {
+                    println("Das Gute hat gesiegt.")
+                    break
+                }
             }
             for (antiHero in antiHeroList) {
                 if (antiHero.healthbar <= 0) {
@@ -56,17 +61,13 @@ fun main() {
                 println("-------")
                 elegaius.bossAttack(heroList)
                 println("-------")
-            }
-            if (heroList.all { it.healthbar <= 0 }) {
-                println("Das Böse war Siegreich.")
-                break
-            } else if (antiHeroList.all { it.healthbar <= 0 }) {
-                println("Das Gute hat gesiegt.")
-                break
+                if (heroList.all { it.healthbar <= 0 }) {
+                    println("Das Böse war Siegreich.")
+                    break
+                }
             }
             roundCount++
         }
-
         antiHeroList.clear()
     }
 }
