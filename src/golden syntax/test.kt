@@ -20,6 +20,7 @@ fun main() {
         println("-------")
         println("Runde $roundCount")
         println("-------")
+
         val heroWhoUsedMagicBag = vergumkaar.useMagicBag(heroList, magicBag)
         println("-------")
 
@@ -83,7 +84,6 @@ fun main() {
                 println("Das Böse war Siegreich.")
                 break
             }
-
         }
         roundCount++
     }
