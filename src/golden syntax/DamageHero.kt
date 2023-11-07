@@ -18,6 +18,7 @@ class DamageHero(name: String, healthbar: Int) : Hero(name, healthbar) {
             println("Der Boss steht alleine da, schnell greif ihn an.")
             println()
         }
+
         while (antiHero == null) {
             try {
                 if (mutableList.size > 1) {
