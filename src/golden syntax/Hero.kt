@@ -31,13 +31,13 @@ open class Hero(name: String, healthbar: Int) : Character(name, healthbar) {
                         if (choice in 1..list.size) {
                             hero = list[choice - 1]
                         } else {
-                            println("Ungültige Auswahl. Bitte gib 1, 2 oder 3 ein.")
+                            println("Wenn suchst du? Der Held ist nicht verfügbar. Bitte gib eine Zahl zwischen 1 und 3 ein.")
                         }
                     }
                 } catch (e: NumberFormatException) {
-                    println("Ungültige Eingabe. Bitte gib eine Zahl ein.")
+                    println("Der ausgewählte Held ist nicht verfügbar. Bitte gib eine Zahl ein.")
                 } catch (e: IndexOutOfBoundsException) {
-                    println("Der ausgewählte Held ist nicht verfügbar. Bitte wähle erneut.")
+                    println("Der ausgewählte Held ist nicht verfügbar. Bitte gib eine Zahl zwischen 1 und 3 ein.")
                 }
             }
 
@@ -56,26 +56,31 @@ open class Hero(name: String, healthbar: Int) : Character(name, healthbar) {
             var useBag: String
 
             while (true) {
-                tryUseBag = readln().toInt()
-                if (tryUseBag !in 1..3) {
-                    println(
-                        "Das Item ist nicht im Beutel.\n" +
-                                "Greif nochmal rein."
-                    )
-                    continue
+                try {
+                    tryUseBag = readln().toInt()
+                    if (tryUseBag !in 1..3) {
+                        println(
+                            "Das Item ist nicht im Beutel.\n" +
+                                    "Greif nochmal rein."
+                        )
+                        continue
+                    }
+                    useBag = listOfItems[tryUseBag - 1]
+                    if ((useBag == "heallItem" && healItemUses == 0) ||
+                        (useBag == "healItemTeam" && healTeamItemUses == 0) ||
+                        (useBag == "buffItem" && buffItemUses == 0)
+                    ) {
+                        println(
+                            "$useBag ist schon aufgebraucht.\n" +
+                                    "Versuche ein anderes."
+                        )
+                        continue
+                    }
+                    break
+                } catch (e: NumberFormatException) {
+                    println("Diese Items sind nicht in dieser Welt. Bitte gib eine Zahl zwischen 1 und 3 ein.")
                 }
-                useBag = listOfItems[tryUseBag - 1]
-                if ((useBag == "heallItem" && healItemUses == 0) ||
-                    (useBag == "healItemTeam" && healTeamItemUses == 0) ||
-                    (useBag == "buffItem" && buffItemUses == 0)
-                ) {
-                    println(
-                        "$useBag ist schon aufgebraucht.\n" +
-                                "Versuche ein anderes."
-                    )
-                    continue
-                }
-                break
+
             }
 
             when (useBag) {
