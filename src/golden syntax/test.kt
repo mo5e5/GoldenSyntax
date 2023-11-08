@@ -17,16 +17,25 @@ fun main() {
     val heroList: MutableList<Hero> = mutableListOf(artak, kyoku, vergumkaar)
 
     while (heroList.any { it.healthbar > 0 } && antiHeroList.any { it.healthbar > 0 }) {
+        println()
         println("-------")
         println("Runde $roundCount")
         println("-------")
 
         for (hero in heroList) {
+            if (hero.healthbar <= 0) {
+                heroList.remove(hero)
+            }
             println("${hero.name} hat ${hero.healthbar} Lebensenergie.")
+
         }
         println("-------")
         for (antiHero in antiHeroList) {
+            if (antiHero.healthbar <= 0) {
+                antiHeroList.remove(antiHero)
+            }
             println("${antiHero.name} ${antiHero.healthbar} Lebensenergie.")
+
         }
         println("-------")
 
@@ -94,8 +103,11 @@ fun main() {
                 break
             }
         }
+        println()
+        println("-------")
         println("-------")
         println("Diese Runde ist vorbei.")
+        println("-------")
         println("-------")
         roundCount++
     }
