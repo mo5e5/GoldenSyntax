@@ -7,7 +7,7 @@ fun charakterStatusCheck(character: Character) {
     }
 }
 
-fun lifeAndDeath(listGood: MutableList<Hero>, listBad: MutableList<AntiHero>) {
+fun lifeAndDeath(listGood: MutableList<Hero>) {
     println("Helden und Lebenspunkte der Guten Seite.")
     println()
     for (hero in listGood) {
