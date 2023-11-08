@@ -14,7 +14,8 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      *  @param list hier wird eine Liste von Helden übergeben.
      */
     fun bossAttack(list: MutableList<Hero>): Int {
-        var attackNumber = Random.nextInt(0, 7)
+        //var attackNumber = Random.nextInt(0, 7)
+        var attackNumber = 0
         val radomHero = list.random()
         if (shieldCooldown >= 0) {
             shieldCooldown--

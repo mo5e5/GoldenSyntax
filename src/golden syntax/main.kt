@@ -24,7 +24,7 @@ fun main() {
         Thread.sleep(1000)
         println()
         lifeAndDeath(heroList)
-        println("Das helle Seite ist am Zug.")
+        println("Das helle Seite der Macht ist am Zug.")
         Thread.sleep(2000)
         println("-------")
         val heroWhoUsedMagicBag = vergumkaar.useMagicBag(heroList, magicBag)
@@ -83,7 +83,7 @@ fun main() {
             Thread.sleep(3500)
         }
         println()
-        println("Das Böse ist am Zug.")
+        println("Die dunkle Seite der Macht ist am Zug.")
         println("-------")
         if (elegaius.healthbar > 0) {
             val result = elegaius.bossAttack(heroList)
