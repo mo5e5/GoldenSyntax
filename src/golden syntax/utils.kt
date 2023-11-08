@@ -5,7 +5,7 @@
  */
 fun charakterStatusCheck(character: Character) {
     if (character.healthbar <= 0) {
-        println("${character.name} hat keine Lebensenergie mehr. Jeder weitere Treffer macht die Blutlache nur noch größer.")
+        println("${BLACK}${character.name} hat keine Lebensenergie mehr. Jeder weitere Treffer macht die Blutlache nur noch größer.${RESET}")
         return
     }
 }
@@ -17,12 +17,12 @@ fun charakterStatusCheck(character: Character) {
  *  @param listGood wird eine Liste vom Typ hero übergeben.
  */
 fun lifeAndDeath(listGood: MutableList<Hero>) {
-    println("Helden und deren Lebensenergie.")
+    println("${BOLD}Helden und deren Lebensenergie.${RESET}")
     println()
     listGood.removeIf { it.healthbar <= 0 }
     for (hero in listGood) {
         if (hero.healthbar >= 0) {
-            println("${hero.name} hat ${hero.healthbar} Lebensenergie.")
+            println("${BACKGROUNDGREEN}${hero.name} hat ${hero.healthbar} Lebensenergie.${RESET}")
         }
     }
     println(
@@ -30,12 +30,12 @@ fun lifeAndDeath(listGood: MutableList<Hero>) {
         
     """.trimIndent()
     )
-    println("Anti Helden und deren Lebensenergie.")
+    println("${BOLD}Anti Helden und deren Lebensenergie.${RESET}")
     println()
     ANTIHEROLIST.removeIf { it.healthbar <= 0 }
     for (antiHero in ANTIHEROLIST) {
         if (antiHero.healthbar >= 0) {
-            println("${antiHero.name} ${antiHero.healthbar} Lebensenergie.")
+            println("${BACKGROUNDGREEN}${antiHero.name} ${antiHero.healthbar} Lebensenergie.${RESET}")
         }
     }
     println(
@@ -52,4 +52,5 @@ val BLACK = "\u001B[30m"
 val BOLD = "\u001B[1m"
 val BACKGROUNDWHIGHT = "\u001B[47m"
 val BACKGROUNBLACK = "\u001B[40m"
+val BACKGROUNDGREEN ="\u001B[42m"
 val RESET = "\u001B[0m"
