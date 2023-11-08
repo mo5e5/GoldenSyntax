@@ -1,9 +1,13 @@
-# Abschluss-GP-GoldenSyntax
+ 
+<!--suppress HtmlDeprecatedAttribute -->
+<h1 align="center">Abschluss-GP Golden Syntax</h1>
+
 <img width="2262" alt="Golden Syntax" src="image/Golden Syntax.png">
 
-**Die Spielregeln werden präsentiert von ChatGPT**
-
-Ihre freundliche KI für zwischendurch.
+> ***Die Spielregeln werden präsentiert von ChatGPT***
+>
+>***Ihre freundliche KI für zwischendurch.***
+<br>
 
 **Golden Syntax**
 ---
@@ -29,7 +33,7 @@ Das Ziel des Spiels ist es, die gegnerische Seite zu besiegen. Die Helden gewinn
 
 6. Das Spiel endet, wenn entweder alle Helden oder alle Antihelden 0 Lebenspunkte haben.
 
-**Sieg bedingungen:**
+**Siegbedingungen:**
 - Wenn alle Helden 0 Lebenspunkte haben, gewinnen die Antihelden.
 - Wenn alle Antihelden 0 Lebenspunkte haben, gewinnen die Helden.
 
@@ -42,5 +46,5 @@ ___
 - mo5e5 aka Malte Oppermann
 
 ___
-**Dank geht an alle, die mir stets bei Fragen und Problemen zur seite standen.**
+>**Dank geht an alle, die mir stets bei Fragen und Problemen zur seite standen.**
 ___
