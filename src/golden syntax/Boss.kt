@@ -153,7 +153,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
         println(
             "$name greift sich ${hero.name} und zerquetscht ihn.\n" +
                     "Darauf hin tropft langsam Blut auf den kalten Boden.\n" +
-                    "Er hat ${hero.maxHealth * 0.1} Schaden erlitten."
+                    "Er hat ${hero.maxHealth * 0.15} Schaden erlitten."
         )
         val useCrush = hero.healthbar - hero.maxHealth * 0.15
         hero.healthbar = useCrush.toInt()
