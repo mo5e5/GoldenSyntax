@@ -3,17 +3,18 @@ fun main() {
     val person = "Malte"
     println("${RED}${person}${RESET}")
     println("${GREEN}${person}${RESET}")
+    println("${WHIGHT}${person}${RESET}")
     println("${BLACK}${person}${RESET}")
     println("${BOLD}${person}${RESET}")
     println("${BACKGROUNBLACK}${person}${RESET}")
     println("${BACKGROUNDWHIGHT}${RED}${person}${RESET}")
 
 
-    println("Das Gute hat gesiegt.")
+    println("${BACKGROUNBLACK}${GREEN}${BOLD}Das Gute hat gesiegt.${RESET}")
 
-    println("Das helle Seite der Macht ist am Zug.")
+    println("${BACKGROUNDWHIGHT}${BLACK}Das helle Seite der Macht ist am Zug.${RESET}")
 
-    println("Das Böse war Siegreich.")
+    println("${BACKGROUNBLACK}${RED}${BOLD}Das Böse war Siegreich.${RESET}")
 
-    println("Die dunkle Seite der Macht ist am Zug.")
+    println("${BACKGROUNBLACK}${WHIGHT}Die dunkle Seite der Macht ist am Zug.${RESET}")
 }
