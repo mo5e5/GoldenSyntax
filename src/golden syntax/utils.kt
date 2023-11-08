@@ -47,7 +47,8 @@ fun lifeAndDeath(listGood: MutableList<Hero>) {
 
 val RED = "\u001B[31m"
 val GREEN = "\u001B[32m"
-val CYAN = "\u001B[36m"
+val BLACK = "\u001B[30m"
 val BOLD = "\u001B[1m"
-val BACKGROUNDYELLOW = "\u001B[43m"
+val BACKGROUNDWHIGHT = "\u001B[47m"
+val BACKGROUNBLACK = "\u001B[40m"
 val RESET = "\u001B[0m"
