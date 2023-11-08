@@ -127,7 +127,7 @@ class TankHero(name: String, healthbar: Int) : Hero(name, healthbar) {
                     "Dann schlägt er Raptusartig zu und jeder Anti Held erleidet 5 % Schaden."
         )
         for (antiHero in list) {
-            val damage = antiHero.maxHealth * damageMultiplier * 0.15
+            val damage = antiHero.maxHealth * damageMultiplier * 0.05
             val useDrawAttentionHit = antiHero.healthbar - damage
             antiHero.healthbar = useDrawAttentionHit.toInt()
             println("${antiHero.name} erleidet $damage Schaden.")
@@ -135,14 +135,14 @@ class TankHero(name: String, healthbar: Int) : Hero(name, healthbar) {
     }
 
     /**
-     *  Ein heftiger Schlag der den getroffenen Anti Held 15 % seiner gesamten Lebensenergie abzieht.
+     *  Ein heftiger Schlag der den getroffenen Anti Held 10 % seiner gesamten Lebensenergie abzieht.
      *
      *  @param antiHero erhält einen Anti Helden aus der antiHeroList.
      */
     private fun punsh(antiHero: AntiHero) {
-        val damage = antiHero.maxHealth * damageMultiplier * 0.15
+        val damage = antiHero.maxHealth * damageMultiplier * 0.1
         println(
-            "$name schleudert seine Faust und zieht ${antiHero.name} 15 % seiner maximalen Lebenspunkte ab.\n" +
+            "$name schleudert seine Faust und zieht ${antiHero.name} 10 % seiner maximalen Lebenspunkte ab.\n" +
                     "${antiHero.name} hat $damage Schaden erlitten."
         )
         val usePunsh = antiHero.healthbar - damage
