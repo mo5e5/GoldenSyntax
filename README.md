@@ -2,7 +2,10 @@
 <!--suppress HtmlDeprecatedAttribute -->
 <h1 align="center">Abschluss-GP 
 
-Konsolen Spiel Golden Syntax</h1>
+Golden Syntax</h1>
+___
+**Klassendiagramm**
+-
 
 <img width="2262" alt="Golden Syntax" src="image/Golden Syntax.png">
 
@@ -12,7 +15,7 @@ Konsolen Spiel Golden Syntax</h1>
 
 
 **Golden Syntax**
----
+-
 
 **Ziel des Spiels:**
 Das Ziel des Spiels ist es, die gegnerische Seite zu besiegen. Die Helden gewinnen, wenn alle Antihelden 0 Lebenspunkte haben, und die Antihelden gewinnen, wenn alle Helden 0 Lebenspunkte haben.
