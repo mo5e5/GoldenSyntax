@@ -75,12 +75,12 @@ class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
         println(
             "${ANTIHEROLIST[1].name} blinzelt mit den Wimpern.\n" +
                     "Keiner der Helden kann diesem Wimpernaufschlag wiederstehen.\n" +
-                    "Jeder Held erleidet 2,5 % Schaden."
+                    "Jeder Held erleidet 15 % Schaden."
         )
         for (hero in list) {
-            val useDrawAttentionHit = hero.healthbar - hero.maxHealth * 0.025
+            val useDrawAttentionHit = hero.healthbar - hero.maxHealth * 0.15
             hero.healthbar = useDrawAttentionHit.toInt()
-            println("${hero.name} erleidet ${hero.maxHealth * 0.025} Schaden.")
+            println("${hero.name} erleidet ${hero.maxHealth * 0.15} Schaden.")
         }
     }
 
