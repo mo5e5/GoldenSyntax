@@ -22,10 +22,10 @@ fun lifeAndDeath(listGood: MutableList<Hero>) {
     println("Helden und Lebenspunkte der Guten Seite.")
     println()
     for (hero in listGood) {
-        if (hero.healthbar <= 0) {
-            listGood.remove(hero)
-        } else {
+        if (hero.healthbar >= 0) {
             println("${hero.name} hat ${hero.healthbar} Lebensenergie.")
+        } else {
+            listGood.remove(hero)
         }
     }
     println("""
@@ -34,10 +34,10 @@ fun lifeAndDeath(listGood: MutableList<Hero>) {
     println("Anti Helden und Lebenspunkte der Bösen Seite")
     println()
     for (antiHero in antiHeroList) {
-        if (antiHero.healthbar <= 0) {
-            antiHeroList.remove(antiHero)
-        } else {
+        if (antiHero.healthbar >= 0) {
             println("${antiHero.name} ${antiHero.healthbar} Lebensenergie.")
+        } else {
+            antiHeroList.remove(antiHero)
         }
     }
     println("""
