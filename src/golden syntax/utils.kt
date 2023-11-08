@@ -5,7 +5,7 @@
  */
 fun charakterStatusCheck(character: Character) {
     if (character.healthbar <= 0) {
-        println("${BLACK}${character.name} hat keine Lebensenergie mehr. Jeder weitere Treffer macht die Blutlache nur noch größer.${RESET}")
+        println("${BLACK}${character.name} hat keine Lebensenergie mehr. Jeder weitere Treffer macht die ${RED}Blutlache${RESET} ${BLACK}nur noch größer.${RESET}")
         return
     }
 }

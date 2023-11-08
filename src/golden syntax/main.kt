@@ -90,7 +90,7 @@ fun main() {
             if (result == 1) {
                 ANTIHEROLIST.add(siphi)
                 println(
-                    "${BACKGROUNBLACK}${WHITE}${BOLD}${elegaius.name} beschwört mit all seiner macht ${siphi.name}${RESET}"
+                    "${BACKGROUNBLACK}${WHITE}${BOLD}${elegaius.name} beschwört mit all seiner macht ${siphi.name}.${RESET}"
                 )
             }
             if (heroList.all { it.healthbar <= 0 }) {

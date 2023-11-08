@@ -20,6 +20,7 @@ fun main() {
 
     println("${BOLD}-------${RESET}")
     println("${BLACK}${BOLD}-------${RESET}")
-    */
 
+    println("${BLACK}${person} hat keine Lebensenergie mehr. Jeder weitere Treffer macht die ${RED}Blutlache${RESET} ${BLACK}nur noch größer.${RESET}")
+    */
 }
