@@ -24,7 +24,7 @@ fun main() {
         Thread.sleep(1000)
         println()
         lifeAndDeath(heroList)
-        println("${BACKGROUNDWHIGHT}${BLACK}Das helle Seite der Macht ist am Zug.${RESET}")
+        println("${BACKGROUNDWHITE}${BLACK}Das helle Seite der Macht ist am Zug.${RESET}")
         Thread.sleep(2000)
         println("-------")
         val heroWhoUsedMagicBag = vergumkaar.useMagicBag(heroList, magicBag)
@@ -83,7 +83,7 @@ fun main() {
             Thread.sleep(3250)
         }
         println()
-        println("${BACKGROUNBLACK}${WHIGHT}Die dunkle Seite der Macht ist am Zug.${RESET}")
+        println("${BACKGROUNBLACK}${WHITE}Die dunkle Seite der Macht ist am Zug.${RESET}")
         println("-------")
         if (elegaius.healthbar > 0) {
             val result = elegaius.bossAttack(heroList)
@@ -93,7 +93,7 @@ fun main() {
             if (result == 1) {
                 ANTIHEROLIST.add(siphi)
                 println(
-                    "${BACKGROUNBLACK}${WHIGHT}${BOLD}${elegaius.name} beschwört mit all seiner macht ${siphi.name}\n" +
+                    "${BACKGROUNBLACK}${WHITE}${BOLD}${elegaius.name} beschwört mit all seiner macht ${siphi.name}\n" +
                             "um ihm im Kampf gegen die Helden zu helfen.${RESET}"
                 )
             }
