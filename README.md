@@ -1,5 +1,5 @@
 # Abschluss-GP-GoldenSyntax
-<img width="1808" alt="Golden Syntax" src="image/Golden Syntax.png">
+<img width="2262" alt="Golden Syntax" src="image/Golden Syntax.png">
 
 **Die Spielregeln werden präsentiert von ChatGPT**
 
@@ -25,11 +25,11 @@ Das Ziel des Spiels ist es, die gegnerische Seite zu besiegen. Die Helden gewinn
 
 4. Wenn ein Held 0 Lebenspunkte erreicht, kann er nicht mehr angreifen oder angegriffen werden.
 
-5. Das gleiche gilt für die Antihelden. Wenn ein Antiheld 0 Lebenspunkte erreicht, kann er nicht mehr angreifen oder angegriffen werden.
+5. Dasselbe gilt für die Antihelden. Wenn ein Antiheld 0 Lebenspunkte erreicht, kann er nicht mehr angreifen oder angegriffen werden.
 
 6. Das Spiel endet, wenn entweder alle Helden oder alle Antihelden 0 Lebenspunkte haben.
 
-**Siegbedingungen:**
+**Sieg bedingungen:**
 - Wenn alle Helden 0 Lebenspunkte haben, gewinnen die Antihelden.
 - Wenn alle Antihelden 0 Lebenspunkte haben, gewinnen die Helden.
 
