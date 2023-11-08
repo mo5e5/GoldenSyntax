@@ -1,4 +1,4 @@
-val antiHeroList: MutableList<AntiHero> = mutableListOf()
+val ANTIHEROLIST: MutableList<AntiHero> = mutableListOf()
 fun main() {
 
     var roundCount = 1
@@ -6,7 +6,7 @@ fun main() {
     val elegaius = Boss("Elegaius", 8750)
     val siphi = BossMinion("Siphi", 5000)
 
-    antiHeroList.add(elegaius)
+    ANTIHEROLIST.add(elegaius)
 
     val magicBag = MagicBag()
 
@@ -16,7 +16,7 @@ fun main() {
 
     val heroList: MutableList<Hero> = mutableListOf(artak, kyoku, vergumkaar)
 
-    while (heroList.any { it.healthbar > 0 } && antiHeroList.any { it.healthbar > 0 }) {
+    while (heroList.any { it.healthbar > 0 } && ANTIHEROLIST.any { it.healthbar > 0 }) {
         println()
         println("-------")
         println("Runde $roundCount")
@@ -32,33 +32,51 @@ fun main() {
         println()
         println("-------")
         if (heroWhoUsedMagicBag != vergumkaar.name && vergumkaar.healthbar > 0) {
-            vergumkaar.tankHeroAttack(antiHeroList)
+            vergumkaar.tankHeroAttack(ANTIHEROLIST)
             charakterStatusCheck(elegaius)
             charakterStatusCheck(siphi)
-            if (antiHeroList.all { it.healthbar <= 0 }) {
+            if (ANTIHEROLIST.all { it.healthbar <= 0 }) {
+                println("-------")
+                println("-------")
+                println("-------")
                 println("Das Gute hat gesiegt.")
+                println("-------")
+                println("-------")
+                println("-------")
                 break
             }
             Thread.sleep(3500)
             println("-------")
         }
         if (heroWhoUsedMagicBag != artak.name && artak.healthbar > 0) {
-            artak.damageHeroAttack(antiHeroList)
+            artak.damageHeroAttack(ANTIHEROLIST)
             charakterStatusCheck(elegaius)
             charakterStatusCheck(siphi)
-            if (antiHeroList.all { it.healthbar <= 0 }) {
+            if (ANTIHEROLIST.all { it.healthbar <= 0 }) {
+                println("-------")
+                println("-------")
+                println("-------")
                 println("Das Gute hat gesiegt.")
+                println("-------")
+                println("-------")
+                println("-------")
                 break
             }
             Thread.sleep(3500)
             println("-------")
         }
         if (heroWhoUsedMagicBag != kyoku.name && kyoku.healthbar > 0) {
-            kyoku.magicHeroAttack(antiHeroList, heroList)
+            kyoku.magicHeroAttack(ANTIHEROLIST, heroList)
             charakterStatusCheck(elegaius)
             charakterStatusCheck(siphi)
-            if (antiHeroList.all { it.healthbar <= 0 }) {
+            if (ANTIHEROLIST.all { it.healthbar <= 0 }) {
+                println("-------")
+                println("-------")
+                println("-------")
                 println("Das Gute hat gesiegt.")
+                println("-------")
+                println("-------")
+                println("-------")
                 break
             }
             println("-------")
@@ -73,26 +91,38 @@ fun main() {
             charakterStatusCheck(artak)
             charakterStatusCheck(kyoku)
             if (result == 1) {
-                antiHeroList.add(siphi)
+                ANTIHEROLIST.add(siphi)
                 println(
                     "${elegaius.name} beschwört mit all seiner macht ${siphi.name}\n" +
                             "um ihm im Kampf gegen die Helden zu helfen."
                 )
             }
             if (heroList.all { it.healthbar <= 0 }) {
+                println("-------")
+                println("-------")
+                println("-------")
                 println("Das Böse war Siegreich.")
+                println("-------")
+                println("-------")
+                println("-------")
                 break
             }
             Thread.sleep(3500)
             println("-------")
         }
-        if (antiHeroList.size > 1 && siphi.healthbar > 0) {
+        if (ANTIHEROLIST.size > 1 && siphi.healthbar > 0) {
             siphi.bossMinionAttack(heroList)
             charakterStatusCheck(vergumkaar)
             charakterStatusCheck(artak)
             charakterStatusCheck(kyoku)
             if (heroList.all { it.healthbar <= 0 }) {
+                println("-------")
+                println("-------")
+                println("-------")
                 println("Das Böse war Siegreich.")
+                println("-------")
+                println("-------")
+                println("-------")
                 break
             }
             Thread.sleep(3500)
