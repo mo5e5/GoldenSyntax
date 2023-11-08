@@ -19,6 +19,7 @@ fun charakterStatusCheck(character: Character) {
 fun lifeAndDeath(listGood: MutableList<Hero>) {
     println("Helden und deren Lebensenergie.")
     println()
+    listGood.removeIf { it.healthbar <= 0 }
     for (hero in listGood) {
         if (hero.healthbar >= 0) {
             println("${hero.name} hat ${hero.healthbar} Lebensenergie.")
@@ -31,6 +32,7 @@ fun lifeAndDeath(listGood: MutableList<Hero>) {
     )
     println("Anti Helden und deren Lebensenergie.")
     println()
+    ANTIHEROLIST.removeIf { it.healthbar <= 0 }
     for (antiHero in ANTIHEROLIST) {
         if (antiHero.healthbar >= 0) {
             println("${antiHero.name} ${antiHero.healthbar} Lebensenergie.")

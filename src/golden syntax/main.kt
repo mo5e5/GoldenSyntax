@@ -110,7 +110,7 @@ fun main() {
             Thread.sleep(3500)
             println("-------")
         }
-        if (ANTIHEROLIST.size > 1 && siphi.healthbar > 0) {
+        if (ANTIHEROLIST.contains(siphi) && siphi.healthbar > 0) {
             siphi.bossMinionAttack(heroList)
             charakterStatusCheck(vergumkaar)
             charakterStatusCheck(artak)
