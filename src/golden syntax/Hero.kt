@@ -17,7 +17,7 @@ open class Hero(name: String, healthbar: Int) : Character(name, healthbar) {
         var hero: Hero? = null
 
         println("Möchtest du deinen Magic Bag nutzen? (y = yes)")
-        val userInput = readln()
+        val userInput = readln().lowercase()
 
         if (userInput == "y") {
             while (hero == null) {
