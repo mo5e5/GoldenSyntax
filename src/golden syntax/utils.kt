@@ -1,5 +1,5 @@
 /**
- *  Gibt eine Information aus wenn ein Character keine Lebensenergie mehr hat.
+ *  Gibt eine Information aus, wenn ein Character keine Lebensenergie mehr hat.
  *
  *  @param character bekommt einen beliebigen Character übergeben.
  */
@@ -11,10 +11,10 @@ fun charakterStatusCheck(character: Character) {
 }
 
 /**
- *  Überprüft ob Helden und Anti Helden Lebensenergie haben. Wenn Ja, werden diese wiedergeben, wenn Nein wird der
- *  Held oder Anti Held aus der jeweiligen Liste entfernt.
+ *  Überprüft ob hero und antiHero Lebensenergie haben. Wenn Ja, werden diese wiedergeben, wenn Nein wird der
+ *  hero oder antiHero nicht mehr ausgegeben.
  *
- *  @param listGood wird eine Liste vom Typ Held übergeben.
+ *  @param listGood wird eine Liste vom Typ hero übergeben.
  */
 fun lifeAndDeath(listGood: MutableList<Hero>) {
     println("Helden und deren Lebensenergie.")
@@ -45,7 +45,6 @@ fun lifeAndDeath(listGood: MutableList<Hero>) {
 
 val RED = "\u001B[31m"
 val GREEN = "\u001B[32m"
-
 val CYAN = "\u001B[36m"
 val BOLD = "\u001B[1m"
 val BACKGROUNDYELLOW = "\u001B[43m"
