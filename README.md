@@ -54,7 +54,7 @@ Für Golden Syntax ist keine Installation notwendig. Es wird direkt in der Konso
 **Umsetzung**
 - mo5e5 aka Malte Oppermann
 ___
->**Dank geht an alle, die mir stets bei Fragen und Problemen zur seite standen.**
+**Dank geht an alle, die mir stets bei Fragen und Problemen zur seite standen.**
 ___
 **Info**
 
