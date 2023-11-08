@@ -17,7 +17,7 @@ fun charakterStatusCheck(character: Character) {
  *  @param listGood wird eine Liste vom Typ Held übergeben.
  */
 fun lifeAndDeath(listGood: MutableList<Hero>) {
-    println("Helden und deren Lebensenergie der Guten Seite.")
+    println("Helden und deren Lebensenergie.")
     println()
     for (hero in listGood) {
         if (hero.healthbar >= 0) {
@@ -29,7 +29,7 @@ fun lifeAndDeath(listGood: MutableList<Hero>) {
         
     """.trimIndent()
     )
-    println("Anti Helden und deren Lebensenergie der Bösen Seite")
+    println("Anti Helden und deren Lebensenergie.")
     println()
     for (antiHero in ANTIHEROLIST) {
         if (antiHero.healthbar >= 0) {
