@@ -19,9 +19,12 @@ fun charakterStatusCheck(character: Character) {
 fun lifeAndDeath(listGood: MutableList<Hero>) {
     println("Helden und deren Lebensenergie der Guten Seite.")
     println()
-    listGood.removeIf { it.healthbar <= 0 }
     for (hero in listGood) {
-        println("${hero.name} hat ${hero.healthbar} Lebensenergie.")
+        if (hero.healthbar >= 0) {
+            println("${hero.name} hat ${hero.healthbar} Lebensenergie.")
+        } else {
+            continue
+        }
     }
     println(
         """
@@ -30,9 +33,12 @@ fun lifeAndDeath(listGood: MutableList<Hero>) {
     )
     println("Anti Helden und deren Lebensenergie der Bösen Seite")
     println()
-    antiHeroList.removeIf { it.healthbar <= 0 }
-    for (antiHero in antiHeroList) {
-        println("${antiHero.name} ${antiHero.healthbar} Lebensenergie.")
+    for (antiHero in ANTIHEROLIST) {
+        if (antiHero.healthbar >= 0) {
+            println("${antiHero.name} ${antiHero.healthbar} Lebensenergie.")
+        } else {
+            continue
+        }
     }
     println(
         """
@@ -40,3 +46,11 @@ fun lifeAndDeath(listGood: MutableList<Hero>) {
     """.trimIndent()
     )
 }
+
+val RED = "\u001B[31m"
+val GREEN = "\u001B[32m"
+
+val CYAN = "\u001B[36m"
+val BOLD = "\u001B[1m"
+val BACKGROUNDYELLOW = "\u001B[43m"
+val RESET = "\u001B[0m"
