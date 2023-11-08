@@ -73,7 +73,7 @@ class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      */
     private fun drawAttentionHit(list: List<Hero>) {
         println(
-            "${antiHeroList[1].name} blinzelt mit den Wimpern.\n" +
+            "${ANTIHEROLIST[1].name} blinzelt mit den Wimpern.\n" +
                     "Keiner der Helden kann diesem Wimpernaufschlag wiederstehen.\n" +
                     "Jeder Held erleidet 2,5 % Schaden."
         )
@@ -90,9 +90,9 @@ class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      */
     private fun shield() {
         println(
-            "${antiHeroList[1].name} hübscht sich auf.\n" +
-                    "Dank einer Tonne Schminke hat ${antiHeroList[1].name}" +
-                    "nun ${antiHeroList[1].maxHealth * 0.5} Lebensenergie mehr."
+            "${ANTIHEROLIST[1].name} hübscht sich auf.\n" +
+                    "Dank einer Tonne Schminke hat ${ANTIHEROLIST[1].name}" +
+                    " nun ${ANTIHEROLIST[1].maxHealth * 0.5} Lebensenergie mehr."
         )
         val useShield = healthbar + maxHealth * 0.5
         healthbar = useShield.toInt()
@@ -105,7 +105,7 @@ class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      */
     private fun punsh(hero: Hero) {
         println(
-            "${antiHeroList[1].name} haut kräftig zu und zieht ${hero.name} 5 % seiner maximalen Lebensenergie ab.\n" +
+            "${ANTIHEROLIST[1].name} haut kräftig zu und zieht ${hero.name} 5 % seiner maximalen Lebensenergie ab.\n" +
                     "Er hat ${hero.maxHealth * 0.05} Schaden erlitten."
         )
         val usePunsh = hero.healthbar - hero.maxHealth * 0.05
@@ -120,7 +120,7 @@ class BossMinion(name: String, healthbar: Int) : AntiHero(name, healthbar) {
      */
     private fun hailBlow(list: List<Hero>) {
         println(
-            "${antiHeroList[1].name} lässt es vom Himmel Hageln und fügt jedem Helden 10 % seiner\n" +
+            "${ANTIHEROLIST[1].name} lässt es vom Himmel Hageln und fügt jedem Helden 10 % seiner\n" +
                     "gesamten Lebensenergie als Schaden zu."
         )
         for (hero in list) {
