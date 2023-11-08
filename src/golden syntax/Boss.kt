@@ -171,7 +171,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
                     "Nachdem er damit aufhört fühlen die Helden sich komisch."
         )
         for (hero in mutableList) {
-            val useCurse = hero.healthbar - hero.maxHealth - 0.2
+            val useCurse = hero.healthbar - hero.maxHealth * 0.2
             hero.healthbar = useCurse.toInt()
             println("${hero.name} erleidet ${hero.maxHealth * 0.2} Schaden.")
         }
