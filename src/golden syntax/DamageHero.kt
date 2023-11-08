@@ -15,7 +15,7 @@ class DamageHero(name: String, healthbar: Int) : Hero(name, healthbar) {
 
         if (mutableList.size == 1) {
             antiHero = mutableList[0]
-            println("Der Boss steht alleine da, schnell greif ihn an.")
+            println("Der Anti Held steht alleine da, schnell greif ihn an.")
             println()
         }
 
@@ -23,7 +23,7 @@ class DamageHero(name: String, healthbar: Int) : Hero(name, healthbar) {
             try {
                 if (mutableList.size > 1) {
                     println(
-                        "Der Boss ist nicht alleine. Wähle weise wen du angreifen möchtest.\n" +
+                        "Der Anti Held ist nicht mehr alleine. Wähle weise wen du angreifen möchtest.\n" +
                                 "1 = ${mutableList[0].name} 2 = ${mutableList[1].name}"
                     )
                     val choice = readln().toInt()
