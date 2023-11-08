@@ -24,8 +24,9 @@ fun lifeAndDeath(listGood: MutableList<Hero>) {
     for (hero in listGood) {
         if (hero.healthbar <= 0) {
             listGood.remove(hero)
+        } else {
+            println("${hero.name} hat ${hero.healthbar} Lebensenergie.")
         }
-        println("${hero.name} hat ${hero.healthbar} Lebensenergie.")
     }
     println("""
         
@@ -35,8 +36,9 @@ fun lifeAndDeath(listGood: MutableList<Hero>) {
     for (antiHero in antiHeroList) {
         if (antiHero.healthbar <= 0) {
             antiHeroList.remove(antiHero)
+        } else {
+            println("${antiHero.name} ${antiHero.healthbar} Lebensenergie.")
         }
-        println("${antiHero.name} ${antiHero.healthbar} Lebensenergie.")
     }
     println("""
         
