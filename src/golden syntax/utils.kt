@@ -4,11 +4,9 @@
  *  @param character bekommt einen beliebigen Character übergeben.
  */
 fun charakterStatusCheck(character: Character) {
-    repeat(1) {
-        if (character.healthbar <= 0) {
-            println("${character.name} hat keine Lebensenergie mehr. Jeder weitere Treffer macht die Blutlache nur noch größer.")
-            return
-        }
+    if (character.healthbar <= 0) {
+        println("${character.name} hat keine Lebensenergie mehr. Jeder weitere Treffer macht die Blutlache nur noch größer.")
+        return
     }
 }
 
@@ -21,26 +19,24 @@ fun charakterStatusCheck(character: Character) {
 fun lifeAndDeath(listGood: MutableList<Hero>) {
     println("Helden und deren Lebensenergie der Guten Seite.")
     println()
+    listGood.removeIf { it.healthbar <= 0 }
     for (hero in listGood) {
-        if (hero.healthbar >= 0) {
-            println("${hero.name} hat ${hero.healthbar} Lebensenergie.")
-        } else {
-            listGood.remove(hero)
-        }
+        println("${hero.name} hat ${hero.healthbar} Lebensenergie.")
     }
-    println("""
+    println(
+        """
         
-    """.trimIndent())
+    """.trimIndent()
+    )
     println("Anti Helden und deren Lebensenergie der Bösen Seite")
     println()
+    antiHeroList.removeIf { it.healthbar <= 0 }
     for (antiHero in antiHeroList) {
-        if (antiHero.healthbar >= 0) {
-            println("${antiHero.name} ${antiHero.healthbar} Lebensenergie.")
-        } else {
-            antiHeroList.remove(antiHero)
-        }
+        println("${antiHero.name} ${antiHero.healthbar} Lebensenergie.")
     }
-    println("""
+    println(
+        """
         
-    """.trimIndent())
+    """.trimIndent()
+    )
 }
