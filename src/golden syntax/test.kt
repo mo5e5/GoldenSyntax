@@ -23,25 +23,6 @@ fun main() {
         println("-------")
         Thread.sleep(1000)
         println()
-        /*println("Helden und Lebenspunkte der Guten Seite.")
-        println()
-        for (hero in heroList) {
-            if (hero.healthbar <= 0) {
-                heroList.remove(hero)
-            }
-            println("${hero.name} hat ${hero.healthbar} Lebensenergie.")
-        }
-        println("-------")
-        println("Anti Helden und Lebenspunkte der Bösen Seite")
-        println()
-        for (antiHero in antiHeroList) {
-            if (antiHero.healthbar <= 0) {
-                antiHeroList.remove(antiHero)
-            }
-            println("${antiHero.name} ${antiHero.healthbar} Lebensenergie.")
-        }
-
-         */
         lifeAndDeath(heroList)
         println("Das helle Seite ist am Zug.")
         Thread.sleep(2000)
