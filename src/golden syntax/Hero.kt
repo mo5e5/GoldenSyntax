@@ -48,7 +48,7 @@ open class Hero(name: String, healthbar: Int) : Character(name, healthbar) {
             println()
 
             println(
-                "Du kannst in dieser Runde $listOfItems nutzen.\n" +
+                "Du kannst in dieser Runde ${BOLD}$listOfItems${RESET} nutzen.\n" +
                         "Wähle eine Item von 1 - 3."
             )
 

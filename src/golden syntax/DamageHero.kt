@@ -42,7 +42,7 @@ class DamageHero(name: String, healthbar: Int) : Hero(name, healthbar) {
 
         println(
             "$name ist an der reihe.\n" +
-                    "Du kannst in dieser Runde $listOfAttack nutzen.\n" +
+                    "Du kannst in dieser Runde ${BOLD}$listOfAttack${RESET} nutzen.\n" +
                     "Wähle eine Fähigkeit von 1 - 4."
         )
 
@@ -114,7 +114,7 @@ class DamageHero(name: String, healthbar: Int) : Hero(name, healthbar) {
         val damage = antiHero.maxHealth * damageMultiplier * 0.15
         println(
             "$name schleudert sein schwert auf ${antiHero.name} und zieht ihm 15 % seiner Lebensenergie ab.\n" +
-                    "${antiHero.name} hat $damage Schaden erlitten."
+                    "${antiHero.name} hat ${RED}$damage${RESET} Schaden erlitten."
         )
         val useSwordSpin = antiHero.healthbar - damage
         antiHero.healthbar = useSwordSpin.toInt()
@@ -129,7 +129,7 @@ class DamageHero(name: String, healthbar: Int) : Hero(name, healthbar) {
         println(
             "$name wirft sein Schwert in die luft und fängt es an der Klinge und haut mit dem Griff\n" +
                     "fest auf den Kopf von ${antiHero.name}.\n" +
-                    "${antiHero.name} hat $damage Schaden erlitten."
+                    "${antiHero.name} hat ${RED}$damage${RESET} Schaden erlitten."
         )
         val useKnopStrike = antiHero.healthbar - damage
         antiHero.healthbar = useKnopStrike.toInt()
@@ -150,7 +150,7 @@ class DamageHero(name: String, healthbar: Int) : Hero(name, healthbar) {
             val damage = antiHero.maxHealth * damageMultiplier * 0.15
             val useSwordMultiSpin = antiHero.healthbar - damage
             antiHero.healthbar = useSwordMultiSpin.toInt()
-            println("${antiHero.name} erleidet $damage Schaden.")
+            println("${antiHero.name} erleidet ${RED}$damage${RESET} Schaden.")
         }
     }
 
@@ -166,7 +166,7 @@ class DamageHero(name: String, healthbar: Int) : Hero(name, healthbar) {
         println(
             "$name hält sein Schwert in die Luft und murmelt etwas.\n" +
                     "Plötzlich fängt es an zu Donnern und Blitze schlagen auf ${antiHero.name} ein.\n" +
-                    "Er hat $damage Schaden erlitten."
+                    "Er hat ${RED}$damage${RESET} Schaden erlitten."
         )
         val useThunderSword = antiHero.healthbar - damage
         antiHero.healthbar = useThunderSword.toInt()

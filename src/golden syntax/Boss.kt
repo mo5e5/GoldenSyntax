@@ -107,7 +107,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
     private fun shield() {
         println(
             "$name fängt an beulen und Pusteln auf seiner Haut zu bilden.\n" +
-                    "Seine Haut ist nun deutlich dicker er hat ${maxHealth * 0.5} Lebensenergie mehr."
+                    "Seine Haut ist nun deutlich dicker er hat ${GREEN}${maxHealth * 0.5}${RESET} Lebensenergie mehr."
         )
         val useShield = healthbar + maxHealth * 0.5
         healthbar = useShield.toInt()
@@ -121,7 +121,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
         println(
             "$name frisst ein paar Rinder.\n" +
                     "Danach hat $name deutlich mehr auf den Rippen.\n" +
-                    "Er regeneriert ${maxHealth * 0.15} Lebensenergie."
+                    "Er regeneriert ${GREEN}${maxHealth * 0.15}${RESET} Lebensenergie."
         )
         val useLifeRegenaration = healthbar + maxHealth * 0.15
         healthbar = useLifeRegenaration.toInt()
@@ -137,7 +137,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
         println(
             "$name stampft auf ${hero.name} herum.\n" +
                     "${hero.name} sieht danach etwas zerknittert aus.\n" +
-                    "Er hat ${hero.maxHealth * 0.1} Schaden erlitten."
+                    "Er hat ${RED}${hero.maxHealth * 0.1}${RESET} Schaden erlitten."
         )
         val useStomp = hero.healthbar - hero.maxHealth * 0.1
         hero.healthbar = useStomp.toInt()
@@ -153,7 +153,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
         println(
             "$name greift sich ${hero.name} und zerquetscht ihn.\n" +
                     "Darauf hin tropft langsam Blut auf den kalten Boden.\n" +
-                    "Er hat ${hero.maxHealth * 0.15} Schaden erlitten."
+                    "Er hat ${RED}${hero.maxHealth * 0.15}${RESET} Schaden erlitten."
         )
         val useCrush = hero.healthbar - hero.maxHealth * 0.15
         hero.healthbar = useCrush.toInt()
@@ -173,7 +173,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
         for (hero in mutableList) {
             val useCurse = hero.healthbar - hero.maxHealth * 0.2
             hero.healthbar = useCurse.toInt()
-            println("${hero.name} erleidet ${hero.maxHealth * 0.2} Schaden.")
+            println("${hero.name} erleidet ${RED}${hero.maxHealth * 0.2}${RESET} Schaden.")
         }
     }
 
@@ -192,7 +192,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
         for (hero in mutableList) {
             val useDigest = hero.healthbar - hero.maxHealth * 0.05
             hero.healthbar = useDigest.toInt()
-            println("${hero.name} erleidet ${hero.maxHealth * 0.05} Schaden.")
+            println("${hero.name} erleidet ${RED}${hero.maxHealth * 0.05}${RESET} Schaden.")
         }
     }
 }

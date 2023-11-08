@@ -42,7 +42,7 @@ class MagicHero(name: String, healthbar: Int) : Hero(name, healthbar) {
 
         println(
             "$name ist an der reihe.\n" +
-                    "Du kannst in dieser Runde $listOfAttack nutzen.\n" +
+                    "Du kannst in dieser Runde ${BOLD}$listOfAttack${RESET} nutzen.\n" +
                     "Wähle eine Fähigkeit von 1 - 4."
         )
 
@@ -122,7 +122,7 @@ class MagicHero(name: String, healthbar: Int) : Hero(name, healthbar) {
             val damage = antiHero.maxHealth * damageMultiplier * 0.05
             val useLightningStrike = antiHero.healthbar - damage
             antiHero.healthbar = useLightningStrike.toInt()
-            println("${antiHero.name} erleidet $damage Schaden.")
+            println("${antiHero.name} erleidet ${RED}$damage${RESET} Schaden.")
         }
     }
 
@@ -135,7 +135,7 @@ class MagicHero(name: String, healthbar: Int) : Hero(name, healthbar) {
         val damage = antiHero.maxHealth * damageMultiplier * 0.1
         println(
             "$name lässt die Erde erbeben und ${antiHero.name} erleidet 10 % Schaden.\n" +
-                    "${antiHero.name} hat $damage Schaden erlitten."
+                    "${antiHero.name} hat ${RED}$damage${RESET} Schaden erlitten."
         )
         val useEarthquake = antiHero.healthbar - antiHero.maxHealth * 0.1
         antiHero.healthbar = useEarthquake.toInt()
@@ -148,11 +148,11 @@ class MagicHero(name: String, healthbar: Int) : Hero(name, healthbar) {
      *  @param list bekommt eine Liste von Helden übergeben.
      */
     private fun regenerationBuff(list: List<Hero>) {
-        println("$name spricht einen Zauber und alle Helden erhalten ${maxHealth * 0.15}")
+        println("$name spricht einen Zauber und alle Helden erhalten Lebensenergie zurück.")
         for (hero in list) {
             val useRegenerationBuff = hero.healthbar + hero.maxHealth * 0.15
             hero.healthbar = useRegenerationBuff.toInt()
-            println("${hero.name} regeneriert ${maxHealth * 0.15} Lebensenergie.")
+            println("${hero.name} regeneriert ${GREEN}${maxHealth * 0.15}${RESET} Lebensenergie.")
         }
     }
 
@@ -166,7 +166,7 @@ class MagicHero(name: String, healthbar: Int) : Hero(name, healthbar) {
         val damage = antiHero.maxHealth * damageMultiplier * 0.25
         println(
             "$name spricht einen mächtigen Zauber über ${antiHero.name} aus.\n" +
-                    "${antiHero.name} hat $damage Schaden erlitten."
+                    "${antiHero.name} hat ${RED}$damage${RESET} Schaden erlitten."
         )
         val useMortality = antiHero.healthbar - damage
         antiHero.healthbar = useMortality.toInt()
