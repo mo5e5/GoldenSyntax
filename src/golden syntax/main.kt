@@ -22,14 +22,11 @@ fun main() {
         println("${MAGENTA}${BOLD}Runde $roundCount${RESET}")
         println("-------")
         Thread.sleep(1000)
-        println()
         lifeAndDeath(heroList)
-        println("${BACKGROUNDWHITE}${BLACK}Das helle Seite der Macht ist am Zug.${RESET}")
         Thread.sleep(2000)
         println("-------")
+        println("${BACKGROUNDWHITE}${BLACK}Das helle Seite der Macht ist am Zug.${RESET}")
         val heroWhoUsedMagicBag = vergumkaar.useMagicBag(heroList, magicBag)
-        println("-------")
-        println()
         println("-------")
         if (heroWhoUsedMagicBag != vergumkaar.name && vergumkaar.healthbar > 0) {
             vergumkaar.tankHeroAttack(ANTIHEROLIST)
@@ -93,8 +90,7 @@ fun main() {
             if (result == 1) {
                 ANTIHEROLIST.add(siphi)
                 println(
-                    "${BACKGROUNBLACK}${WHITE}${BOLD}${elegaius.name} beschwört mit all seiner macht ${siphi.name}\n" +
-                            "um ihm im Kampf gegen die Helden zu helfen.${RESET}"
+                    "${BACKGROUNBLACK}${WHITE}${BOLD}${elegaius.name} beschwört mit all seiner macht ${siphi.name}${RESET}"
                 )
             }
             if (heroList.all { it.healthbar <= 0 }) {
@@ -130,7 +126,7 @@ fun main() {
         }
         println()
         println("-------")
-        println("${MAGENTA}${BOLD}Diese Runde ist vorbei.${RESET}")
+        println("${MAGENTA}${BOLD}Runde vorbei.${RESET}")
         println("-------")
         Thread.sleep(2000)
         roundCount++
