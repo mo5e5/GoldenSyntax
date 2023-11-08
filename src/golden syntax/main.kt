@@ -42,7 +42,7 @@ fun main() {
                 println("${BOLD}-------${RESET}")
                 break
             }
-            Thread.sleep(3250)
+            Thread.sleep(3000)
             println("-------")
         }
         if (heroWhoUsedMagicBag != artak.name && artak.healthbar > 0) {
@@ -59,7 +59,7 @@ fun main() {
                 println("${BOLD}-------${RESET}")
                 break
             }
-            Thread.sleep(3250)
+            Thread.sleep(3000)
             println("-------")
         }
         if (heroWhoUsedMagicBag != kyoku.name && kyoku.healthbar > 0) {
@@ -77,7 +77,7 @@ fun main() {
                 break
             }
             println("-------")
-            Thread.sleep(3250)
+            Thread.sleep(3000)
         }
         println()
         println("${BACKGROUNBLACK}${WHITE}Die dunkle Seite der Macht ist am Zug.${RESET}")
@@ -103,7 +103,7 @@ fun main() {
                 println("${BLACK}${BOLD}-------${RESET}")
                 break
             }
-            Thread.sleep(3250)
+            Thread.sleep(3000)
             println("-------")
         }
         if (ANTIHEROLIST.contains(siphi) && siphi.healthbar > 0) {
@@ -121,7 +121,7 @@ fun main() {
                 println("${BLACK}${BOLD}-------${RESET}")
                 break
             }
-            Thread.sleep(3250)
+            Thread.sleep(3000)
             println("-------")
         }
         println()
