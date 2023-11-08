@@ -54,6 +54,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
         }
         if (digestCount == 1) {
             digest(list)
+            println()
             digestCount = 0
         }
         when (attackNumber) {

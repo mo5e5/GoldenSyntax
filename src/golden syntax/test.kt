@@ -21,59 +21,72 @@ fun main() {
         println("-------")
         println("Runde $roundCount")
         println("-------")
-
+        Thread.sleep(1000)
+        println()
+        /*println("Helden und Lebenspunkte der Guten Seite.")
+        println()
         for (hero in heroList) {
             if (hero.healthbar <= 0) {
                 heroList.remove(hero)
             }
             println("${hero.name} hat ${hero.healthbar} Lebensenergie.")
-
         }
         println("-------")
+        println("Anti Helden und Lebenspunkte der Bösen Seite")
+        println()
         for (antiHero in antiHeroList) {
             if (antiHero.healthbar <= 0) {
                 antiHeroList.remove(antiHero)
             }
             println("${antiHero.name} ${antiHero.healthbar} Lebensenergie.")
-
         }
-        println("-------")
 
+         */
+        lifeAndDeath(heroList,antiHeroList)
+        println("Das helle Seite ist am Zug.")
+        Thread.sleep(2000)
+        println("-------")
         val heroWhoUsedMagicBag = vergumkaar.useMagicBag(heroList, magicBag)
         println("-------")
-
+        println()
+        println("-------")
         if (heroWhoUsedMagicBag != vergumkaar.name && vergumkaar.healthbar > 0) {
             vergumkaar.tankHeroAttack(antiHeroList)
             charakterStatusCheck(elegaius)
             charakterStatusCheck(siphi)
-            println("-------")
             if (antiHeroList.all { it.healthbar <= 0 }) {
                 println("Das Gute hat gesiegt.")
                 break
             }
+            Thread.sleep(3500)
+            println("-------")
         }
         if (heroWhoUsedMagicBag != artak.name && artak.healthbar > 0) {
             artak.damageHeroAttack(antiHeroList)
             charakterStatusCheck(elegaius)
             charakterStatusCheck(siphi)
-            println("-------")
             if (antiHeroList.all { it.healthbar <= 0 }) {
                 println("Das Gute hat gesiegt.")
                 break
             }
+            Thread.sleep(3500)
+            println("-------")
         }
         if (heroWhoUsedMagicBag != kyoku.name && kyoku.healthbar > 0) {
             kyoku.magicHeroAttack(antiHeroList, heroList)
             charakterStatusCheck(elegaius)
             charakterStatusCheck(siphi)
-            println("-------")
             if (antiHeroList.all { it.healthbar <= 0 }) {
                 println("Das Gute hat gesiegt.")
                 break
             }
-        }
-        if (elegaius.healthbar > 0) {
             println("-------")
+            Thread.sleep(3500)
+        }
+        println()
+        println("Das Böse ist am Zug.")
+        println("-------")
+        if (elegaius.healthbar > 0) {
             val result = elegaius.bossAttack(heroList)
             charakterStatusCheck(vergumkaar)
             charakterStatusCheck(artak)
@@ -85,30 +98,30 @@ fun main() {
                             "um ihm im Kampf gegen die Helden zu helfen."
                 )
             }
-            println("-------")
             if (heroList.all { it.healthbar <= 0 }) {
                 println("Das Böse war Siegreich.")
                 break
             }
+            Thread.sleep(3500)
+            println("-------")
         }
         if (antiHeroList.size > 1 && siphi.healthbar > 0) {
-            println("-------")
             siphi.bossMinionAttack(heroList)
             charakterStatusCheck(vergumkaar)
             charakterStatusCheck(artak)
             charakterStatusCheck(kyoku)
-            println("-------")
             if (heroList.all { it.healthbar <= 0 }) {
                 println("Das Böse war Siegreich.")
                 break
             }
+            Thread.sleep(3500)
+            println("-------")
         }
         println()
         println("-------")
-        println("-------")
         println("Diese Runde ist vorbei.")
         println("-------")
-        println("-------")
+        Thread.sleep(1000)
         roundCount++
     }
 }

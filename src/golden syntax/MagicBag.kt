@@ -6,7 +6,7 @@ open class MagicBag {
     fun heallItem(hero: Hero) {
         val useHealItem = hero.maxHealth + hero.maxHealth * 0.2
         hero.maxHealth = useHealItem.toInt()
-        println("${hero.name} heilt sich um ${hero.healthbar} Lebensenergie.")
+        println("${hero.name} heilt sich um ${hero.maxHealth * 0.2} Lebensenergie.")
     }
 
     /**
@@ -20,7 +20,7 @@ open class MagicBag {
         for (hero in list) {
             val useHealItemTeam = hero.healthbar + hero.maxHealth * 0.1
             hero.healthbar = useHealItemTeam.toInt()
-            println("${hero.name} heilt sich um ${hero.healthbar} Lebensenergie.")
+            println("${hero.name} heilt sich um ${hero.maxHealth * 0.1} Lebensenergie.")
         }
     }
 
