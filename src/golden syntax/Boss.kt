@@ -168,8 +168,7 @@ class Boss(name: String, healthbar: Int) : AntiHero(name, healthbar) {
     private fun curse(mutableList: MutableList<Hero>) {
         println(
             "$name tanzt wie wild um seine Feuerstelle.\n" +
-                    "Nachdem er damit aufhört fühlen die Helden sich komisch.\n" +
-                    "$name hat einen Fluch über die Helden ausgesprochen."
+                    "Nachdem er damit aufhört fühlen die Helden sich komisch."
         )
         for (hero in mutableList) {
             val useCurse = hero.maxHealth - 0.2

@@ -42,7 +42,7 @@ fun main() {
         }
 
          */
-        lifeAndDeath(heroList,antiHeroList)
+        lifeAndDeath(heroList)
         println("Das helle Seite ist am Zug.")
         Thread.sleep(2000)
         println("-------")
