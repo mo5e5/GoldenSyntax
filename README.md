@@ -1,6 +1,6 @@
  
 <!--suppress HtmlDeprecatedAttribute -->
-<h1 align="center">Abschluss-GP 
+<h1 align="center">Abschluss-Grundlagen 
 
 Golden Syntax</h1>
 ___
